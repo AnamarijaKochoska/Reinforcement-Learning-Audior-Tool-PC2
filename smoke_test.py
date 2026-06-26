@@ -29,21 +29,10 @@ DETECTORS = {
     "Real-World (Shadow Mode)":          create_python_rl_real_world_shadow_conversation,
 }
 
-# Filled in by build_sample_repo() at the start of main(), so the test is
-# self-contained and needs no pre-existing fixture on disk.
 SAMPLE_REPO = ""
 
 
 def build_sample_repo(path: str) -> None:
-    """
-    Create a tiny throwaway repository the smoke test scans.
-
-    Contains:
-      * parallel_rollouts.py  -> strong async/parallel RL signal (selected)
-      * ppo_parallel.yaml     -> parallel config (selected)
-      * test_workers.py       -> a test file with no RL signal (not selected)
-      * helper_notes.py       -> unrelated helper (not selected)
-    """
     root = Path(path)
     if root.exists():
         shutil.rmtree(root, ignore_errors=True)
@@ -95,17 +84,6 @@ def build_sample_repo(path: str) -> None:
 
 
 class MockLLM(OllamaClient):
-    """
-    Deterministic LLM stub.
-
-    * Files whose name matches "parallel_rollouts.py" → supported=True
-      for Simulation-Based (Async/Parallel), supported=False for shadow.
-    * YAML configs → supported=True for Simulation-Based (Async/Parallel).
-    * Everything else → supported=False.
-
-    The response is always valid JSON that exercises our parser.
-    """
-
     def __init__(self):
         self.base_url = "mock://"
         self.model = "mock-llm"

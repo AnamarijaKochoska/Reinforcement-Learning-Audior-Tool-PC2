@@ -1,28 +1,11 @@
-"""
-compare.py
-----------
-Compares the auditor's file-level detections against your hand-labelled
-ground truth and reports precision / recall / F1 over every (file, practice)
-pair.
-
-Both inputs share the report shape:
-    results_by_practice[<practice>]["findings"][i] = {"file_path": ..., "supported": bool}
-
-Run from the project root:
-    python compare.py
-
-Files matched by base filename (the six scanned files have unique names),
-so it works even if the absolute paths differ between the two JSONs.
-"""
 import json
 import os
 
-TOOL_FILE = "reports/scan_20260624_194853.json"            # the auditor's output
-TRUTH_FILE = "evaluation-s7.json"      # your hand-labelled file
+TOOL_FILE = "reports/scan_20260624_194853.json"
+TRUTH_FILE = "evaluation-s7.json"
 
 
 def load_supported(path):
-    """Return {(practice, filename): supported_bool} from a report-shaped JSON."""
     with open(path) as fh:
         data = json.load(fh)
     out = {}
@@ -36,15 +19,14 @@ def load_supported(path):
 tool = load_supported(TOOL_FILE)
 truth = load_supported(TRUTH_FILE)
 
-# Score every (file, practice) pair that appears in the ground truth.
 TP = FP = FN = TN = 0
-per_practice = {}          # practice -> [tp, fp, fn, tn]
+per_practice = {}
 disagreements = []
 
 for key in sorted(truth):
     practice, fname = key
     t = truth[key]
-    d = tool.get(key, False)             # missing in tool output => not detected
+    d = tool.get(key, False)
     if t and d:
         cat = "TP"
     elif d and not t:

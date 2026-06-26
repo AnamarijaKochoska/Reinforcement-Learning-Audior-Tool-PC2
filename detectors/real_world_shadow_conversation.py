@@ -1,22 +1,3 @@
-"""
-detectors/real_world_shadow_conversation.py
--------------------------------------------
-Builds the few-shot Conversation for detecting
-Real-World (Online / On-Policy) Shadow Mode data collection in RL code.
-
-Prompt files (all under prompts/real_world_shadow/):
-  system.txt          – LLM role & output format rules
-  question.txt        – The detection question
-  sample_context.txt  – A positive few-shot example (shadow mode code)
-  sample_answer.txt   – The correct response for the example
-
-The conversation structure sent to the LLM:
-  [system]    → system.txt
-  [user]      → question.txt + sample_context.txt   (teaching example)
-  [assistant] → sample_answer.txt                   (correct answer)
-  [user]      → question.txt + <target file>         (real query)
-"""
-
 from __future__ import annotations
 from pathlib import Path
 import sys
@@ -53,21 +34,6 @@ _SAMPLE_ANS = _read("sample_answer.txt")
 def create_python_rl_real_world_shadow_conversation(
     target_context: str,
 ) -> Conversation:
-    """
-    Build a few-shot Conversation for the LLM to detect
-    Real-World (Shadow Mode) data collection patterns.
-
-    Parameters
-    ----------
-    target_context : str
-        The file content to analyse, wrapped in a ```python``` fence
-        with line numbers, as produced by the orchestrator.
-
-    Returns
-    -------
-    Conversation
-        Ready to pass directly to OllamaClient.chat().
-    """
     return Conversation(
         messages=[
             {"role": "system", "content": _SYSTEM},

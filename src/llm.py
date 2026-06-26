@@ -28,7 +28,6 @@ DETECTION_SCHEMA = {
 
 
 class Conversation:
-    """Ordered list of role/content message dicts, as expected by Ollama /api/chat."""
 
     def __init__(self, messages: List[Dict[str, str]]):
         if not messages:
@@ -44,8 +43,6 @@ class Conversation:
 
 class OllamaClient:
     """
-    Thin wrapper around the Ollama /api/chat endpoint.
-
     Parameters
     ----------
     base_url : str
@@ -73,7 +70,6 @@ class OllamaClient:
         self.force_json = force_json
 
     def chat(self, conversation: Conversation) -> str:
-        """Send a Conversation to Ollama and return the raw text response."""
         url = f"{self.base_url}/api/chat"
         payload = {
             "model": self.model,

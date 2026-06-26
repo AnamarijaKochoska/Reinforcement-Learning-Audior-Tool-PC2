@@ -1,22 +1,3 @@
-"""
-detectors/league_based_conversation.py
---------------------------------------
-Builds the few-shot Conversation for detecting
-League-Based Curriculum data collection in RL code.
-
-Prompt files (all under prompts/league_based/):
-  system.txt          - LLM role & output format rules
-  question.txt        - The detection question
-  sample_context.txt  - A positive few-shot example
-  sample_answer.txt   - The correct response for the example
-
-The conversation structure sent to the LLM:
-  [system]    -> system.txt
-  [user]      -> question.txt + sample_context.txt   (teaching example)
-  [assistant] -> sample_answer.txt                   (correct answer)
-  [user]      -> question.txt + <target file>        (real query)
-"""
-
 from __future__ import annotations
 from pathlib import Path
 import sys
@@ -53,21 +34,6 @@ _SAMPLE_ANS = _read("sample_answer.txt")
 def create_python_rl_league_based_conversation(
     target_context: str,
 ) -> Conversation:
-    """
-    Build a few-shot Conversation for the LLM to detect
-    League-Based Curriculum data collection patterns.
-
-    Parameters
-    ----------
-    target_context : str
-        The file content to analyse, wrapped in a fenced block with line
-        numbers, as produced by the orchestrator.
-
-    Returns
-    -------
-    Conversation
-        Ready to pass directly to OllamaClient.chat().
-    """
     return Conversation(
         messages=[
             {"role": "system", "content": _SYSTEM},

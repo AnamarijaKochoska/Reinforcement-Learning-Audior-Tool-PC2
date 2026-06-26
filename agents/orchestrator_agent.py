@@ -1,37 +1,3 @@
-"""
-agents/orchestrator_agent.py
-----------------------------
-Coordinator for the multi-agent RL Auditor pipeline.
-
-Architecture
-------------
-    OrchestratorAgent
-        │
-        ├── MCPDispatcher (shared by all agents)
-        │       ├── repository_scanner_server  ──┐
-        │       ├── file_selection_server      ──┤── FileSelectionAgent
-        │       ├── validation_server          ──── ValidationAgent
-        │       ├── detection_server           ──── DetectionAgent
-        │       └── report_generator_server    ──── ReportAgent
-        │
-        ├── AuditDatabase (long-term memory — all stages read/write here)
-        └── ScanContext   (short-term memory — passed through the flow)
-
-Stages
-------
-    1. repository_scan   (FileSelectionAgent.scan_repository)
-    2. file_selection    (FileSelectionAgent.select_files)
-    3. validation        (ValidationAgent.validate_files)
-    4. detection         (DetectionAgent.run_detection)
-    5. result_validation (ValidationAgent.validate_results)   — post-stage
-    6. report_generation (ReportAgent.generate_report)
-
-The orchestrator supports resuming from any checkpoint. If scan_run_id
-is provided and the DB already has state for earlier stages, those stages
-are skipped. This is the hook points for LangGraph-style conditional
-routing — today it's straight-line, tomorrow it can branch.
-"""
-
 from __future__ import annotations
 import sys
 from pathlib import Path
@@ -78,7 +44,7 @@ class OrchestratorAgent(BaseAgent):
         verbose: bool = True,
         max_evidence_retries: int = 2,
     ):
-        # Build the shared dispatcher with all five MCP servers
+ 
         dispatcher = MCPDispatcher()
         dispatcher.register_server(RepositoryScannerServer(db))
         dispatcher.register_server(FileSelectionServer(db))
@@ -88,22 +54,18 @@ class OrchestratorAgent(BaseAgent):
 
         super().__init__(db=db, dispatcher=dispatcher, verbose=verbose)
 
-        # Shared state
         self.llm = llm_client
         self.detectors = detectors
         self.max_files = max_files
         self.reports_dir = reports_dir
         self.max_evidence_retries = max_evidence_retries
 
-        # Instantiate agents (each registers itself with the DB on __init__)
         self.file_selection_agent = FileSelectionAgent(db, dispatcher, verbose)
         self.validation_agent     = ValidationAgent(db, dispatcher, verbose)
         self.detection_agent      = DetectionAgent(db, dispatcher, verbose)
         self.report_agent         = ReportAgent(db, dispatcher, verbose)
 
-    # ── Introspection helpers ──────────────────────────────────────────
     def list_tools(self) -> List[Dict[str, Any]]:
-        """Expose the full tool catalog — what external systems would query."""
         return self.dispatcher.list_all_tools()
 
     def describe_all(self) -> List[Dict[str, Any]]:
@@ -113,21 +75,13 @@ class OrchestratorAgent(BaseAgent):
         row = self.db.get_stage_status(scan_run_id, stage)
         return bool(row and row["state"] == STATE_COMPLETE)
 
-    # ── Main entry points ──────────────────────────────────────────────
     def run(
         self,
         repo_root: str,
         scan_run_id: int | None = None,
         skip_stages: List[str] | None = None,
     ) -> Dict[str, Any]:
-        """
-        Full pipeline. If `scan_run_id` is provided, this is a RESUME — the
-        orchestrator will skip any stage already marked 'complete' in the
-        DB and pick up from the earliest non-complete stage. Otherwise it
-        creates a new scan run.
-
-        `skip_stages` explicitly skips stages (useful for testing).
-        """
+        
         skip = set(skip_stages or [])
 
         if scan_run_id is None:
@@ -170,8 +124,6 @@ class OrchestratorAgent(BaseAgent):
             self.file_selection_agent.select_files(ctx, max_files=self.max_files)
             self._log("[Orchestrator]    └─ validation:")
             self.validation_agent.validate_selection_output(ctx)
-
-        # Hydrate selected files if we skipped stage 2
         ctx.ensure_selected(self.db)
 
         if not ctx.selected_files:
@@ -219,9 +171,6 @@ class OrchestratorAgent(BaseAgent):
 
         return self._finish(ctx)
 
-    # ── Exposed targeted operations ─────────────────────────────────────
-    # These let external systems / callers exercise individual agents
-    # against an existing scan run without going through run().
 
     def regenerate_report(self, scan_run_id: int, format: str = "all") -> Dict[str, Any]:
         ctx = ScanContext.hydrate_from_db(self.db, scan_run_id)
@@ -230,12 +179,7 @@ class OrchestratorAgent(BaseAgent):
     def rerun_detection(
         self, scan_run_id: int, practices: List[str] | None = None,
     ) -> Dict[str, Any]:
-        """
-        Re-run the full detection stage. Replaces existing findings:
-        every (file, practice) finding for this scan_run_id is deleted
-        before re-analysing, so per-practice counts and the validation
-        log stay correct.
-        """
+        
         ctx = ScanContext.hydrate_from_db(self.db, scan_run_id)
         if practices:
             for practice in practices:
@@ -255,11 +199,7 @@ class OrchestratorAgent(BaseAgent):
         file_path: str,
         practices: List[str] | None = None,
     ) -> Dict[str, Any]:
-        """
-        Re-analyze a single file. Replaces the existing finding(s) for
-        that file. Calls the detection_server's run_detection_on_files
-        tool through the dispatcher — keeps the MCP boundary intact.
-        """
+
         resp = self.dispatcher.call(
             "detection_server", "run_detection_on_files",
             {"scan_run_id": scan_run_id,
@@ -277,15 +217,7 @@ class OrchestratorAgent(BaseAgent):
     def rerun_stage(
         self, scan_run_id: int, stage: str,
     ) -> Dict[str, Any]:
-        """
-        Re-run exactly one pipeline stage for an existing scan. The stage's
-        output is overwritten (findings deleted, validation log preserved
-        as historical record). Used by the UI's per-stage rerun buttons.
 
-        Valid stages:
-          repository_scan, file_selection, validation,
-          detection, report_generation
-        """
         from database.db import (
             STAGE_REPO_SCAN, STAGE_FILE_SELECTION, STAGE_VALIDATION,
             STAGE_DETECTION, STAGE_REPORT,
@@ -294,12 +226,10 @@ class OrchestratorAgent(BaseAgent):
         ctx = ScanContext.hydrate_from_db(self.db, scan_run_id)
 
         if stage == STAGE_REPO_SCAN:
-            # Re-walking the disk is cheap — no special cleanup needed.
             return self.file_selection_agent.scan_repository(ctx)
 
         if stage == STAGE_FILE_SELECTION:
-            # Wipe the candidate table for this scan first so the
-            # new selection isn't merged with the old one.
+
             with self.db._conn() as conn:
                 conn.execute(
                     "DELETE FROM candidate_files WHERE scan_run_id=?",
@@ -310,8 +240,6 @@ class OrchestratorAgent(BaseAgent):
             )
 
         if stage == STAGE_VALIDATION:
-            # Revert any prior validation decisions: anything that was
-            # 'validated' or 'rejected' goes back to 'selected'.
             with self.db._conn() as conn:
                 conn.execute(
                     "UPDATE candidate_files SET status='selected', "
@@ -330,25 +258,12 @@ class OrchestratorAgent(BaseAgent):
 
         raise ValueError(f"Unknown stage: {stage!r}")
 
-    # ── Empty-evidence recovery ────────────────────────────────────────
     def _resolve_empty_evidence(
         self,
         ctx: ScanContext,
         detection_validation: Dict[str, Any] | None,
     ) -> None:
-        """
-        Enforce the contract "supported=True ⇒ non-empty evidence".
 
-        The detection-results validator already flags any supported finding
-        that came back with empty evidence (check: 'supported_has_evidence').
-        When that happens the analysis for that (file, practice) pair was
-        faulty, so we re-run detection for exactly those pairs — up to
-        `self.max_evidence_retries` times. Each retry replaces the previous
-        finding (run_detection_on_files has replace semantics) and we
-        re-validate. If violations persist after the budget is exhausted, the
-        prompt/practice is the likely culprit; we log that clearly and leave
-        the findings untouched for the human-in-the-loop UI to handle.
-        """
         def _violations(data: Dict[str, Any] | None) -> List[Dict[str, str]]:
             checks = (data or {}).get("checks", {})
             return checks.get("supported_has_evidence", {}).get("violations", []) or []
@@ -383,11 +298,9 @@ class OrchestratorAgent(BaseAgent):
                         f"'{practice}': {resp.get_text()}"
                     )
 
-            # Refresh short-term state and re-check the contract.
             ctx.findings = self.db.get_findings(ctx.scan_run_id)
             detection_validation = self.validation_agent.validate_detection_results(ctx)
 
-        # Budget exhausted — report whatever is still broken.
         remaining = _violations(detection_validation)
         if remaining:
             practices = sorted({v["practice"] for v in remaining})
@@ -399,18 +312,15 @@ class OrchestratorAgent(BaseAgent):
                 f"Leaving for human review."
             )
 
-    # ── Final assembly ─────────────────────────────────────────────────
     def _finish(self, ctx: ScanContext) -> Dict[str, Any]:
         self.db.complete_scan_run(ctx.scan_run_id)
         self._mark_complete()
 
-        # Build the result dict for main.py's CLI output
         findings = self.db.get_findings(ctx.scan_run_id)
         from src.output_parser import summarise_findings
         grouped: Dict[str, list] = {}
         for f in findings:
             grouped.setdefault(f["practice"], []).append(f)
-        # Seed in any registered practices with no findings
         for p in self.detectors:
             grouped.setdefault(p, [])
         results_by_practice = {

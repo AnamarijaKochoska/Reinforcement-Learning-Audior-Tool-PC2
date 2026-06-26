@@ -1,24 +1,3 @@
-"""
-app.py
-------
-Streamlit UI for the RL Auditor.
-
-Run with:
-    streamlit run app.py
-
-The app:
-  * Sidebar — pick / clone a repo, configure model + max files, start scans,
-              and load any past scan from the DB.
-  * Tabs    — Overview, Files, Findings (per-practice, with evidence cards
-              showing line numbers + code + LLM explanation), Validation log,
-              Raw HTML report.
-
-Scans run in a background thread so the UI can poll the DB for live
-progress without freezing. Zero changes to the core auditor — we read
-from `stage_status` (which every server updates per-iteration) and the
-findings table as detection populates it.
-"""
-
 from __future__ import annotations
 import os
 import subprocess
@@ -28,7 +7,6 @@ from pathlib import Path
 
 import streamlit as st
 
-# Make sure the v3 package root is importable when running `streamlit run app.py`
 _ROOT = Path(__file__).resolve().parent
 if str(_ROOT) not in sys.path:
     sys.path.insert(0, str(_ROOT))
@@ -71,7 +49,6 @@ from ui.pages import (
 from ui.components import state_badge
 
 
-# ── Detectors registry — mirrors main.py ──────────────────────────────
 DETECTORS = {
     "Simulation-Based (Async/Parallel)": create_python_rl_sim_async_parallel_conversation,
     "Real-World (Shadow Mode)":          create_python_rl_real_world_shadow_conversation,
@@ -82,8 +59,6 @@ DETECTORS = {
     "Preference-Data Collection (Pairwise Comparison)": create_python_rl_preference_based_conversation,
 }
 
-
-# ── Page config + global CSS ──────────────────────────────────────────
 st.set_page_config(
     page_title="RL Auditor",
     page_icon="🔍",
@@ -109,8 +84,6 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-
-# ── Session state setup ───────────────────────────────────────────────
 if "scan_state" not in st.session_state:
     st.session_state.scan_state = ScanThreadState()
 
@@ -127,15 +100,12 @@ if "settings" not in st.session_state:
     }
 
 
-# ── Helpers ───────────────────────────────────────────────────────────
 @st.cache_resource
 def get_db(db_path: str) -> AuditDatabase:
-    """Cached so we don't re-open the DB on every rerender."""
     return AuditDatabase(db_path)
 
 
 def get_orchestrator() -> OrchestratorAgent:
-    """Build a fresh orchestrator each time. Cheap — agents are stateless."""
     s = st.session_state.settings
     db = get_db(s["db_path"])
     llm = OllamaClient(
@@ -162,7 +132,6 @@ def list_past_scans(db: AuditDatabase, limit: int = 50) -> list[dict]:
 
 
 def clone_github_repo(github_url: str, dest_root: str = "/tmp") -> tuple[bool, str]:
-    """git clone helper. Returns (success, message_or_path)."""
     if not github_url.strip():
         return False, "Please enter a URL."
     name = github_url.rstrip("/").split("/")[-1].replace(".git", "")
@@ -170,7 +139,7 @@ def clone_github_repo(github_url: str, dest_root: str = "/tmp") -> tuple[bool, s
         return False, "Could not derive a repo name from the URL."
     dest = os.path.join(dest_root, name)
     if os.path.isdir(dest):
-        return True, dest  # Already cloned
+        return True, dest
     try:
         result = subprocess.run(
             ["git", "clone", "--depth", "1", github_url, dest],
@@ -187,12 +156,11 @@ def clone_github_repo(github_url: str, dest_root: str = "/tmp") -> tuple[bool, s
         return False, f"git clone error: {exc}"
 
 
-# ── Sidebar ───────────────────────────────────────────────────────────
 def render_sidebar() -> None:
     st.sidebar.title("🔍 RL Auditor")
     st.sidebar.caption("Agentic LLM-based RL practice detector")
 
-    # ── Repo source ─────────────────────────────────────────────────
+
     st.sidebar.markdown("### 📁 Repository")
 
     source = st.sidebar.radio(
@@ -247,7 +215,6 @@ def render_sidebar() -> None:
                 st.session_state.selected_run_id = options[choice]
                 st.rerun()
 
-    # ── Settings ──────────────────────────────────────────────────────
     st.sidebar.markdown("### ⚙️ Settings")
     s = st.session_state.settings
     s["model"]      = st.sidebar.text_input("Ollama model",        s["model"])
@@ -261,7 +228,6 @@ def render_sidebar() -> None:
         for name in DETECTORS:
             st.caption(f"  • {name}")
 
-    # ── Run button ────────────────────────────────────────────────────
     st.sidebar.markdown("---")
     can_run = repo_path and os.path.isdir(repo_path) and not is_running(st.session_state.scan_state)
 
@@ -276,14 +242,12 @@ def render_sidebar() -> None:
         else:
             orch = get_orchestrator()
             start_scan(st.session_state.scan_state, orch, repo_path)
-            st.session_state.selected_run_id = None  # will be set when worker finishes
+            st.session_state.selected_run_id = None
             st.rerun()
 
     if is_running(st.session_state.scan_state):
         st.sidebar.warning("⏳ Scan in progress — UI will refresh.")
 
-    # ── Actions on the currently-loaded scan ──────────────────────────
-    # Shown only when a past scan is loaded (selected_run_id is set).
     selected = st.session_state.get("selected_run_id")
     if selected is not None and not is_running(st.session_state.scan_state):
         from ui.sidebar_actions import render_scan_actions
@@ -295,7 +259,6 @@ def render_sidebar() -> None:
             scan_state=st.session_state.scan_state,
         )
 
-    # MCP tool catalog at the bottom (collapsible)
     with st.sidebar.expander("🧰 MCP tool catalog", expanded=False):
         try:
             tools = get_orchestrator().dispatcher.list_all_tools()
@@ -305,20 +268,14 @@ def render_sidebar() -> None:
             st.caption(f"_Could not load tools: {exc}_")
 
 
-# ── Main area ─────────────────────────────────────────────────────────
 def render_running_scan(repo_root: str) -> None:
-    """Live-updating progress view while a scan is in flight."""
     st.markdown(
         f"## ⏳ Scanning `{repo_root}`",
     )
     state = st.session_state.scan_state
 
-    # We may not have a scan_run_id assigned yet on the first ticks.
     db = get_db(st.session_state.settings["db_path"])
 
-    # The current scan is the most recent one in the DB if we don't have an
-    # ID in state yet (the worker thread will set state.scan_run_id once
-    # orchestrator.run() has created the scan).
     scan_run_id = state.scan_run_id
     if scan_run_id is None:
         past = list_past_scans(db, limit=1)
@@ -329,15 +286,13 @@ def render_running_scan(repo_root: str) -> None:
     stages_container   = st.empty()
     findings_container = st.empty()
 
-    POLL_INTERVAL = 1.5  # seconds
+    POLL_INTERVAL = 1.5
 
     while is_running(state):
-        # Stage status
         stages = db.get_stage_status(scan_run_id) if scan_run_id else []
         if stages:
             with stages_container.container():
                 st.markdown("### Stage progress")
-                # Overall progress bar across all stages
                 stage_order = ["repository_scan", "file_selection", "validation",
                                "detection", "report_generation"]
                 stages_by_name = {s["stage"]: s for s in stages}
@@ -348,7 +303,6 @@ def render_running_scan(repo_root: str) -> None:
                 st.progress(complete_count / len(stage_order),
                             text=f"{complete_count}/{len(stage_order)} stages complete")
 
-                # Per-stage badges
                 cols = st.columns(len(stage_order))
                 for col, stage_name in zip(cols, stage_order):
                     s = stages_by_name.get(stage_name, {"state": "not_started", "message": ""})
@@ -360,7 +314,6 @@ def render_running_scan(repo_root: str) -> None:
                         unsafe_allow_html=True,
                     )
 
-        # Live findings count
         if scan_run_id:
             findings = db.get_findings(scan_run_id)
             with findings_container.container():
@@ -383,11 +336,9 @@ def render_results(scan_run_id: int) -> None:
         st.error(f"Scan run #{scan_run_id} not found in the DB.")
         return
 
-    # Top header
     st.markdown(f"## 🔍 Scan #{scan_run_id}")
     st.caption(f"Repo: `{run['repo_root']}` &middot; Status: **{run.get('status', '—')}**")
 
-    # Tabs — Tools is added as the rightmost tab
     (
         tab_overview, tab_files, tab_findings,
         tab_validation, tab_report, tab_tools,
@@ -434,25 +385,18 @@ def render_empty_state() -> None:
         icon="🎯",
     )
 
-
-# ── Main ──────────────────────────────────────────────────────────────
 def main() -> None:
     render_sidebar()
     state = st.session_state.scan_state
 
-    # If the sidebar flagged a rerun-detection request, dispatch it now.
-    # (Two-step pattern so the sidebar's st.rerun() can disable buttons
-    # before the long-running thread actually starts.)
     if "rerun_target_id" in st.session_state:
         from ui.sidebar_actions import trigger_rerun_detection_if_requested
         trigger_rerun_detection_if_requested(get_orchestrator, state)
 
-    # 1) If a scan is in flight, show the live view.
     if is_running(state):
         render_running_scan(state.repo_root or "")
         return
 
-    # 2) If a scan just finished, jump to its results.
     if state.finished and state.result:
         st.session_state.selected_run_id = state.scan_run_id
         scan_run_id = state.scan_run_id
@@ -465,16 +409,13 @@ def main() -> None:
         render_results(scan_run_id)
         return
 
-    # 3) If a scan errored out before producing a result.
     if state.finished and state.error:
         st.error(f"Scan failed: {state.error}")
         if state.error_trace:
             with st.expander("Traceback"):
                 st.code(state.error_trace)
         state.finished = False
-        # Don't return — fall through to whatever is selected.
 
-    # 4) Otherwise, render the selected scan if any.
     scan_run_id = st.session_state.selected_run_id
     if scan_run_id is None:
         render_empty_state()

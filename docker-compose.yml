@@ -1,7 +1,3 @@
-# Host-Ollama setup (recommended on macOS):
-#   Ollama runs natively on the host (fast, uses the GPU);
-#   only the auditor runs in this container and reaches Ollama
-#   at host.docker.internal:11434.
 services:
   auditor:
     build: .
@@ -11,10 +7,7 @@ services:
     ports:
       - "8501:8501"
     extra_hosts:
-      # Makes host.docker.internal resolve on Linux too (works on Mac by default).
       - "host.docker.internal:host-gateway"
     volumes:
-      # Repos you want to audit go in ./repos and are seen at /app/repos.
       - ./repos:/app/repos
-      # Optional: persist the SQLite db / reports outside the container.
       - ./data:/app/data

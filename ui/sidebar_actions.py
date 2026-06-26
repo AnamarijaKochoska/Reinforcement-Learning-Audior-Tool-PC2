@@ -1,17 +1,3 @@
-"""
-ui/sidebar_actions.py
----------------------
-Sidebar "Actions on this scan" block — only shown when a past scan is
-loaded. Provides one-click access to the orchestrator's standalone
-rerun methods (regenerate_report, rerun_detection, revalidate_results,
-resume).
-
-Every action runs synchronously on click. That's a deliberate choice:
-these are short operations relative to a full scan, so we don't need
-background threading. The exception is `rerun_detection`, which is
-long — for that we use the same background-thread pattern as new scans.
-"""
-
 from __future__ import annotations
 import streamlit as st
 
@@ -26,17 +12,10 @@ def render_scan_actions(
     get_orchestrator,
     scan_state,
 ) -> None:
-    """
-    Render the action block. `get_orchestrator` is a callable that
-    returns a fresh OrchestratorAgent (so each action gets a clean one).
-    `scan_state` is the ScanThreadState used for backgrounded operations.
-    """
     st.sidebar.markdown("---")
     st.sidebar.markdown("### 🔁 Actions on this scan")
     st.sidebar.caption(f"Loaded: scan #{scan_run_id}")
 
-    # ── Regenerate report ─────────────────────────────────────────────
-    # Cheap, offline, safe to run anytime.
     if st.sidebar.button(
         "📄 Regenerate report",
         use_container_width=True,
@@ -52,8 +31,6 @@ def render_scan_actions(
         except Exception as exc:
             st.sidebar.error(f"Failed: {exc}")
 
-    # ── Revalidate results ────────────────────────────────────────────
-    # Also cheap — pure read-only sanity checks against the DB.
     if st.sidebar.button(
         "✅ Revalidate results",
         use_container_width=True,
@@ -70,8 +47,6 @@ def render_scan_actions(
         except Exception as exc:
             st.sidebar.error(f"Failed: {exc}")
 
-    # ── Rerun full detection ──────────────────────────────────────────
-    # Slow — every file × every practice. Runs in background.
     rerun_disabled = is_running(scan_state)
     if rerun_disabled:
         st.sidebar.caption("_Rerun detection unavailable while a scan is running._")
@@ -90,15 +65,11 @@ def render_scan_actions(
         if not run:
             st.sidebar.error("Scan run not found.")
             return
-        # Trigger a "rerun" via the background thread pattern.
-        # We mark this in session state so the main view can show it.
+        
         st.session_state["rerun_target_id"] = scan_run_id
         st.sidebar.info("Detection rerun queued — see main panel.")
         st.rerun()
 
-    # ── Resume incomplete pipeline ────────────────────────────────────
-    # Picks up at the earliest non-complete stage. Useful if a scan got
-    # interrupted partway.
     stages = db.get_stage_status(scan_run_id) or []
     incomplete = [
         s for s in stages if s["state"] not in ("complete",)
@@ -128,20 +99,11 @@ def trigger_rerun_detection_if_requested(
     get_orchestrator,
     scan_state,
 ) -> None:
-    """
-    Called once per render — if session_state has `rerun_target_id`, start
-    a background rerun-detection job for that scan. We use this two-step
-    pattern (set flag in sidebar, dispatch in main render) because the
-    sidebar button needs to st.rerun() to disable other buttons before
-    the long-running thread actually starts.
-    """
     target = st.session_state.pop("rerun_target_id", None)
     if target is None:
         return
     orch = get_orchestrator()
 
-    # We can't reuse start_scan() as-is because rerun_detection has a
-    # different signature than run(). Inline the threading pattern.
     import threading
     def _worker():
         try:

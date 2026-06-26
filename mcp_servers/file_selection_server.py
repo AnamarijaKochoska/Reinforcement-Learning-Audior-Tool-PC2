@@ -1,21 +1,3 @@
-"""
-mcp_servers/file_selection_server.py
--------------------------------------
-MCP server that picks the most promising files from a repo-scan
-inventory using the keyword pre-filter.
-
-Requires the repository_scan stage to have run first (to produce the
-source-file inventory checkpoint). If called standalone, it will try to
-re-run the scan as a convenience — but the preferred flow is
-explicit: scan_repository → select_files.
-
-Tools
------
-select_files      : Apply keyword filter + ranking, persist candidates
-list_candidates   : Inspect stored candidates for a scan run
-get_selection_status : Report selection progress (all/partial/complete)
-"""
-
 from __future__ import annotations
 import sys
 from pathlib import Path
@@ -40,7 +22,6 @@ from src.file_filter import (
 
 
 class FileSelectionServer(BaseMCPServer):
-    """MCP server for the file-selection stage."""
 
     def __init__(self, db: AuditDatabase):
         self.db = db
@@ -56,11 +37,6 @@ class FileSelectionServer(BaseMCPServer):
     def _get_source_inventory(
         self, scan_run_id: int, repo_root: str | None,
     ) -> list[str]:
-        """
-        Prefer the checkpointed inventory from the repo-scan stage.
-        Fallback: walk the repo right here if no checkpoint exists and a
-        repo_root was provided. This keeps the tool usable standalone.
-        """
         cp = self.db.load_checkpoint(scan_run_id, STAGE_REPO_SCAN)
         if cp and cp["payload"].get("all_source_files"):
             return cp["payload"]["all_source_files"]

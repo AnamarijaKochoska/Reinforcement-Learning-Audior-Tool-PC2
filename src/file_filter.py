@@ -142,7 +142,6 @@ def _subtokens(text: str) -> set:
 
 
 def _word_re(token: str) -> "re.Pattern[str]":
-    """Word-boundary match for a (possibly dotted) identifier token."""
     return re.compile(
         r"(?<![A-Za-z0-9_])" + re.escape(token) + r"(?![A-Za-z0-9_])",
         re.IGNORECASE,
@@ -150,7 +149,6 @@ def _word_re(token: str) -> "re.Pattern[str]":
 
 
 def _call_re(name: str) -> "re.Pattern[str]":
-    """Match an identifier used as a call: name( ."""
     return re.compile(
         r"(?<![A-Za-z0-9_])" + re.escape(name) + r"\s*\(",
         re.IGNORECASE,
@@ -167,21 +165,17 @@ def _import_re(lib: str) -> "re.Pattern[str]":
 
 
 def _dotted_use_re(lib: str) -> "re.Pattern[str]":
-    """Match dotted attribute use of ⁠ lib ⁠, e.g. rllib.algorithms."""
     return re.compile(
         r"(?<![A-Za-z0-9_])" + re.escape(lib) + r"\.\w+",
         re.IGNORECASE,
     )
 
-
-# Pre-compile everything once at import time.
 _LIBRARY_IMPORT_PATTERNS = [(lib, _import_re(lib), _dotted_use_re(lib))
                             for lib in _LIBRARY_TOKENS]
 _IDENTIFIER_PATTERNS = [_word_re(t) for t in _IDENTIFIER_TOKENS]
 _CALL_PATTERNS       = [_call_re(t) for t in _CALL_TOKENS]
 _ENV_PATTERNS        = [_word_re(t) for t in _ENV_TOKENS]
 
-# Flat lowercase list for the (generous) smart-extraction pass below.
 _ALL_KEYWORDS: List[str] = sorted(set(
     [t.lower() for t in _LIBRARY_TOKENS]
     + [t.lower() for t in _IDENTIFIER_TOKENS]
@@ -192,7 +186,7 @@ _ALL_KEYWORDS: List[str] = sorted(set(
 
 _SKIP_DIRS = {
     ".git", ".venv", "venv", "_pycache_", "build", "dist", "node_modules",
-    "target",  # Java/Maven build output
+    "target",
 }
 
 _SKIP_PATH_FRAGMENTS = {
@@ -208,11 +202,7 @@ CONTEXT_LINES: int = 8
 def extract_relevant_sections(
     code: str, context: int = CONTEXT_LINES,
 ) -> Tuple[str, bool]:
-    """
-    For large files: keep only lines containing relevant keywords, plus
-    ⁠ context ⁠ lines around each, plus the top 20 lines (imports / class
-    headers). Returns (extracted_code, was_extracted).
-    """
+    
     lines = code.splitlines()
     if len(lines) <= SMART_EXTRACT_THRESHOLD:
         return code, False
@@ -255,10 +245,6 @@ def collect_source_files(
     repo_root: str,
     extensions: set | None = None,
 ) -> List[str]:
-    """
-    Recursively walk repo_root and return all files whose extension is in
-    ⁠ extensions ⁠ (default: EXTENSION_TO_FILETYPE keys).
-    """
     exts = extensions or _SOURCE_EXTENSIONS
     results: List[str] = []
     for root, dirs, files in os.walk(repo_root):
@@ -275,16 +261,6 @@ def is_skippable_path(path: str) -> bool:
 
 
 def _scan_text(text: str) -> Tuple[int, int, int]:
-    """
-    Return (library_weight, distinct_signals, total_occurrences).
-
-      library_weight    : 3 per actually-imported RL library, 1 per dotted use.
-      distinct_signals  : number of DISTINCT evidence keys found — each full
-                          identifier token, call token, env token, and stem
-                          counts once. "Distinct" so that one keyword repeated
-                          twice is still a single signal.
-      total_occurrences : raw match count, used only for ranking.
-    """
     library_weight = 0
     for _lib, import_re, dotted_re in _LIBRARY_IMPORT_PATTERNS:
         if import_re.search(text):
@@ -328,17 +304,6 @@ def _read(path: str) -> str | None:
 
 
 def passes_keyword_filter(path: str) -> bool:
-    """
-    A file qualifies for LLM analysis when it shows genuine RL evidence:
-
-      * it actually imports / uses an RL library (import-aware), OR
-      * it has at least two DISTINCT identifier / call / env / stem signals.
-
-    Matching is precise (word-boundary, import-aware, sub-token split on
-    underscores and camelCase) so there are no "array"→"ray" false positives
-    and no bare-token or comment-only matches, while covering every registered
-    practice — so a relevant file is not silently dropped.
-    """
     text = _read(path)
     if text is None:
         return False
@@ -347,7 +312,6 @@ def passes_keyword_filter(path: str) -> bool:
 
 
 def keyword_score(path: str) -> int:
-    """Relevance score used only for ranking candidates (higher = first)."""
     text = _read(path)
     if text is None:
         return -1

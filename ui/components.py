@@ -1,13 +1,3 @@
-"""
-ui/components.py
-----------------
-Reusable visual components for the Streamlit UI.
-
-Kept in their own module so the page logic in pages.py stays focused on
-data flow and layout — and so component styling can be tweaked in one
-place.
-"""
-
 from __future__ import annotations
 import html
 import json
@@ -15,8 +5,6 @@ from typing import Any, Dict, List
 
 import streamlit as st
 
-
-# Colour map shared by stage-status badges and practice-detection badges.
 STATE_COLORS = {
     "complete":     "#2ecc71",
     "partial":      "#f1c40f",
@@ -41,7 +29,6 @@ def state_badge(state: str) -> str:
 
 
 def supported_badge(supported: bool, has_warning: bool = False) -> str:
-    """Inline HTML badge for a finding's supported/not-supported status."""
     if has_warning:
         return (
             "<span style='background:#f39c12;color:#fff;padding:2px 10px;"
@@ -59,7 +46,6 @@ def supported_badge(supported: bool, has_warning: bool = False) -> str:
 
 
 def stage_status_table(rows: List[Dict[str, Any]]) -> None:
-    """Render a table of stage status rows with colour badges."""
     if not rows:
         st.info("No stage status yet.")
         return
@@ -89,24 +75,14 @@ def stage_status_table(rows: List[Dict[str, Any]]) -> None:
 
 
 def metric_row(metrics: Dict[str, Any]) -> None:
-    """Render a row of st.metric widgets from a dict of label → value."""
     cols = st.columns(len(metrics))
     for col, (label, value) in zip(cols, metrics.items()):
         col.metric(label, value)
 
 
 def evidence_card(finding: Dict[str, Any]) -> None:
-    """
-    Render one finding (one file × one practice) with all its evidence
-    inline. Each evidence item gets a line number, a code block, and the
-    LLM's explanation.
-    """
     has_warning = bool(finding.get("parse_warning"))
     supported   = bool(finding.get("supported"))
-
-    # Pulled out of the f-string below: older Python versions (<3.12)
-    # don't allow backslashes inside f-string expression parts, so the
-    # escaped quotes broke the whole module on Python 3.11.
     if finding.get("was_extracted"):
         extracted_tag = (
             "<span style='background:#444;color:#aaa;font-size:0.7rem;"
@@ -159,10 +135,6 @@ def evidence_card(finding: Dict[str, Any]) -> None:
 
 
 def practice_summary_card(practice_name: str, summary: Dict[str, Any]) -> None:
-    """
-    Header card for a single practice's results — shown above its
-    detailed findings list.
-    """
     detected = summary.get("compliance_detected", False)
     color    = "#2ecc71" if detected else "#e74c3c"
     label    = "DETECTED" if detected else "NOT DETECTED"
@@ -192,7 +164,6 @@ def practice_summary_card(practice_name: str, summary: Dict[str, Any]) -> None:
 
 
 def validation_check_row(check: Dict[str, Any]) -> None:
-    """One row in the validation log display."""
     passed = check.get("passed", False)
     icon = "✅" if passed else "❌"
     color = "#2ecc71" if passed else "#e74c3c"
@@ -219,7 +190,6 @@ def validation_check_row(check: Dict[str, Any]) -> None:
 
 
 def section_header(title: str, subtitle: str = "") -> None:
-    """Consistent section header style."""
     st.markdown(
         f"<h3 style='color:#e94560;margin-top:1.5rem;margin-bottom:0.4rem;'>"
         f"{_escape(title)}</h3>",
@@ -230,13 +200,6 @@ def section_header(title: str, subtitle: str = "") -> None:
 
 
 def overwrite_notice(message: str) -> None:
-    """
-    Small inline warning shown above a rerun button.
-
-    Used so the user sees the consequence of clicking a destructive action
-    without a blocking confirmation dialog — matches the "overwrite is the
-    default, no second click required" decision.
-    """
     st.markdown(
         f"<div style='background:rgba(241,196,15,0.12);"
         f"border-left:3px solid #f1c40f;padding:.4rem .8rem;"
@@ -252,10 +215,6 @@ def pipeline_stage_card(
     message: str = "",
     progress: Dict[str, Any] | None = None,
 ) -> None:
-    """
-    Compact card for one pipeline stage — used in the pipeline view on the
-    Overview tab next to the per-stage 'rerun this stage' button.
-    """
     color = STATE_COLORS.get(state, "#7f8c8d")
     progress_str = ""
     if progress:

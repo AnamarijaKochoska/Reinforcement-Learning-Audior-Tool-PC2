@@ -1,18 +1,3 @@
-"""
-ui/scan_runner.py
------------------
-Runs a scan in a background thread so the Streamlit UI can poll the DB
-for live progress without freezing.
-
-We don't modify the core auditor — we just call `OrchestratorAgent.run()`
-in a worker thread and have the UI re-read `stage_status` every second.
-That works because every server already updates `stage_status` after
-each file in the detection loop (see detection_server.run_detection's
-inner loop), so live progress is "free."
-
-A simple ScanRunner singleton holds the thread + a result/error slot.
-"""
-
 from __future__ import annotations
 import threading
 import traceback
@@ -38,7 +23,6 @@ def start_scan(
     repo_root: str,
     scan_run_id: Optional[int] = None,
 ) -> None:
-    """Kick off a new background scan. Mutates `state` in place."""
     state.repo_root = repo_root
     state.scan_run_id = scan_run_id
     state.result = None
@@ -67,7 +51,6 @@ def is_running(state: ScanThreadState) -> bool:
 
 
 def reset(state: ScanThreadState) -> None:
-    """Reset state, but DON'T kill an in-flight thread (let it complete)."""
     state.started = False
     state.finished = False
     state.result = None

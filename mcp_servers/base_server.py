@@ -19,7 +19,6 @@ class MCPTool:
         self.server_name = server_name
 
     def to_dict(self) -> Dict[str, Any]:
-        """MCP-standard tool definition format."""
         return {
             "server":      self.server_name,
             "name":        self.name,
@@ -178,10 +177,6 @@ class MCPDispatcher:
         return list(self._servers.keys())
 
     def find_tool(self, tool_name: str) -> Optional[Dict[str, Any]]:
-        """
-        Locate a tool by name alone. Returns the first match, or None.
-        Useful when an external caller knows the tool but not the server.
-        """
         for srv in self._servers.values():
             if tool_name in srv._tools:
                 return srv._tools[tool_name].to_dict()

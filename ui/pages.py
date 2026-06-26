@@ -1,17 +1,3 @@
-"""
-ui/pages.py
------------
-The actual tab content for the Streamlit app. Each function takes the
-DB + scan_run_id and renders one tab's worth of UI.
-
-Keeping the tab functions here means app.py can stay focused on the
-high-level layout (sidebar, tabs, scan kickoff) without ballooning.
-
-Stage-rerun buttons live on the Overview tab and on the Findings tab
-(per-file). They're optional — page functions accept get_orchestrator
-as None when standalone use is needed.
-"""
-
 from __future__ import annotations
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional
@@ -36,8 +22,6 @@ from ui.components import (
     overwrite_notice,
 )
 
-
-# Display order + friendly labels for the pipeline view
 _STAGE_ORDER = [
     (STAGE_REPO_SCAN,      "1. Repository scan"),
     (STAGE_FILE_SELECTION, "2. File selection"),
@@ -46,8 +30,6 @@ _STAGE_ORDER = [
     (STAGE_REPORT,         "5. Report generation"),
 ]
 
-
-# ── Overview tab ──────────────────────────────────────────────────────
 def render_overview(
     db: AuditDatabase,
     scan_run_id: int,
@@ -74,7 +56,6 @@ def render_overview(
         unsafe_allow_html=True,
     )
 
-    # Top-level metrics
     candidates = db.get_all_candidates(scan_run_id)
     findings   = db.get_findings(scan_run_id)
     validated  = [c for c in candidates if c["status"] in ("validated", "complete")]
@@ -88,9 +69,6 @@ def render_overview(
         "Supported":        len(supported),
     })
 
-    # ── Validation summary badge ─────────────────────────────────────
-    # Reads validation_log for this scan run and shows X/Y passed.
-    # Visible only after at least one validation check has run.
     val_log = db.get_validation_log(scan_run_id)
     if val_log:
         passed = sum(1 for r in val_log if r["passed"])
@@ -118,7 +96,6 @@ def render_overview(
             unsafe_allow_html=True,
         )
 
-    # ── Pipeline view: per-stage rerun controls ──────────────────────
     section_header(
         "Pipeline",
         "State of each stage with one-click rerun. Reruns overwrite the "
@@ -157,11 +134,9 @@ def render_overview(
                 except Exception as exc:
                     st.error(f"Rerun failed: {exc}")
 
-    # Stage status table — keep this for the full structured view
     with st.expander("Full stage status table", expanded=False):
         stage_status_table(stages)
 
-    # Per-practice summary cards
     section_header("Per-practice summary")
     grouped: Dict[str, List[Dict[str, Any]]] = {}
     for f in findings:
@@ -174,8 +149,6 @@ def render_overview(
     for practice, flist in grouped.items():
         practice_summary_card(practice, summarise_findings(flist))
 
-
-# ── Files tab ─────────────────────────────────────────────────────────
 def render_files(db: AuditDatabase, scan_run_id: int) -> None:
     candidates = db.get_all_candidates(scan_run_id)
     if not candidates:
@@ -185,7 +158,6 @@ def render_files(db: AuditDatabase, scan_run_id: int) -> None:
     section_header("Candidate files",
                    "All files that survived the keyword pre-filter.")
 
-    # Status filter
     statuses = sorted({c["status"] for c in candidates})
     selected_statuses = st.multiselect(
         "Filter by status", options=statuses, default=statuses,
@@ -194,7 +166,6 @@ def render_files(db: AuditDatabase, scan_run_id: int) -> None:
     )
     filtered = [c for c in candidates if c["status"] in selected_statuses]
 
-    # Build display table
     rows = []
     for c in filtered:
         rows.append({
@@ -220,7 +191,6 @@ def render_files(db: AuditDatabase, scan_run_id: int) -> None:
     st.caption(f"Showing {len(filtered)} of {len(candidates)} files.")
 
 
-# ── Findings tab ──────────────────────────────────────────────────────
 def render_findings(
     db: AuditDatabase,
     scan_run_id: int,
@@ -231,12 +201,10 @@ def render_findings(
         st.info("No findings yet — detection may still be running.")
         return
 
-    # Group by practice
     grouped: Dict[str, List[Dict[str, Any]]] = {}
     for f in findings:
         grouped.setdefault(f["practice"], []).append(f)
 
-    # Practice selector
     practice_names = list(grouped.keys())
     selected_practice = st.selectbox(
         "Practice to inspect",
@@ -250,7 +218,6 @@ def render_findings(
     summary = summarise_findings(findings_for_practice)
     practice_summary_card(selected_practice, summary)
 
-    # Result filter: show all / only supported / only not supported / only warnings
     filter_choice = st.radio(
         "Show:",
         options=["All", "✓ Supported only", "✗ Not supported only", "⚠ Parse warnings only"],
@@ -271,7 +238,6 @@ def render_findings(
         st.caption("_No findings match the current filter._")
         return
 
-    # Each finding as an expander
     for f in visible:
         sup = f.get("supported", False)
         warn = bool(f.get("parse_warning"))
@@ -289,9 +255,6 @@ def render_findings(
                 "was_extracted": f.get("was_extracted", False),
             })
 
-            # Per-file re-analyze button — runs detection for this single
-            # file across ALL practices. Old findings for the file are
-            # replaced, not appended (see detection_server.run_detection_on_files).
             if get_orchestrator is not None:
                 st.markdown("---")
                 btn_cols = st.columns([3, 2])
@@ -317,7 +280,6 @@ def render_findings(
                             st.error(f"Re-analyze failed: {exc}")
 
 
-# ── Validation log tab ────────────────────────────────────────────────
 def render_validation_log(db: AuditDatabase, scan_run_id: int) -> None:
     log = db.get_validation_log(scan_run_id)
     if not log:
@@ -329,7 +291,6 @@ def render_validation_log(db: AuditDatabase, scan_run_id: int) -> None:
         "Post-stage sanity checks: did the LLM follow the contract?",
     )
 
-    # Overall summary
     total = len(log)
     passed = sum(1 for r in log if r["passed"])
     cols = st.columns(3)
@@ -339,12 +300,10 @@ def render_validation_log(db: AuditDatabase, scan_run_id: int) -> None:
 
     st.markdown("---")
 
-    # Each check rendered as a row with green/red marker
     for check in log:
         validation_check_row(check)
 
 
-# ── Raw report tab ────────────────────────────────────────────────────
 def render_raw_report(db: AuditDatabase, scan_run_id: int) -> None:
     from database.db import STAGE_REPORT
     cp = db.load_checkpoint(scan_run_id, STAGE_REPORT)

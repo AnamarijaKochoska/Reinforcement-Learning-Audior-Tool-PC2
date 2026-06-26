@@ -11,10 +11,6 @@ _LEADING_NUM_RE  = re.compile(r"^\s*(\d{1,6})\s*[:\-\.]\s*")
 
 
 def _first_line_number(snippet: str) -> int | None:
-    """
-    Detect a leading line number on the first non-blank line of a snippet
-    (we add them in detection_server before sending to the LLM).
-    """
     for raw in snippet.splitlines():
         line = raw.strip()
         if not line:
@@ -30,7 +26,6 @@ def _first_line_number(snippet: str) -> int | None:
 
 
 def _normalise_evidence_item(item: Any) -> Dict[str, Any]:
-    """Coerce any evidence-like object into the canonical dict shape."""
     if isinstance(item, dict):
         return {
             "line_number": item.get("line_number"),
@@ -66,8 +61,6 @@ def _try_json_parse(text: str) -> Dict[str, Any] | None:
 
 def parse_llm_response(file_path: str, raw_response: str) -> Dict[str, Any]:
     """
-    Convert a raw LLM string into a structured finding dict:
-
         {
           "file": str,
           "supported": bool,
@@ -124,7 +117,6 @@ def parse_llm_response(file_path: str, raw_response: str) -> Dict[str, Any]:
 
 
 def summarise_findings(findings: List[Dict[str, Any]]) -> Dict[str, Any]:
-    """Aggregate per-file findings into a scan-level summary."""
     detected     = [f for f in findings if f.get("supported")]
     not_detected = [f for f in findings if not f.get("supported")]
     warnings     = [f for f in findings if f.get("parse_warning")]
