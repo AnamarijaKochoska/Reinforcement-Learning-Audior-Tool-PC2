@@ -1,0 +1,23 @@
+Analyze the TARGET FILE below. Does it implement Simulation-Based (Async/Parallel) data collection?
+
+COUNT AS EVIDENCE only if the TARGET FILE contains:
+- Multiple processes/workers/actors stepping environments in parallel
+  (mp.Process, subprocess, Ray workers, ExecutorService in Java, etc.)
+- Vectorized env creation with MORE THAN ONE env instance
+  (e.g., [make_env(i) for i in range(n)] where n > 1)
+- step_async() / step_wait() calls that delegate to multiple underlying environments
+- A queue or pipe transferring transitions/trajectories from collector processes
+  to a learner
+
+DO NOT COUNT AS EVIDENCE:
+- Import statements alone (e.g., "from x import SubprocVecEnv" with no usage)
+- Image transposition, observation normalization, reward scaling, or other transforms
+- Saving/loading model weights or checkpoints
+- Evaluation or benchmark scripts running a single environment
+- JAX/NumPy math acceleration (jit, scan, vmap) with no env.step calls
+- Any code copied from the example — only extract code from the TARGET FILE
+
+REMEMBER:
+- Output ONLY the JSON object described in the system prompt. No other text.
+- Use the line numbers shown in the TARGET FILE.
+- If no evidence, output {"supported": false, "evidence": [], "assets": {}}

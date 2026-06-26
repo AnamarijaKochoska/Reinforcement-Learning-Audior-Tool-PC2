@@ -1,0 +1,18 @@
+{
+  "supported": true,
+  "evidence": [
+    {
+      "line_number": 15,
+      "code_snippet": "raw = d4rl.qlearning_dataset(env)",
+      "explanation": "A fixed, pre-collected benchmark dataset is loaded through a library API (d4rl), which is offline data ingestion rather than live environment interaction."
+    },
+    {
+      "line_number": 27,
+      "code_snippet": "for step in range(1000):\n    idx = np.random.randint(0, n, size=batch_size)\n    batch = Transition(*[getattr(data, f)[idx] for f in data._fields])",
+      "explanation": "Training minibatches are sampled from the fixed transition pool with no env.step() or live rollout, confirming batch consumption of an immutable dataset."
+    }
+  ],
+  "assets": {
+    "notes": "Fixed dataset loaded via a library API and consumed without environment interaction."
+  }
+}

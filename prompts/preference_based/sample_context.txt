@@ -1,0 +1,41 @@
+import random
+import torch
+import torch.nn as nn
+
+class PreferenceBuffer:
+    """Stores human pairwise comparisons over trajectory segments."""
+    def _init_(self):
+        self.comparisons = []  # each item: (segment_a, segment_b, label)
+
+    def add(self, segment_a, segment_b, label):
+        self.comparisons.append((segment_a, segment_b, label))
+
+def sample_segment_pair(segments):
+    """Select two distinct trajectory segments to show the human for comparison."""
+    a, b = random.sample(segments, 2)
+    return a, b
+
+def query_human_preference(segment_a, segment_b):
+    """Render two clips and ask a human which segment is preferred."""
+    render_clip(segment_a)
+    render_clip(segment_b)
+    choice = input("Which segment is better? [a/b]: ")
+    return 0 if choice.strip().lower() == "a" else 1
+
+def collect_preferences(segments, num_queries, buffer):
+    """Main loop: repeatedly sample a pair and log the human's preference label."""
+    for _ in range(num_queries):
+        seg_a, seg_b = sample_segment_pair(segments)
+        label = query_human_preference(seg_a, seg_b)
+        buffer.add(seg_a, seg_b, label)
+    return buffer
+
+def preference_loss(reward_model, segment_a, segment_b, label):
+    """Bradley-Terry loss: the preferred segment should receive the higher reward."""
+    reward_a = reward_model(segment_a)
+    reward_b = reward_model(segment_b)
+    logits = torch.stack([reward_a, reward_b], dim=-1)
+    return nn.functional.cross_entropy(logits, label)
+
+if _name_ == "_main_":
+    segments

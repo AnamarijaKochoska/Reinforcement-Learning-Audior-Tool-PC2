@@ -1,0 +1,28 @@
+{
+  "supported": true,
+  "evidence": [
+    {
+      "line_number": 5,
+      "code_snippet": "class PreferenceBuffer:\n    \"\"\"Stores human pairwise comparisons over trajectory segments.\"\"\"\n    def _init_(self):\n        self.comparisons = []  # each item: (segment_a, segment_b, label)\n\n    def add(self, segment_a, segment_b, label):\n        self.comparisons.append((segment_a, segment_b, label))",
+      "explanation": "A dedicated buffer accumulates (segment_a, segment_b, label) tuples, i.e. a dataset of relative human comparisons rather than scalar environment rewards."
+    },
+    {
+      "line_number": 18,
+      "code_snippet": "def query_human_preference(segment_a, segment_b):\n    \"\"\"Render two clips and ask a human which segment is preferred.\"\"\"\n    render_clip(segment_a)\n    render_clip(segment_b)\n    choice = input(\"Which segment is better? [a/b]: \")\n    return 0 if choice.strip().lower() == \"a\" else 1",
+      "explanation": "This function elicits a relative human judgment over two rendered segments, which is the defining act of preference-data collection."
+    },
+    {
+      "line_number": 25,
+      "code_snippet": "def collect_preferences(segments, num_queries, buffer):\n    \"\"\"Main loop: repeatedly sample a pair and log the human's preference label.\"\"\"\n    for _ in range(num_queries):\n        seg_a, seg_b = sample_segment_pair(segments)\n        label = query_human_preference(seg_a, seg_b)\n        buffer.add(seg_a, seg_b, label)\n    return buffer",
+      "explanation": "The main loop repeatedly samples a segment pair and records the human's chosen preference label into the comparison buffer, constructing the preference dataset."
+    },
+    {
+      "line_number": 33,
+      "code_snippet": "def preference_loss(reward_model, segment_a, segment_b, label):\n    \"\"\"Bradley-Terry loss: the preferred segment should receive the higher reward.\"\"\"\n    reward_a = reward_model(segment_a)\n    reward_b = reward_model(segment_b)\n    logits = torch.stack([reward_a, reward_b], dim=-1)\n    return nn.functional.cross_entropy(logits, label)",
+      "explanation": "A Bradley-Terry pairwise loss trains the reward model on relative preferences (preferred over rejected) rather than absolute scalar targets."
+    }
+  ],
+  "assets": {
+    "notes": "Implements a pairwise human-preference collection pipeline that stores comparisons and trains a Bradley-Terry reward model. Pair selection is uniform-random (random.sample); no uncertainty-based or ensemble-disagreement active query selection is present, which may be flagged as a sample-efficiency gap."
+  }
+}

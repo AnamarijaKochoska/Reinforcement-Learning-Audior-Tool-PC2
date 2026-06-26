@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>RL Auditor — Multi-Practice Report</title>
+  <style>
+    body { font-family: system-ui, sans-serif; background:#1a1a2e; color:#eee; margin:0; padding:2rem; }
+    h1   { color:#e94560; }
+    .meta { color:#aaa; margin-bottom:1.5rem; font-size:.9rem; }
+    .cards { display:flex; flex-wrap:wrap; gap:1rem; margin:1.5rem 0; }
+    .card { background:#16213e; border-radius:8px; padding:1.2rem 1.5rem; min-width:220px; }
+    .card-title { font-size:.85rem; color:#aaa; margin-bottom:.4rem; }
+    .badge { display:inline-block; padding:.25rem .7rem; border-radius:4px;
+              color:#fff; font-weight:bold; font-size:.95rem; margin-bottom:.4rem; }
+    .card-stats { font-size:.8rem; color:#aaa; }
+    .practice-section { margin:2rem 0; }
+    details { background:#16213e; border-radius:6px; margin:.5rem 0; padding:.7rem 1rem; }
+    summary { cursor:pointer; font-size:.92rem; }
+    pre     { background:#0f3460; border-radius:4px; padding:.6rem;
+               overflow-x:auto; font-size:.8rem; color:#a8d8ea; margin:0; }
+    .evidence-table { width:100%; border-collapse:collapse; margin-top:.6rem; font-size:.85rem; }
+    .evidence-table th, .evidence-table td { border:1px solid #2c3e50; padding:.4rem .6rem; vertical-align:top; }
+    .evidence-table th { background:#0f3460; color:#a8d8ea; text-align:left; }
+    .evidence-table td.line { color:#f1c40f; font-family:monospace; width:50px; }
+    .evidence-table td.expl { color:#ddd; max-width:400px; }
+    .no-evidence { color:#aaa; font-style:italic; }
+    .warning { color:#f39c12; font-size:.83rem; }
+    .evidence { margin-top:.5rem; }
+    .tag    { background:#444; border-radius:3px; font-size:.72rem; padding:.1rem .4rem; color:#aaa; margin-left:.3rem; }
+    .assets { margin-top:.6rem; background:#0f1a2e; border-radius:4px; padding:.4rem .7rem; }
+    .stage-table { width:100%; border-collapse:collapse; margin-top:1rem; font-size:.88rem; }
+    .stage-table th, .stage-table td { border:1px solid #2c3e50; padding:.4rem .8rem; text-align:left; }
+    .stage-table th { background:#0f3460; color:#a8d8ea; }
+    .state-badge { display:inline-block; padding:.1rem .5rem; border-radius:3px;
+                    color:#fff; font-size:.75rem; font-weight:bold; }
+  </style>
+</head>
+<body>
+  <h1>🔍 RL Data Collection Auditor</h1>
+  <p class="meta">
+    Repo: <code>/Users/anamarijakochoska/rl_eval_systems/S5_dropo</code>
+    &nbsp;|&nbsp; Generated: 2026-06-24T20:18:55+00:00
+    &nbsp;|&nbsp; Practices scanned: 7
+  </p>
+
+  <h2>Stage Status</h2><table class='stage-table'><thead><tr><th>Stage</th><th>State</th><th>Message</th></tr></thead><tbody><tr><td>repository_scan</td><td><span class='state-badge' style='background:#2ecc71'>complete</span></td><td>found 5 source files</td></tr><tr><td>file_selection</td><td><span class='state-badge' style='background:#2ecc71'>complete</span></td><td>selected 2/5 (all that qualified)</td></tr><tr><td>validation</td><td><span class='state-badge' style='background:#2ecc71'>complete</span></td><td>validated 2, rejected 0</td></tr><tr><td>detection</td><td><span class='state-badge' style='background:#f1c40f'>partial</span></td><td>analysed 14 pairs (2 with parse warnings)</td></tr><tr><td>report_generation</td><td><span class='state-badge' style='background:#3498db'>running</span></td><td>building all report(s)</td></tr></tbody></table>
+
+  <h2>Summary</h2>
+  <div class="cards"><div class='card'><div class='card-title'>Human-in-the-Loop</div><div class='badge' style='background:#2ecc71'>DETECTED</div><div class='card-stats'>1 / 2 files &nbsp;|&nbsp; 0 warnings</div></div><div class='card'><div class='card-title'>Hybrid (Sim-to-Real)</div><div class='badge' style='background:#2ecc71'>DETECTED</div><div class='card-stats'>1 / 2 files &nbsp;|&nbsp; 0 warnings</div></div><div class='card'><div class='card-title'>League-Based Curriculum</div><div class='badge' style='background:#2ecc71'>DETECTED</div><div class='card-stats'>1 / 2 files &nbsp;|&nbsp; 0 warnings</div></div><div class='card'><div class='card-title'>Offline (Batch)</div><div class='badge' style='background:#e74c3c'>NOT DETECTED</div><div class='card-stats'>0 / 2 files &nbsp;|&nbsp; 1 warnings</div></div><div class='card'><div class='card-title'>Preference-Data Collection (Pairwise Comparison)</div><div class='badge' style='background:#2ecc71'>DETECTED</div><div class='card-stats'>1 / 2 files &nbsp;|&nbsp; 0 warnings</div></div><div class='card'><div class='card-title'>Real-World (Shadow Mode)</div><div class='badge' style='background:#e74c3c'>NOT DETECTED</div><div class='card-stats'>0 / 2 files &nbsp;|&nbsp; 1 warnings</div></div><div class='card'><div class='card-title'>Simulation-Based (Async/Parallel)</div><div class='badge' style='background:#2ecc71'>DETECTED</div><div class='card-stats'>1 / 2 files &nbsp;|&nbsp; 0 warnings</div></div></div>
+
+  <h2>Detailed Findings</h2>
+  <div class='practice-section'><h2 style='border-left: 4px solid #2ecc71; padding-left: .6rem;'>Human-in-the-Loop</h2><details><summary><span style='color:#2ecc71;font-weight:bold'>✓ Supported</span><span class='tag'>extracted</span>&nbsp;&nbsp;<code></code></summary><div class='evidence'><table class='evidence-table'><thead><tr><th>Line</th><th>Code</th><th>Explanation</th></tr></thead><tbody><tr><td class='line'>—</td><td><pre><code>opts = {
+  'oneplusone': ng.optimizers.OnePlusOne, # simple robust method for continuous parameters with num_workers &lt; 8.
+  'bayesian': ng.optimizers.BO, # Bayesian optimization
+  'twopointsde': ng.optimizers.TwoPointsDE,  # excellent in many cases, including very high num_workers
+  'pso': ng.optimizers.PSO, # excellent in terms of robustness, high num_workers ok
+  'tbpsa': ng.optimizers.TBPSA, # excellent for problems corrupted by noise, in particular overparameterized (neural) ones; very high num_workers ok).
+  'random': ng.optimizers.RandomSearch, # the classical random search baseline; don’t use softmax with this optimizer.
+  'meta': ng.optimizers.NGOpt, # “meta”-optimizer which adapts to the provided settings (budget, number of workers, parametrization) and should therefore be a good default.
+  'cma': ng.optimizers.CMA # CMA-ES (https://en.wikipedia.org/wiki/CMA-ES)
+}</code></pre></td><td class='expl'>This is a dictionary mapping strings representing different optimization methods to their corresponding Nevergrad optimizer classes. The keys are the names of the optimization methods, and the values are the classes that implement these methods in Nevergrad.</td></tr></tbody></table></div></details><details><summary><span style='color:#e74c3c;font-weight:bold'>✗ Not supported</span>&nbsp;&nbsp;<code></code></summary><div class='evidence'><p class='no-evidence'>No evidence recorded.</p></div></details></div><div class='practice-section'><h2 style='border-left: 4px solid #2ecc71; padding-left: .6rem;'>Hybrid (Sim-to-Real)</h2><details><summary><span style='color:#2ecc71;font-weight:bold'>✓ Supported</span><span class='tag'>extracted</span>&nbsp;&nbsp;<code></code></summary><div class='evidence'><table class='evidence-table'><thead><tr><th>Line</th><th>Code</th><th>Explanation</th></tr></thead><tbody><tr><td class='line'>—</td><td><pre><code>def _sample_from_bounds(self, lower_bound, upper_bound, dim, attempts=5):
+	"""
+	Samples a point from the given bounds until all dimensions are within the bounds.
+	"""
+	sample = []
+	for i in range(dim):
+		sample.append(np.random.uniform(lower_bound, upper_bound))
+
+	obs = np.array(sample)
+
+	while not self._are_in_bounds(obs, lower_bound, upper_bound) and attempts &gt; 0:
+		sample = []
+		for i in range(dim):
+			sample.append(np.random.uniform(lower_bound, upper_bound))
+
+		obs = np.array(sample)
+		attempts -= 1
+
+	if attempts == 0:
+		obs[obs &lt; lower_bound] = lower_bound
+		obs[obs &gt; upper_bound] = upper_bound
+		print(f"Warning - Not all samples were above &gt;= {lower_bound} or below {upper_bound} after 20 attempts. Setting them to their min/max bound values, respectively.")
+
+	return np.array(sample).T</code></pre></td><td class='expl'>This code snippet demonstrates a method for sampling points within specified bounds. It continues to sample until all dimensions of the point are within the given bounds or a maximum number of attempts is reached. If the maximum number of attempts is reached, it sets out-of-bounds values to the nearest boundary value and prints a warning.</td></tr></tbody></table></div></details><details><summary><span style='color:#e74c3c;font-weight:bold'>✗ Not supported</span>&nbsp;&nbsp;<code></code></summary><div class='evidence'><p class='no-evidence'>No evidence recorded.</p></div></details></div><div class='practice-section'><h2 style='border-left: 4px solid #2ecc71; padding-left: .6rem;'>League-Based Curriculum</h2><details><summary><span style='color:#2ecc71;font-weight:bold'>✓ Supported</span><span class='tag'>extracted</span>&nbsp;&nbsp;<code></code></summary><div class='evidence'><table class='evidence-table'><thead><tr><th>Line</th><th>Code</th><th>Explanation</th></tr></thead><tbody><tr><td class='line'>—</td><td><pre><code>opts = {</code></pre></td><td class='expl'>This dictionary contains mappings between optimizer names and their respective Nevergrad class objects.</td></tr><tr><td class='line'>—</td><td><pre><code>if opt_string not in opts:</code></pre></td><td class='expl'>This condition checks if the provided optimizer string is valid by looking it up in the 'opts' dictionary.</td></tr><tr><td class='line'>—</td><td><pre><code>raise NotImplementedError('Optimizer not found')</code></pre></td><td class='expl'>If an invalid optimizer string is provided, this line raises a `NotImplementedError` with a message indicating that the optimizer was not found.</td></tr></tbody></table></div></details><details><summary><span style='color:#e74c3c;font-weight:bold'>✗ Not supported</span>&nbsp;&nbsp;<code></code></summary><div class='evidence'><p class='no-evidence'>No evidence recorded.</p></div></details></div><div class='practice-section'><h2 style='border-left: 4px solid #e74c3c; padding-left: .6rem;'>Offline (Batch)</h2><details><summary><span style='color:#e74c3c;font-weight:bold'>✗ Not supported</span><span class='tag'>extracted</span>&nbsp;&nbsp;<code></code></summary><p class='warning'>⚠ LLM call failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)</p><div class='evidence'><p class='no-evidence'>No evidence recorded.</p></div></details><details><summary><span style='color:#e74c3c;font-weight:bold'>✗ Not supported</span>&nbsp;&nbsp;<code></code></summary><div class='evidence'><p class='no-evidence'>No evidence recorded.</p></div></details></div><div class='practice-section'><h2 style='border-left: 4px solid #2ecc71; padding-left: .6rem;'>Preference-Data Collection (Pairwise Comparison)</h2><details><summary><span style='color:#2ecc71;font-weight:bold'>✓ Supported</span><span class='tag'>extracted</span>&nbsp;&nbsp;<code></code></summary><div class='evidence'><table class='evidence-table'><thead><tr><th>Line</th><th>Code</th><th>Explanation</th></tr></thead><tbody><tr><td class='line'>—</td><td><pre><code>opts = {
+"oneplusone": ng.optimizers.OnePlusOne, # simple robust method for continuous parameters with num_workers &lt; 8.
+"bayesian": ng.optimizers.BO, # Bayesian optimization
+"twopointsde": ng.optimizers.TwoPointsDE,  # excellent in many cases, including very high num_workers
+"pso": ng.optimizers.PSO, # excellent in terms of robustness, high num_workers ok
+"tbpsa": ng.optimizers.TBPSA, # excellent for problems corrupted by noise, in particular overparameterized (neural) ones; very high num_workers ok).
+"random": ng.optimizers.RandomSearch, # the classical random search baseline; don’t use softmax with this optimizer.
+"meta": ng.optimizers.NGOpt, # “meta”-optimizer which adapts to the provided settings (budget, number of workers, parametrization) and should therefore be a good default.
+"cma": ng.optimizers.CMA # CMA-ES (https://en.wikipedia.org/wiki/CMA-ES)
+}</code></pre></td><td class='expl'>The provided code snippet defines a dictionary named 'opts' which contains different optimization algorithms from the Nevergrad library. Each key in the dictionary corresponds to a specific optimizer, and each value is the corresponding class for that optimizer.</td></tr></tbody></table></div></details><details><summary><span style='color:#e74c3c;font-weight:bold'>✗ Not supported</span>&nbsp;&nbsp;<code></code></summary><div class='evidence'><p class='no-evidence'>No evidence recorded.</p></div></details></div><div class='practice-section'><h2 style='border-left: 4px solid #e74c3c; padding-left: .6rem;'>Real-World (Shadow Mode)</h2><details><summary><span style='color:#e74c3c;font-weight:bold'>✗ Not supported</span><span class='tag'>extracted</span>&nbsp;&nbsp;<code></code></summary><p class='warning'>⚠ LLM call failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)</p><div class='evidence'><p class='no-evidence'>No evidence recorded.</p></div></details><details><summary><span style='color:#e74c3c;font-weight:bold'>✗ Not supported</span>&nbsp;&nbsp;<code></code></summary><div class='evidence'><p class='no-evidence'>No evidence recorded.</p></div></details></div><div class='practice-section'><h2 style='border-left: 4px solid #2ecc71; padding-left: .6rem;'>Simulation-Based (Async/Parallel)</h2><details><summary><span style='color:#2ecc71;font-weight:bold'>✓ Supported</span><span class='tag'>extracted</span>&nbsp;&nbsp;<code></code></summary><div class='evidence'><table class='evidence-table'><thead><tr><th>Line</th><th>Code</th><th>Explanation</th></tr></thead><tbody><tr><td class='line'>—</td><td><pre><code>if opt_string not in opts:</code></pre></td><td class='expl'>This line checks if the provided optimizer string is supported by the function. If it is not, an exception is raised.</td></tr><tr><td class='line'>—</td><td><pre><code>raise NotImplementedError('Optimizer not found')</code></pre></td><td class='expl'>This line is executed when the provided optimizer string is not in the dictionary of supported optimizers. It raises a NotImplementedError with a message indicating that the optimizer is not found.</td></tr></tbody></table></div></details><details><summary><span style='color:#e74c3c;font-weight:bold'>✗ Not supported</span>&nbsp;&nbsp;<code></code></summary><div class='evidence'><p class='no-evidence'>No evidence recorded.</p></div></details></div>
+</body>
+</html>

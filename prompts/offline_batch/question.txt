@@ -1,0 +1,20 @@
+Analyze the TARGET FILE below. Does it implement Offline (Batch) data collection?
+
+Offline (Batch) data collection means the training data comes from a FIXED, pre-collected dataset that is loaded and consumed WITHOUT any live environment interaction during data gathering. The dataset may be obtained either by reading raw data files OR by calling a dataset/benchmark library API.
+
+COUNT AS EVIDENCE if the TARGET FILE contains ANY of the following:
+•⁠  ⁠Loading a fixed or benchmark dataset through a library API, e.g. d4rl.qlearning_dataset(env), env.get_dataset(), minari.load_dataset(...), RL Unplugged, tfds, or HuggingFace "datasets" loaders.
+•⁠  ⁠Reading a fixed dataset directly from external files (HDF5/.h5, NPZ/.npy, JSON lines, CSV, or Parquet).
+•⁠  ⁠Assembling the loaded data into a fixed transition/trajectory structure (for example a Transition namedtuple or a dict of observations/actions/rewards/next_observations/terminals) that is then sampled or iterated for training.
+•⁠  ⁠Sampling minibatches from, or iterating over, this fixed pool WITHOUT any calls to env.step(), live rollouts, or an active simulator that would generate new experience.
+•⁠  ⁠Parsing pre-recorded demonstrations, logged trajectories, or operational histories for off-policy training.
+
+DO NOT COUNT AS EVIDENCE:
+•⁠  ⁠Live rollout loops that step an environment and store the experience (this is online data generation, not offline ingestion), even if they also save it to a file.
+•⁠  ⁠A replay buffer that is filled DURING training by an agent interacting with a live environment (that is online / off-policy online RL, not offline batch).
+•⁠  ⁠Any code copied from the example — only extract code from the TARGET FILE.
+
+REMEMBER:
+•⁠  ⁠Output ONLY the JSON object described in the system prompt. No other text.
+•⁠  ⁠Use the line numbers shown in the TARGET FILE.
+•⁠  ⁠If no evidence, output {"supported": false, "evidence": [], "assets": {}}

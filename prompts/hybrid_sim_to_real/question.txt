@@ -1,0 +1,18 @@
+Analyze the TARGET FILE below. Does it implement Hybrid (Sim-to-Real) data collection?
+
+COUNT AS EVIDENCE only if the TARGET FILE contains:
+- Domain Randomization (dynamically modifying simulation attributes like mass, friction, gravity, inertia, link lengths).
+- System Identification logic calculating adjustments to align simulator telemetry parameters with live physical hardware observations.
+- Injecting artificial noise (Gaussian, uniform, sensor latency modeling) into simulated observation arrays to mask reality discrepancies.
+- Modifying underlying simulator XML configurations or physical properties on a per-episode reset baseline.
+
+DO NOT COUNT AS EVIDENCE:
+- Standard un-randomized simulation environments.
+- Basic exploration noise added to actions (e.g., standard Gaussian action noise or Ornstein-Uhlenbeck processes).
+- Generic random number seed initialization.
+- Any code copied from the example — only extract code from the TARGET FILE.
+
+REMEMBER:
+- Output ONLY the JSON object described in the system prompt. No other text.
+- Use the line numbers shown in the TARGET FILE.
+- If no evidence, output {"supported": false, "evidence": [], "assets": {}}

@@ -1,0 +1,933 @@
+{
+  "generated_at": "2026-06-24T14:41:11+00:00",
+  "repo_root": "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl",
+  "scan_run_id": 3,
+  "model": "qwen2.5-coder:7b",
+  "candidate_files": [
+    "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/awac.py",
+    "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/iql.py",
+    "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/xql.py",
+    "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/td3bc.py",
+    "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/cql.py",
+    "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/dt.py"
+  ],
+  "results_by_practice": {
+    "Human-in-the-Loop": {
+      "findings": [
+        {
+          "id": 168,
+          "scan_run_id": 3,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/awac.py",
+          "practice": "Human-in-the-Loop",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "",
+          "parse_warning": "LLM call failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)",
+          "was_extracted": true,
+          "created_at": "2026-06-24T11:47:27+00:00"
+        },
+        {
+          "id": 186,
+          "scan_run_id": 3,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/cql.py",
+          "practice": "Human-in-the-Loop",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "",
+          "parse_warning": "LLM call failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)",
+          "was_extracted": true,
+          "created_at": "2026-06-24T14:27:48+00:00"
+        },
+        {
+          "id": 173,
+          "scan_run_id": 3,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/dt.py",
+          "practice": "Human-in-the-Loop",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "",
+          "parse_warning": "LLM call failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)",
+          "was_extracted": true,
+          "created_at": "2026-06-24T12:42:57+00:00"
+        },
+        {
+          "id": 169,
+          "scan_run_id": 3,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/iql.py",
+          "practice": "Human-in-the-Loop",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "",
+          "parse_warning": "LLM call failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)",
+          "was_extracted": true,
+          "created_at": "2026-06-24T12:03:41+00:00"
+        },
+        {
+          "id": 171,
+          "scan_run_id": 3,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/td3bc.py",
+          "practice": "Human-in-the-Loop",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "",
+          "parse_warning": "LLM call failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)",
+          "was_extracted": true,
+          "created_at": "2026-06-24T12:34:33+00:00"
+        },
+        {
+          "id": 170,
+          "scan_run_id": 3,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/xql.py",
+          "practice": "Human-in-the-Loop",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "",
+          "parse_warning": "LLM call failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)",
+          "was_extracted": true,
+          "created_at": "2026-06-24T12:22:59+00:00"
+        }
+      ],
+      "summary": {
+        "total_files_scanned": 6,
+        "files_with_evidence": 0,
+        "files_without_evidence": 6,
+        "parse_warnings": 6,
+        "compliance_detected": false
+      }
+    },
+    "Hybrid (Sim-to-Real)": {
+      "findings": [
+        {
+          "id": 156,
+          "scan_run_id": 3,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/awac.py",
+          "practice": "Hybrid (Sim-to-Real)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "",
+          "parse_warning": "LLM call failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)",
+          "was_extracted": true,
+          "created_at": "2026-06-24T10:28:41+00:00"
+        },
+        {
+          "id": 160,
+          "scan_run_id": 3,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/cql.py",
+          "practice": "Hybrid (Sim-to-Real)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "",
+          "parse_warning": "LLM call failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)",
+          "was_extracted": true,
+          "created_at": "2026-06-24T10:47:04+00:00"
+        },
+        {
+          "id": 161,
+          "scan_run_id": 3,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/dt.py",
+          "practice": "Hybrid (Sim-to-Real)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{ \"supported\": false, \"evidence\": [] }",
+          "parse_warning": null,
+          "was_extracted": true,
+          "created_at": "2026-06-24T10:50:29+00:00"
+        },
+        {
+          "id": 157,
+          "scan_run_id": 3,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/iql.py",
+          "practice": "Hybrid (Sim-to-Real)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{ \"supported\": false, \"evidence\": [] }",
+          "parse_warning": null,
+          "was_extracted": true,
+          "created_at": "2026-06-24T10:32:10+00:00"
+        },
+        {
+          "id": 159,
+          "scan_run_id": 3,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/td3bc.py",
+          "practice": "Hybrid (Sim-to-Real)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "",
+          "parse_warning": "LLM call failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)",
+          "was_extracted": true,
+          "created_at": "2026-06-24T10:42:04+00:00"
+        },
+        {
+          "id": 158,
+          "scan_run_id": 3,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/xql.py",
+          "practice": "Hybrid (Sim-to-Real)",
+          "supported": true,
+          "evidence": [
+            {
+              "line_number": null,
+              "code_snippet": "import jax.numpy as jnp",
+              "explanation": "This line imports the JAX version of NumPy, which is used for numerical operations in the code."
+            },
+            {
+              "line_number": null,
+              "code_snippet": "from flax import linen as nn",
+              "explanation": "This line imports Flax's Linen library, which provides a high-level API for building neural networks in JAX."
+            },
+            {
+              "line_number": null,
+              "code_snippet": "import optax",
+              "explanation": "This line imports Optax, which is a library for optimizing machine learning models using JAX."
+            },
+            {
+              "line_number": null,
+              "code_snippet": "from flax.training.train_state import TrainState",
+              "explanation": "This line imports the TrainState class from Flax's training module, which provides a dataclass for storing and updating model parameters and optimization state."
+            },
+            {
+              "line_number": null,
+              "code_snippet": "import wandb",
+              "explanation": "This line imports Weights & Biases (W&B), a platform for experiment tracking, version control, and collaboration in machine learning."
+            },
+            {
+              "line_number": null,
+              "code_snippet": "from collections import namedtuple",
+              "explanation": "This line imports the namedtuple function from Python's collections module, which creates tuple subclasses with named fields."
+            },
+            {
+              "line_number": null,
+              "code_snippet": "Transition = namedtuple('Transition', ['observations', 'actions', 'next_observations', 'rewards', 'dones'])",
+              "explanation": "This line defines a namedtuple called Transition to store the elements of an experience replay buffer."
+            }
+          ],
+          "assets": {},
+          "raw_response": "{ \"supported\": true, \"evidence\": [ { \"code_snippet\": \"import jax.numpy as jnp\", \"explanation\": \"This line imports the JAX version of NumPy, which is used for numerical operations in the code.\" }, { \"code_snippet\": \"from flax import linen as nn\", \"explanation\": \"This line imports Flax's Linen library, which provides a high-level API for building neural networks in JAX.\" }, { \"code_snippet\": \"import optax\", \"explanation\": \"This line imports Optax, which is a library for optimizing machine learning models using JAX.\" }, { \"code_snippet\": \"from flax.training.train_state import TrainState\", \"explanation\": \"This line imports the TrainState class from Flax's training module, which provides a dataclass for storing and updating model parameters and optimization state.\" }, { \"code_snippet\": \"import wandb\", \"explanation\": \"This line imports Weights & Biases (W&B), a platform for experiment tracking, version control, and collaboration in machine learning.\" }, { \"code_snippet\": \"from collections import namedtuple\", \"explanation\": \"This line imports the namedtuple function from Python's collections module, which creates tuple subclasses with named fields.\" }, { \"code_snippet\": \"Transition = namedtuple('Transition', ['observations', 'actions', 'next_observations', 'rewards', 'dones'])\", \"explanation\": \"This line defines a namedtuple called Transition to store the elements of an experience replay buffer.\" } ] }",
+          "parse_warning": null,
+          "was_extracted": true,
+          "created_at": "2026-06-24T10:37:04+00:00"
+        }
+      ],
+      "summary": {
+        "total_files_scanned": 6,
+        "files_with_evidence": 1,
+        "files_without_evidence": 5,
+        "parse_warnings": 3,
+        "compliance_detected": true
+      }
+    },
+    "League-Based Curriculum": {
+      "findings": [
+        {
+          "id": 174,
+          "scan_run_id": 3,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/awac.py",
+          "practice": "League-Based Curriculum",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "",
+          "parse_warning": "LLM call failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)",
+          "was_extracted": true,
+          "created_at": "2026-06-24T12:47:57+00:00"
+        },
+        {
+          "id": 178,
+          "scan_run_id": 3,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/cql.py",
+          "practice": "League-Based Curriculum",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n    \"supported\": false,\n    \"evidence\": []\n}",
+          "parse_warning": null,
+          "was_extracted": true,
+          "created_at": "2026-06-24T13:07:42+00:00"
+        },
+        {
+          "id": 179,
+          "scan_run_id": 3,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/dt.py",
+          "practice": "League-Based Curriculum",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "",
+          "parse_warning": "LLM call failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)",
+          "was_extracted": true,
+          "created_at": "2026-06-24T13:12:42+00:00"
+        },
+        {
+          "id": 175,
+          "scan_run_id": 3,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/iql.py",
+          "practice": "League-Based Curriculum",
+          "supported": true,
+          "evidence": [
+            {
+              "line_number": null,
+              "code_snippet": "train_state, update_info = update_fn(train_state, dataset, subkey, config)",
+              "explanation": "This line shows the usage of the 'update_n_times' method within a loop to perform multiple updates on the training state. It is part of the main training loop where the model parameters are updated iteratively."
+            },
+            {
+              "line_number": null,
+              "code_snippet": "for _ in range(config.max_steps // config.n_jitted_updates):",
+              "explanation": "This line indicates that the 'update_n_times' method will be called for a total number of steps divided by the number of jitted updates per step. This is used to manage the training process and ensure that the model is updated over time."
+            }
+          ],
+          "assets": {},
+          "raw_response": "{\n    \"supported\": true,\n    \"evidence\": [\n        {\n            \"code_snippet\": \"train_state, update_info = update_fn(train_state, dataset, subkey, config)\",\n            \"explanation\": \"This line shows the usage of the 'update_n_times' method within a loop to perform multiple updates on the training state. It is part of the main training loop where the model parameters are updated iteratively.\"\n        },\n        {\n            \"code_snippet\": \"for _ in range(config.max_steps // config.n_jitted_updates):\",\n            \"explanation\": \"This line indicates that the 'update_n_times' method will be called for a total number of steps divided by the number of jitted updates per step. This is used to manage the training process and ensure that the model is updated over time.\"\n        }\n    ]\n}",
+          "parse_warning": null,
+          "was_extracted": true,
+          "created_at": "2026-06-24T12:52:11+00:00"
+        },
+        {
+          "id": 177,
+          "scan_run_id": 3,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/td3bc.py",
+          "practice": "League-Based Curriculum",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n    \"supported\": false,\n    \"evidence\": []\n}",
+          "parse_warning": null,
+          "was_extracted": true,
+          "created_at": "2026-06-24T13:04:15+00:00"
+        },
+        {
+          "id": 176,
+          "scan_run_id": 3,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/xql.py",
+          "practice": "League-Based Curriculum",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "",
+          "parse_warning": "LLM call failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)",
+          "was_extracted": true,
+          "created_at": "2026-06-24T13:00:50+00:00"
+        }
+      ],
+      "summary": {
+        "total_files_scanned": 6,
+        "files_with_evidence": 1,
+        "files_without_evidence": 5,
+        "parse_warnings": 3,
+        "compliance_detected": true
+      }
+    },
+    "Offline (Batch)": {
+      "findings": [
+        {
+          "id": 162,
+          "scan_run_id": 3,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/awac.py",
+          "practice": "Offline (Batch)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "",
+          "parse_warning": "LLM call failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)",
+          "was_extracted": true,
+          "created_at": "2026-06-24T10:56:54+00:00"
+        },
+        {
+          "id": 166,
+          "scan_run_id": 3,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/cql.py",
+          "practice": "Offline (Batch)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": []\n}",
+          "parse_warning": null,
+          "was_extracted": true,
+          "created_at": "2026-06-24T11:17:46+00:00"
+        },
+        {
+          "id": 167,
+          "scan_run_id": 3,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/dt.py",
+          "practice": "Offline (Batch)",
+          "supported": true,
+          "evidence": [
+            {
+              "line_number": null,
+              "code_snippet": "timesteps, states, actions, returns_to_go, traj_mask = batch.timesteps, batch.states, batch.actions, batch.returns_to_go, batch.masks",
+              "explanation": "The code snippet shows the extraction of `timesteps`, `states`, `actions`, `returns_to_go`, and `traj_mask` from the batch."
+            },
+            {
+              "line_number": null,
+              "code_snippet": "state_preds, action_preds, return_preds = train_state.transformer.apply_fn(train_state.transformer.params, timesteps, states, actions, returns_to_go, training=False)",
+              "explanation": "The code snippet shows the application of the transformer to get predictions for state, action, and return."
+            },
+            {
+              "line_number": null,
+              "code_snippet": "train_state = TrainState.create(apply_fn=model.apply, params=params, tx=tx)",
+              "explanation": "The code snippet shows the creation of a training state with the model's apply function, parameters, and optimizer."
+            }
+          ],
+          "assets": {},
+          "raw_response": "{\n\"supported\": true,\n\"evidence\": [\n    {\n        \"code_snippet\": \"timesteps, states, actions, returns_to_go, traj_mask = batch.timesteps, batch.states, batch.actions, batch.returns_to_go, batch.masks\",\n        \"explanation\": \"The code snippet shows the extraction of `timesteps`, `states`, `actions`, `returns_to_go`, and `traj_mask` from the batch.\"\n    },\n    {\n        \"code_snippet\": \"state_preds, action_preds, return_preds = train_state.transformer.apply_fn(train_state.transformer.params, timesteps, states, actions, returns_to_go, training=False)\",\n        \"explanation\": \"The code snippet shows the application of the transformer to get predictions for state, action, and return.\"\n    },\n    {\n        \"code_snippet\": \"train_state = TrainState.create(apply_fn=model.apply, params=params, tx=tx)\",\n        \"explanation\": \"The code snippet shows the creation of a training state with the model's apply function, parameters, and optimizer.\"\n    }\n]\n}",
+          "parse_warning": null,
+          "was_extracted": true,
+          "created_at": "2026-06-24T11:42:27+00:00"
+        },
+        {
+          "id": 163,
+          "scan_run_id": 3,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/iql.py",
+          "practice": "Offline (Batch)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "",
+          "parse_warning": "LLM call failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)",
+          "was_extracted": true,
+          "created_at": "2026-06-24T11:02:33+00:00"
+        },
+        {
+          "id": 165,
+          "scan_run_id": 3,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/td3bc.py",
+          "practice": "Offline (Batch)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n    \"supported\": false,\n    \"evidence\": []\n}",
+          "parse_warning": null,
+          "was_extracted": true,
+          "created_at": "2026-06-24T11:14:20+00:00"
+        },
+        {
+          "id": 164,
+          "scan_run_id": 3,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/xql.py",
+          "practice": "Offline (Batch)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "",
+          "parse_warning": "LLM call failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)",
+          "was_extracted": true,
+          "created_at": "2026-06-24T11:10:56+00:00"
+        }
+      ],
+      "summary": {
+        "total_files_scanned": 6,
+        "files_with_evidence": 1,
+        "files_without_evidence": 5,
+        "parse_warnings": 3,
+        "compliance_detected": true
+      }
+    },
+    "Preference-Data Collection (Pairwise Comparison)": {
+      "findings": [
+        {
+          "id": 180,
+          "scan_run_id": 3,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/awac.py",
+          "practice": "Preference-Data Collection (Pairwise Comparison)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "",
+          "parse_warning": "LLM call failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)",
+          "was_extracted": true,
+          "created_at": "2026-06-24T13:17:42+00:00"
+        },
+        {
+          "id": 184,
+          "scan_run_id": 3,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/cql.py",
+          "practice": "Preference-Data Collection (Pairwise Comparison)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n    \"supported\": false,\n    \"evidence\": []\n}",
+          "parse_warning": null,
+          "was_extracted": true,
+          "created_at": "2026-06-24T14:17:50+00:00"
+        },
+        {
+          "id": 185,
+          "scan_run_id": 3,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/dt.py",
+          "practice": "Preference-Data Collection (Pairwise Comparison)",
+          "supported": false,
+          "evidence": [
+            {
+              "line_number": null,
+              "code_snippet": "class DT(object):",
+              "explanation": "This is a class definition for the Deep Transformer (DT) model."
+            },
+            {
+              "line_number": null,
+              "code_snippet": "@classmethod\n    def update(self, train_state: DTTrainState, batch: Trajectory, rng: jax.random.PRNGKey) -> Tuple[Any, jnp.ndarray]:",
+              "explanation": "This method updates the model's parameters based on a batch of trajectories."
+            },
+            {
+              "line_number": null,
+              "code_snippet": "@classmethod\n    def get_action(self,\n        self,\n        train_state: DTTrainState,\n        timesteps: jnp.ndarray,\n        states: jnp.ndarray,\n        actions: jnp.ndarray,\n        returns_to_go: jnp.ndarray,\n    ) -> jnp.ndarray:",
+              "explanation": "This method gets an action from the model given the current state of the environment."
+            },
+            {
+              "line_number": null,
+              "code_snippet": "def evaluate(policy_fn: Callable,\n    train_state: DTTrainState,\n    env: gym.Env,\n    config: DTConfig,\n    state_mean=0,\n    state_std=1,\n) -> float:",
+              "explanation": "This function evaluates the performance of the model in a given environment."
+            },
+            {
+              "line_number": null,
+              "code_snippet": "if __name__ == \"__main__\":",
+              "explanation": "The main execution block of the script where the DT model is created, trained, and evaluated."
+            }
+          ],
+          "assets": {},
+          "raw_response": "{\n    \"supported\": false,\n    \"evidence\": [\n        {\n            \"code_snippet\": \"class DT(object):\",\n            \"explanation\": \"This is a class definition for the Deep Transformer (DT) model.\"\n        },\n        {\n            \"code_snippet\": \"@classmethod\\n    def update(self, train_state: DTTrainState, batch: Trajectory, rng: jax.random.PRNGKey) -> Tuple[Any, jnp.ndarray]:\",\n            \"explanation\": \"This method updates the model's parameters based on a batch of trajectories.\"\n        },\n        {\n            \"code_snippet\": \"@classmethod\\n    def get_action(self,\\n        self,\\n        train_state: DTTrainState,\\n        timesteps: jnp.ndarray,\\n        states: jnp.ndarray,\\n        actions: jnp.ndarray,\\n        returns_to_go: jnp.ndarray,\\n    ) -> jnp.ndarray:\",\n            \"explanation\": \"This method gets an action from the model given the current state of the environment.\"\n        },\n        {\n            \"code_snippet\": \"def evaluate(policy_fn: Callable,\\n    train_state: DTTrainState,\\n    env: gym.Env,\\n    config: DTConfig,\\n    state_mean=0,\\n    state_std=1,\\n) -> float:\",\n            \"explanation\": \"This function evaluates the performance of the model in a given environment.\"\n        },\n        {\n            \"code_snippet\": \"if __name__ == \\\"__main__\\\":\",\n            \"explanation\": \"The main execution block of the script where the DT model is created, trained, and evaluated.\"\n        }\n    ],\n    \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": true,
+          "created_at": "2026-06-24T14:22:47+00:00"
+        },
+        {
+          "id": 181,
+          "scan_run_id": 3,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/iql.py",
+          "practice": "Preference-Data Collection (Pairwise Comparison)",
+          "supported": true,
+          "evidence": [
+            {
+              "line_number": null,
+              "code_snippet": "// initialize value\nvalue_model = ValueCritic(config.hidden_dims, layer_norm=config.layer_norm)\nvalue = TrainState.create(\n    apply_fn=value_model.apply,\n    params=value_model.init(value_rng, observations),\n    tx=optax.adam(learning_rate=config.value_lr),\n)",
+              "explanation": "The code snippet demonstrates how to initialize the value critic component of the IQL (Integrated Q-Learning) model. It creates an instance of `ValueCritic` using the specified hidden dimensions and layer normalization settings. The parameters for this model are initialized based on random keys (`value_rng`) and input observations, and it is set up with an Adam optimizer to learn from value function updates."
+            }
+          ],
+          "assets": {
+            "model_initialization": "ValueCritic",
+            "optimizer": "Adam",
+            "layer_normalization": "True"
+          },
+          "raw_response": "{\n    \"supported\": true,\n    \"evidence\": [\n        {\n            \"code_snippet\": \"// initialize value\\nvalue_model = ValueCritic(config.hidden_dims, layer_norm=config.layer_norm)\\nvalue = TrainState.create(\\n    apply_fn=value_model.apply,\\n    params=value_model.init(value_rng, observations),\\n    tx=optax.adam(learning_rate=config.value_lr),\\n)\",\n            \"explanation\": \"The code snippet demonstrates how to initialize the value critic component of the IQL (Integrated Q-Learning) model. It creates an instance of `ValueCritic` using the specified hidden dimensions and layer normalization settings. The parameters for this model are initialized based on random keys (`value_rng`) and input observations, and it is set up with an Adam optimizer to learn from value function updates.\"\n        }\n    ],\n    \"assets\": {\n        \"model_initialization\": \"ValueCritic\",\n        \"optimizer\": \"Adam\",\n        \"layer_normalization\": \"True\"\n    }\n}",
+          "parse_warning": null,
+          "was_extracted": true,
+          "created_at": "2026-06-24T13:22:04+00:00"
+        },
+        {
+          "id": 183,
+          "scan_run_id": 3,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/td3bc.py",
+          "practice": "Preference-Data Collection (Pairwise Comparison)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "",
+          "parse_warning": "LLM call failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)",
+          "was_extracted": true,
+          "created_at": "2026-06-24T13:34:23+00:00"
+        },
+        {
+          "id": 182,
+          "scan_run_id": 3,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/xql.py",
+          "practice": "Preference-Data Collection (Pairwise Comparison)",
+          "supported": true,
+          "evidence": [
+            {
+              "line_number": null,
+              "code_snippet": "class GaussianPolicy(GaussianDistribution):",
+              "explanation": "The `GaussianPolicy` class is a subclass of `GaussianDistribution`, indicating that it is a specific type of distribution policy in the context of reinforcement learning."
+            },
+            {
+              "line_number": null,
+              "code_snippet": "def __init__(self, hidden_dims, action_dim=1, log_std_min=-20.0):",
+              "explanation": "The constructor for `GaussianPolicy` takes parameters such as hidden dimensions and an optional action dimension, suggesting that it is designed to work with policies that output actions."
+            },
+            {
+              "line_number": null,
+              "code_snippet": "self.log_stds = self.create_variable('log_stds', initial_value=jnp.full((action_dim,), log_std_min))",
+              "explanation": "This line initializes a variable `log_stds` within the policy, which is crucial for defining the standard deviation of the action distribution."
+            },
+            {
+              "line_number": null,
+              "code_snippet": "def sample(self, seed=None, temperature=1.0):",
+              "explanation": "The `sample` method is defined to generate samples from the policy's distribution. This is essential for selecting actions during training and evaluation in reinforcement learning."
+            }
+          ],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": true,\n  \"evidence\": [\n    {\n      \"code_snippet\": \"class GaussianPolicy(GaussianDistribution):\",\n      \"explanation\": \"The `GaussianPolicy` class is a subclass of `GaussianDistribution`, indicating that it is a specific type of distribution policy in the context of reinforcement learning.\"\n    },\n    {\n      \"code_snippet\": \"def __init__(self, hidden_dims, action_dim=1, log_std_min=-20.0):\",\n      \"explanation\": \"The constructor for `GaussianPolicy` takes parameters such as hidden dimensions and an optional action dimension, suggesting that it is designed to work with policies that output actions.\"\n    },\n    {\n      \"code_snippet\": \"self.log_stds = self.create_variable('log_stds', initial_value=jnp.full((action_dim,), log_std_min))\",\n      \"explanation\": \"This line initializes a variable `log_stds` within the policy, which is crucial for defining the standard deviation of the action distribution.\"\n    },\n    {\n      \"code_snippet\": \"def sample(self, seed=None, temperature=1.0):\",\n      \"explanation\": \"The `sample` method is defined to generate samples from the policy's distribution. This is essential for selecting actions during training and evaluation in reinforcement learning.\"\n    }\n  ]\n}",
+          "parse_warning": null,
+          "was_extracted": true,
+          "created_at": "2026-06-24T13:29:23+00:00"
+        }
+      ],
+      "summary": {
+        "total_files_scanned": 6,
+        "files_with_evidence": 2,
+        "files_without_evidence": 4,
+        "parse_warnings": 2,
+        "compliance_detected": true
+      }
+    },
+    "Real-World (Shadow Mode)": {
+      "findings": [
+        {
+          "id": 150,
+          "scan_run_id": 3,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/awac.py",
+          "practice": "Real-World (Shadow Mode)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "",
+          "parse_warning": "LLM call failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)",
+          "was_extracted": true,
+          "created_at": "2026-06-24T10:01:16+00:00"
+        },
+        {
+          "id": 187,
+          "scan_run_id": 3,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/cql.py",
+          "practice": "Real-World (Shadow Mode)",
+          "supported": true,
+          "evidence": [
+            {
+              "line_number": null,
+              "code_snippet": "loss_collection[\"alpha_prime_loss\"] = alpha_prime_loss",
+              "explanation": "This line calculates the loss for the `alpha_prime` parameter in the CQL algorithm. It adjusts the learning rate of the policy based on how well the policy is able to choose actions that minimize the Q-values of the critic, thereby improving the stability and convergence of the policy."
+            },
+            {
+              "line_number": null,
+              "code_snippet": "return (tuple(loss_collection[key] for key in train_state.model_keys()), locals(),)",
+              "explanation": "This line returns a tuple containing all the computed losses for each model parameter in the training state. It also includes the local variables, which are used to update the metrics dictionary."
+            },
+            {
+              "line_number": null,
+              "code_snippet": "metrics.update(collect_metrics(aux_values, [...], \"cql\"))",
+              "explanation": "This line updates the metrics dictionary with additional information about the CQL algorithm's performance during training. It collects various statistics such as Q-values and policy actions."
+            }
+          ],
+          "assets": {},
+          "raw_response": "{ \"supported\": true, \"evidence\": [ { \"code_snippet\": \"loss_collection[\\\"alpha_prime_loss\\\"] = alpha_prime_loss\\n\", \"explanation\": \"This line calculates the loss for the `alpha_prime` parameter in the CQL algorithm. It adjusts the learning rate of the policy based on how well the policy is able to choose actions that minimize the Q-values of the critic, thereby improving the stability and convergence of the policy.\" }, { \"code_snippet\": \"return (tuple(loss_collection[key] for key in train_state.model_keys()), locals(),)\\n\", \"explanation\": \"This line returns a tuple containing all the computed losses for each model parameter in the training state. It also includes the local variables, which are used to update the metrics dictionary.\" }, { \"code_snippet\": \"metrics.update(collect_metrics(aux_values, [...], \\\"cql\\\"))\\n\", \"explanation\": \"This line updates the metrics dictionary with additional information about the CQL algorithm's performance during training. It collects various statistics such as Q-values and policy actions.\" } ] }",
+          "parse_warning": null,
+          "was_extracted": true,
+          "created_at": "2026-06-24T14:32:13+00:00"
+        },
+        {
+          "id": 155,
+          "scan_run_id": 3,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/dt.py",
+          "practice": "Real-World (Shadow Mode)",
+          "supported": true,
+          "evidence": [
+            {
+              "line_number": null,
+              "code_snippet": "def sample_traj_batch(\n    rng,\n    traj: Trajectory,\n    batch_size: int,\n    context_len: int,\n    episode_num: int,\n    padded_traj_lengths: jnp.ndarray,\n) -> Trajectory:",
+              "explanation": "This function is used to sample a batch of trajectories for training. It takes in a random number generator, a trajectory object, a batch size, a context length, the total number of episodes, and an array of padded trajectory lengths."
+            },
+            {
+              "line_number": null,
+              "code_snippet": "def evaluate(\n    policy_fn: Callable,\n    train_state: DTTrainState,\n    env: gym.Env,\n    config: DTConfig,\n    state_mean=0,\n    state_std=1,\n) -> float:",
+              "explanation": "This function is used to evaluate the trained model on a test environment. It takes in a policy function, a train state object, an environment object, a configuration object, and optionally mean and standard deviation values for state normalization."
+            }
+          ],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": true,\n  \"evidence\": [\n    {\n      \"code_snippet\": \"def sample_traj_batch(\\n    rng,\\n    traj: Trajectory,\\n    batch_size: int,\\n    context_len: int,\\n    episode_num: int,\\n    padded_traj_lengths: jnp.ndarray,\\n) -> Trajectory:\",\n      \"explanation\": \"This function is used to sample a batch of trajectories for training. It takes in a random number generator, a trajectory object, a batch size, a context length, the total number of episodes, and an array of padded trajectory lengths.\"\n    },\n    {\n      \"code_snippet\": \"def evaluate(\\n    policy_fn: Callable,\\n    train_state: DTTrainState,\\n    env: gym.Env,\\n    config: DTConfig,\\n    state_mean=0,\\n    state_std=1,\\n) -> float:\",\n      \"explanation\": \"This function is used to evaluate the trained model on a test environment. It takes in a policy function, a train state object, an environment object, a configuration object, and optionally mean and standard deviation values for state normalization.\"\n    }\n  ]\n}",
+          "parse_warning": null,
+          "was_extracted": true,
+          "created_at": "2026-06-24T10:23:41+00:00"
+        },
+        {
+          "id": 151,
+          "scan_run_id": 3,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/iql.py",
+          "practice": "Real-World (Shadow Mode)",
+          "supported": true,
+          "evidence": [
+            {
+              "line_number": null,
+              "code_snippet": "def create_iql_train_state(...):",
+              "explanation": "This function initializes the training state for the IQL algorithm, including the actor, critic, and value networks."
+            },
+            {
+              "line_number": null,
+              "code_snippet": "train_state: IQLTrainState = create_iql_train_state(...)",
+              "explanation": "The train state is created using the `create_iql_train_state` function before starting the training loop."
+            },
+            {
+              "line_number": null,
+              "code_snippet": "algo = IQL()",
+              "explanation": "An instance of the IQL class is created to handle the updates to the model."
+            },
+            {
+              "line_number": null,
+              "code_snippet": "update_fn = jax.jit(algo.update_n_times, static_argnums=(3,))",
+              "explanation": "The `update_n_times` method is JIT compiled for faster execution during training."
+            }
+          ],
+          "assets": {},
+          "raw_response": "{\n    \"supported\": true,\n    \"evidence\": [\n        {\n            \"code_snippet\": \"def create_iql_train_state(...):\",\n            \"explanation\": \"This function initializes the training state for the IQL algorithm, including the actor, critic, and value networks.\"\n        },\n        {\n            \"code_snippet\": \"train_state: IQLTrainState = create_iql_train_state(...)\",\n            \"explanation\": \"The train state is created using the `create_iql_train_state` function before starting the training loop.\"\n        },\n        {\n            \"code_snippet\": \"algo = IQL()\",\n            \"explanation\": \"An instance of the IQL class is created to handle the updates to the model.\"\n        },\n        {\n            \"code_snippet\": \"update_fn = jax.jit(algo.update_n_times, static_argnums=(3,))\",\n            \"explanation\": \"The `update_n_times` method is JIT compiled for faster execution during training.\"\n        }\n    ],\n    \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": true,
+          "created_at": "2026-06-24T10:05:40+00:00"
+        },
+        {
+          "id": 153,
+          "scan_run_id": 3,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/td3bc.py",
+          "practice": "Real-World (Shadow Mode)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "",
+          "parse_warning": "LLM call failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)",
+          "was_extracted": true,
+          "created_at": "2026-06-24T10:15:40+00:00"
+        },
+        {
+          "id": 152,
+          "scan_run_id": 3,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/xql.py",
+          "practice": "Real-World (Shadow Mode)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "",
+          "parse_warning": "LLM call failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)",
+          "was_extracted": true,
+          "created_at": "2026-06-24T10:10:40+00:00"
+        }
+      ],
+      "summary": {
+        "total_files_scanned": 6,
+        "files_with_evidence": 3,
+        "files_without_evidence": 3,
+        "parse_warnings": 3,
+        "compliance_detected": true
+      }
+    },
+    "Simulation-Based (Async/Parallel)": {
+      "findings": [
+        {
+          "id": 144,
+          "scan_run_id": 3,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/awac.py",
+          "practice": "Simulation-Based (Async/Parallel)",
+          "supported": true,
+          "evidence": [
+            {
+              "line_number": null,
+              "code_snippet": "def create_awac_train_state(\n    rng: jax.random.PRNGKey,\n    observations: jnp.ndarray,\n    actions: jnp.ndarray,\n    config: AWACConfig,\n) -> AWACTrainState:",
+              "explanation": "This function initializes the train state for the AWAC algorithm, including actor and critic models."
+            },
+            {
+              "line_number": null,
+              "code_snippet": "def evaluate(\n    policy_fn: Callable,\n    env: gym.Env,\n    num_episodes: int,\n    obs_mean: float,\n    obs_std: float,\n) -> float:",
+              "explanation": "This function evaluates the performance of a given policy on an environment by running multiple episodes and calculating the average episode return."
+            },
+            {
+              "line_number": null,
+              "code_snippet": "if __name__ == \"__main__\":\n    wandb.init(config=config, project=config.project)",
+              "explanation": "The main block initializes weights and biases for the experiment using Weights & Biases (WandB) and sets up the environment."
+            },
+            {
+              "line_number": null,
+              "code_snippet": "update_fn = jax.jit(algo.update_n_times, static_argnums=(3,))\nact_fn = jax.jit(algo.get_action)",
+              "explanation": "The update and action functions are JIT-compiled for better performance using JAX."
+            }
+          ],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": true,\n  \"evidence\": [\n    {\n      \"code_snippet\": \"def create_awac_train_state(\\n    rng: jax.random.PRNGKey,\\n    observations: jnp.ndarray,\\n    actions: jnp.ndarray,\\n    config: AWACConfig,\\n) -> AWACTrainState:\",\n      \"explanation\": \"This function initializes the train state for the AWAC algorithm, including actor and critic models.\"\n    },\n    {\n      \"code_snippet\": \"def evaluate(\\n    policy_fn: Callable,\\n    env: gym.Env,\\n    num_episodes: int,\\n    obs_mean: float,\\n    obs_std: float,\\n) -> float:\",\n      \"explanation\": \"This function evaluates the performance of a given policy on an environment by running multiple episodes and calculating the average episode return.\"\n    },\n    {\n      \"code_snippet\": \"if __name__ == \\\"__main__\\\":\\n    wandb.init(config=config, project=config.project)\",\n      \"explanation\": \"The main block initializes weights and biases for the experiment using Weights & Biases (WandB) and sets up the environment.\"\n    },\n    {\n      \"code_snippet\": \"update_fn = jax.jit(algo.update_n_times, static_argnums=(3,))\\nact_fn = jax.jit(algo.get_action)\",\n      \"explanation\": \"The update and action functions are JIT-compiled for better performance using JAX.\"\n    }\n  ]\n}",
+          "parse_warning": null,
+          "was_extracted": true,
+          "created_at": "2026-06-24T09:28:35+00:00"
+        },
+        {
+          "id": 148,
+          "scan_run_id": 3,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/cql.py",
+          "practice": "Simulation-Based (Async/Parallel)",
+          "supported": true,
+          "evidence": [
+            {
+              "line_number": null,
+              "code_snippet": "def update_n_times(self, train_state, dataset, config, num_updates):",
+              "explanation": "This function is part of the CQL class and is responsible for updating the model parameters. It takes in a train_state, dataset, config, and number of updates to perform."
+            },
+            {
+              "line_number": null,
+              "code_snippet": "def evaluate(policy_fn: Callable[[jnp.ndarray], jnp.ndarray], env: gym.Env, num_episodes: int, obs_mean=0, obs_std=1):",
+              "explanation": "This function is not part of the CQL class. It's a standalone function used for evaluating the policy performance in an environment."
+            },
+            {
+              "line_number": null,
+              "code_snippet": "if __name__ == \"__main__\":",
+              "explanation": "This is the main execution block where the training loop and evaluation are performed. The script creates a train_state, initializes the algorithm, and starts the training process."
+            }
+          ],
+          "assets": {},
+          "raw_response": "{\n\"supported\": true,\n\"evidence\": [\n{\n\"code_snippet\": \"def update_n_times(self, train_state, dataset, config, num_updates):\",\n\"explanation\": \"This function is part of the CQL class and is responsible for updating the model parameters. It takes in a train_state, dataset, config, and number of updates to perform.\"\n},\n{\n\"code_snippet\": \"def evaluate(policy_fn: Callable[[jnp.ndarray], jnp.ndarray], env: gym.Env, num_episodes: int, obs_mean=0, obs_std=1):\",\n\"explanation\": \"This function is not part of the CQL class. It's a standalone function used for evaluating the policy performance in an environment.\"\n},\n{\n\"code_snippet\": \"if __name__ == \\\"__main__\\\":\",\n\"explanation\": \"This is the main execution block where the training loop and evaluation are performed. The script creates a train_state, initializes the algorithm, and starts the training process.\"\n}\n]\n}",
+          "parse_warning": null,
+          "was_extracted": true,
+          "created_at": "2026-06-24T09:52:23+00:00"
+        },
+        {
+          "id": 189,
+          "scan_run_id": 3,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/dt.py",
+          "practice": "Simulation-Based (Async/Parallel)",
+          "supported": true,
+          "evidence": [
+            {
+              "line_number": null,
+              "code_snippet": "timesteps, states, actions, returns_to_go, traj_mask = batch.timesteps, batch.states, batch.actions, batch.returns_to_go, batch.masks",
+              "explanation": "The code snippet shows that the variables `timesteps`, `states`, `actions`, `returns_to_go`, and `traj_mask` are being assigned from a `batch` object. The `batch` object is of type `Trajectory`, which contains these variables as its attributes."
+            },
+            {
+              "line_number": null,
+              "code_snippet": "train_state = TrainState.create(apply_fn=model.apply, params=params, tx=tx)",
+              "explanation": "The code snippet shows that a new `TrainState` object is being created using the `create_dt_train_state` function. The `TrainState` object contains an `apply_fn`, which is a function that applies a given set of parameters to some input data."
+            }
+          ],
+          "assets": {},
+          "raw_response": "{\n    \"supported\": true,\n    \"evidence\": [\n        {\n            \"code_snippet\": \"timesteps, states, actions, returns_to_go, traj_mask = batch.timesteps, batch.states, batch.actions, batch.returns_to_go, batch.masks\",\n            \"explanation\": \"The code snippet shows that the variables `timesteps`, `states`, `actions`, `returns_to_go`, and `traj_mask` are being assigned from a `batch` object. The `batch` object is of type `Trajectory`, which contains these variables as its attributes.\"\n        },\n        {\n            \"code_snippet\": \"train_state = TrainState.create(apply_fn=model.apply, params=params, tx=tx)\",\n            \"explanation\": \"The code snippet shows that a new `TrainState` object is being created using the `create_dt_train_state` function. The `TrainState` object contains an `apply_fn`, which is a function that applies a given set of parameters to some input data.\"\n        }\n    ]\n}",
+          "parse_warning": null,
+          "was_extracted": true,
+          "created_at": "2026-06-24T14:41:11+00:00"
+        },
+        {
+          "id": 145,
+          "scan_run_id": 3,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/iql.py",
+          "practice": "Simulation-Based (Async/Parallel)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n    \"supported\": false,\n    \"evidence\": []\n}",
+          "parse_warning": null,
+          "was_extracted": true,
+          "created_at": "2026-06-24T09:39:40+00:00"
+        },
+        {
+          "id": 188,
+          "scan_run_id": 3,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/td3bc.py",
+          "practice": "Simulation-Based (Async/Parallel)",
+          "supported": true,
+          "evidence": [
+            {
+              "line_number": null,
+              "code_snippet": "if __name__ == \"__main__\":\n wandb.init(project=config.project, config=config)\n env = gym.make(config.env_name)\n rng = jax.random.PRNGKey(config.seed)\n dataset, obs_mean, obs_std = get_dataset(env, config)\n # create train_state\n rng, subkey = jax.random.split(rng)\n example_batch: Transition = jax.tree_util.tree_map(lambda x: x[0], dataset)\n train_state = create_td3bc_train_state(\n subkey, example_batch.observations, example_batch.actions, config\n )\n algo = TD3BC()\n update_fn = jax.jit(algo.update_n_times, static_argnums=(3,))\n act_fn = jax.jit(algo.get_action)\n\n num_steps = config.max_steps // config.n_jitted_updates",
+              "explanation": "The provided code snippet is a Python script that initializes and runs the TD3BC algorithm for training an agent on a gym environment. It includes importing necessary libraries, setting up the environment, creating a dataset, initializing the training state, defining update and action functions, and finally running the training loop."
+            }
+          ],
+          "assets": {},
+          "raw_response": "{ \"supported\": true, \"evidence\": [ { \"code_snippet\": \"if __name__ == \\\"__main__\\\":\\n wandb.init(project=config.project, config=config)\\n env = gym.make(config.env_name)\\n rng = jax.random.PRNGKey(config.seed)\\n dataset, obs_mean, obs_std = get_dataset(env, config)\\n # create train_state\\n rng, subkey = jax.random.split(rng)\\n example_batch: Transition = jax.tree_util.tree_map(lambda x: x[0], dataset)\\n train_state = create_td3bc_train_state(\\n subkey, example_batch.observations, example_batch.actions, config\\n )\\n algo = TD3BC()\\n update_fn = jax.jit(algo.update_n_times, static_argnums=(3,))\\n act_fn = jax.jit(algo.get_action)\\n\\n num_steps = config.max_steps // config.n_jitted_updates\\n\", \"explanation\": \"The provided code snippet is a Python script that initializes and runs the TD3BC algorithm for training an agent on a gym environment. It includes importing necessary libraries, setting up the environment, creating a dataset, initializing the training state, defining update and action functions, and finally running the training loop.\" } ] }",
+          "parse_warning": null,
+          "was_extracted": true,
+          "created_at": "2026-06-24T14:36:50+00:00"
+        },
+        {
+          "id": 146,
+          "scan_run_id": 3,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S3_jaxcorl/algos/xql.py",
+          "practice": "Simulation-Based (Async/Parallel)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "",
+          "parse_warning": "LLM call failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)",
+          "was_extracted": true,
+          "created_at": "2026-06-24T09:44:40+00:00"
+        }
+      ],
+      "summary": {
+        "total_files_scanned": 6,
+        "files_with_evidence": 4,
+        "files_without_evidence": 2,
+        "parse_warnings": 1,
+        "compliance_detected": true
+      }
+    }
+  },
+  "stage_status": [
+    {
+      "id": 171,
+      "scan_run_id": 3,
+      "stage": "repository_scan",
+      "state": "complete",
+      "progress": {
+        "processed": 6,
+        "total": 6
+      },
+      "message": "found 6 source files",
+      "started_at": "2026-06-24T09:23:44+00:00",
+      "updated_at": "2026-06-24T09:23:44+00:00"
+    },
+    {
+      "id": 172,
+      "scan_run_id": 3,
+      "stage": "file_selection",
+      "state": "complete",
+      "progress": {
+        "selected": 6,
+        "discovered": 6
+      },
+      "message": "selected 6/6 (all that qualified)",
+      "started_at": "2026-06-24T09:23:44+00:00",
+      "updated_at": "2026-06-24T09:23:46+00:00"
+    },
+    {
+      "id": 173,
+      "scan_run_id": 3,
+      "stage": "validation",
+      "state": "complete",
+      "progress": {
+        "validated": 6,
+        "rejected": 0
+      },
+      "message": "validated 6, rejected 0",
+      "started_at": "2026-06-24T09:23:46+00:00",
+      "updated_at": "2026-06-24T09:23:46+00:00"
+    },
+    {
+      "id": 174,
+      "scan_run_id": 3,
+      "stage": "detection",
+      "state": "partial",
+      "progress": {
+        "processed": 42,
+        "total": 42,
+        "warnings": 20
+      },
+      "message": "analysed 42 pairs (20 with parse warnings)",
+      "started_at": "2026-06-24T09:23:46+00:00",
+      "updated_at": "2026-06-24T14:22:47+00:00"
+    },
+    {
+      "id": 175,
+      "scan_run_id": 3,
+      "stage": "report_generation",
+      "state": "running",
+      "progress": null,
+      "message": "building all report(s)",
+      "started_at": "2026-06-24T14:41:11+00:00",
+      "updated_at": "2026-06-24T14:41:11+00:00"
+    }
+  ],
+  "agent_summary": {
+    "orchestrator_agent": "running",
+    "file_selection_agent": "complete",
+    "validation_agent": "complete",
+    "detection_agent": "complete",
+    "report_agent": "running"
+  }
+}

@@ -1,0 +1,24 @@
+Analyze the TARGET FILE below. Does it implement Real-World (Shadow Mode) data collection?
+
+COUNT AS EVIDENCE only if the TARGET FILE contains:
+- A pipeline that receives live real-world observations, runs an agent's
+  inference SILENTLY, logs the predicted action, but does NOT send that
+  action to the physical system / production controller.
+- Logging of the agent's "hypothetical" or "predicted" action alongside the
+  actual human/expert/production action that was actually executed.
+- Discrepancy detection: code that compares the agent's predicted action
+  against the executed action and flags or scores the difference.
+- A serial, synchronous loop that waits for each real sensor reading
+  (rather than batched simulated rollouts).
+
+DO NOT COUNT AS EVIDENCE:
+- Any simulated / synthetic data generation
+- Evaluation on a held-out dataset with no live environment
+- Import statements alone
+- Saving/loading model weights or checkpoints
+- Any code copied from the example — only extract code from the TARGET FILE
+
+REMEMBER:
+- Output ONLY the JSON object described in the system prompt. No other text.
+- Use the line numbers shown in the TARGET FILE.
+- If no evidence, output {"supported": false, "evidence": [], "assets": {}}

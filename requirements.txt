@@ -1,0 +1,5 @@
+# Runtime dependencies for the RL Data Collection Auditor v3.
+# Only these are imported by the project's own code; everything else
+# it uses is part of the Python standard library.
+streamlit>=1.38,<2
+requests>=2.31,<3

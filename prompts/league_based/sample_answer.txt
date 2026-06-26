@@ -1,0 +1,18 @@
+{
+  "supported": true,
+  "evidence": [
+    {
+      "line_number": 14,
+      "code_snippet": "def select_opponent(self, active_player_id, mechanism=\"pfsp\"):\n    if len(self.pool) < 2:\n        return None\n    candidates = [p for p in self.pool if p[\"id\"] != active_player_id]\n    return random.choice(candidates)",
+      "explanation": "The component executes adversarial matchmaking checks across an explicit collection of registered past policy versions to perform multi-agent self-play."
+    },
+    {
+      "line_number": 21,
+      "code_snippet": "def adjust_elo_metrics(self, winner_id, loser_id, k_factor=32):\n    expected_w = 1 / (1 + 10 ** ((self.elo_ratings[loser_id] - self.elo_ratings[winner_id]) / 400))\n    self.elo_ratings[winner_id] += k_factor * (1.0 - expected_w)\n    self.elo_ratings[loser_id] -= k_factor * (1.0 - expected_w)",
+      "explanation": "Competitive capability curves are updated using structured Elo algorithms tracking multi-agent curriculum progressions."
+    }
+  ],
+  "assets": {
+    "notes": "Implements self-play portfolio matchmaking mechanics with dynamic rating adjustments."
+  }
+}

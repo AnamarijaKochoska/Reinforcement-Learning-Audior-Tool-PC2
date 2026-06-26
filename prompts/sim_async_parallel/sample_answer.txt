@@ -1,0 +1,23 @@
+{
+  "supported": true,
+  "evidence": [
+    {
+      "line_number": 5,
+      "code_snippet": "def rollout_worker(env_name: str, result_queue: mp.Queue, num_steps: int):\n    \"\"\"Worker process: steps the environment and pushes transitions into the queue.\"\"\"\n    env = gym.make(env_name)\n    obs, _ = env.reset()\n    for _ in range(num_steps):\n        action = env.action_space.sample()\n        next_obs, reward, terminated, truncated, _ = env.step(action)\n        result_queue.put((obs, action, reward, next_obs, terminated or truncated))",
+      "explanation": "A standalone worker function steps an independent environment loop and streams generated transitions directly into a shared processing queue."
+    },
+    {
+      "line_number": 23,
+      "code_snippet": "workers = [\n    mp.Process(target=rollout_worker, args=(\"MountainCar-v0\", result_queue, 2000))\n    for _ in range(4)\n]\nfor w in workers:\n    w.start()",
+      "explanation": "The script instantiates and handles multi-process lifecycles to step multiple environments concurrently across parallel threads."
+    },
+    {
+      "line_number": 31,
+      "code_snippet": "collected = 0\nwhile collected < 8000:\n    transition = result_queue.get()\n    replay_buffer.append(transition)\n    collected += 1",
+      "explanation": "The centralized data learner non-blockingly consumes environment trajectory outputs from the worker streams, demonstrating isolated asynchronous rollouts."
+    }
+  ],
+  "assets": {
+    "notes": "Implements an isolated multiprocessing pipeline streaming step telemetry into a central memory bank."
+  }
+}

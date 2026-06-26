@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+.DS_Store
+rl_auditor_old.db
+rl_auditor.db.backup-*
+reports_old/
+repos/

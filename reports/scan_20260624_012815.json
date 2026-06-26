@@ -1,0 +1,1296 @@
+{
+  "generated_at": "2026-06-23T23:28:15+00:00",
+  "repo_root": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL",
+  "scan_run_id": 2,
+  "model": "qwen2.5-coder:7b",
+  "candidate_files": [
+    "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/a2c.py",
+    "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/ppo-continuous.py",
+    "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/a3c.py",
+    "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/acer.py",
+    "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/actor_critic.py",
+    "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/ppo-lstm.py",
+    "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/sac.py",
+    "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/vtrace.py",
+    "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/ddpg.py",
+    "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/dqn.py",
+    "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/ppo.py",
+    "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/REINFORCE.py"
+  ],
+  "results_by_practice": {
+    "Human-in-the-Loop": {
+      "findings": [
+        {
+          "id": 119,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/REINFORCE.py",
+          "practice": "Human-in-the-Loop",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T22:34:38+00:00"
+        },
+        {
+          "id": 108,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/a2c.py",
+          "practice": "Human-in-the-Loop",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T22:16:58+00:00"
+        },
+        {
+          "id": 110,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/a3c.py",
+          "practice": "Human-in-the-Loop",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T22:20:26+00:00"
+        },
+        {
+          "id": 111,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/acer.py",
+          "practice": "Human-in-the-Loop",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T22:22:24+00:00"
+        },
+        {
+          "id": 112,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/actor_critic.py",
+          "practice": "Human-in-the-Loop",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T22:23:33+00:00"
+        },
+        {
+          "id": 116,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/ddpg.py",
+          "practice": "Human-in-the-Loop",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T22:31:12+00:00"
+        },
+        {
+          "id": 117,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/dqn.py",
+          "practice": "Human-in-the-Loop",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T22:32:29+00:00"
+        },
+        {
+          "id": 109,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/ppo-continuous.py",
+          "practice": "Human-in-the-Loop",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T22:18:59+00:00"
+        },
+        {
+          "id": 113,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/ppo-lstm.py",
+          "practice": "Human-in-the-Loop",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T22:25:18+00:00"
+        },
+        {
+          "id": 118,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/ppo.py",
+          "practice": "Human-in-the-Loop",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T22:33:56+00:00"
+        },
+        {
+          "id": 114,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/sac.py",
+          "practice": "Human-in-the-Loop",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T22:27:40+00:00"
+        },
+        {
+          "id": 115,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/vtrace.py",
+          "practice": "Human-in-the-Loop",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T22:29:22+00:00"
+        }
+      ],
+      "summary": {
+        "total_files_scanned": 12,
+        "files_with_evidence": 0,
+        "files_without_evidence": 12,
+        "parse_warnings": 0,
+        "compliance_detected": false
+      }
+    },
+    "Hybrid (Sim-to-Real)": {
+      "findings": [
+        {
+          "id": 95,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/REINFORCE.py",
+          "practice": "Hybrid (Sim-to-Real)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T21:42:41+00:00"
+        },
+        {
+          "id": 84,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/a2c.py",
+          "practice": "Hybrid (Sim-to-Real)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T21:19:39+00:00"
+        },
+        {
+          "id": 86,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/a3c.py",
+          "practice": "Hybrid (Sim-to-Real)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T21:23:17+00:00"
+        },
+        {
+          "id": 87,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/acer.py",
+          "practice": "Hybrid (Sim-to-Real)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T21:25:11+00:00"
+        },
+        {
+          "id": 88,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/actor_critic.py",
+          "practice": "Hybrid (Sim-to-Real)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T21:26:22+00:00"
+        },
+        {
+          "id": 92,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/ddpg.py",
+          "practice": "Hybrid (Sim-to-Real)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T21:39:07+00:00"
+        },
+        {
+          "id": 93,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/dqn.py",
+          "practice": "Hybrid (Sim-to-Real)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T21:40:27+00:00"
+        },
+        {
+          "id": 85,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/ppo-continuous.py",
+          "practice": "Hybrid (Sim-to-Real)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T21:21:46+00:00"
+        },
+        {
+          "id": 89,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/ppo-lstm.py",
+          "practice": "Hybrid (Sim-to-Real)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T21:28:13+00:00"
+        },
+        {
+          "id": 94,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/ppo.py",
+          "practice": "Hybrid (Sim-to-Real)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T21:41:57+00:00"
+        },
+        {
+          "id": 90,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/sac.py",
+          "practice": "Hybrid (Sim-to-Real)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T21:35:25+00:00"
+        },
+        {
+          "id": 91,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/vtrace.py",
+          "practice": "Hybrid (Sim-to-Real)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T21:37:11+00:00"
+        }
+      ],
+      "summary": {
+        "total_files_scanned": 12,
+        "files_with_evidence": 0,
+        "files_without_evidence": 12,
+        "parse_warnings": 0,
+        "compliance_detected": false
+      }
+    },
+    "League-Based Curriculum": {
+      "findings": [
+        {
+          "id": 131,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/REINFORCE.py",
+          "practice": "League-Based Curriculum",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T22:56:36+00:00"
+        },
+        {
+          "id": 120,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/a2c.py",
+          "practice": "League-Based Curriculum",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T22:37:50+00:00"
+        },
+        {
+          "id": 122,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/a3c.py",
+          "practice": "League-Based Curriculum",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T22:41:43+00:00"
+        },
+        {
+          "id": 123,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/acer.py",
+          "practice": "League-Based Curriculum",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T22:43:38+00:00"
+        },
+        {
+          "id": 124,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/actor_critic.py",
+          "practice": "League-Based Curriculum",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T22:44:50+00:00"
+        },
+        {
+          "id": 128,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/ddpg.py",
+          "practice": "League-Based Curriculum",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T22:52:58+00:00"
+        },
+        {
+          "id": 129,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/dqn.py",
+          "practice": "League-Based Curriculum",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T22:54:19+00:00"
+        },
+        {
+          "id": 121,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/ppo-continuous.py",
+          "practice": "League-Based Curriculum",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T22:40:11+00:00"
+        },
+        {
+          "id": 125,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/ppo-lstm.py",
+          "practice": "League-Based Curriculum",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T22:46:42+00:00"
+        },
+        {
+          "id": 130,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/ppo.py",
+          "practice": "League-Based Curriculum",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T22:55:50+00:00"
+        },
+        {
+          "id": 126,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/sac.py",
+          "practice": "League-Based Curriculum",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T22:49:10+00:00"
+        },
+        {
+          "id": 127,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/vtrace.py",
+          "practice": "League-Based Curriculum",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T22:50:58+00:00"
+        }
+      ],
+      "summary": {
+        "total_files_scanned": 12,
+        "files_with_evidence": 0,
+        "files_without_evidence": 12,
+        "parse_warnings": 0,
+        "compliance_detected": false
+      }
+    },
+    "Offline (Batch)": {
+      "findings": [
+        {
+          "id": 107,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/REINFORCE.py",
+          "practice": "Offline (Batch)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T22:14:06+00:00"
+        },
+        {
+          "id": 96,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/a2c.py",
+          "practice": "Offline (Batch)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T21:45:27+00:00"
+        },
+        {
+          "id": 98,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/a3c.py",
+          "practice": "Offline (Batch)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T21:50:15+00:00"
+        },
+        {
+          "id": 99,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/acer.py",
+          "practice": "Offline (Batch)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T21:52:20+00:00"
+        },
+        {
+          "id": 100,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/actor_critic.py",
+          "practice": "Offline (Batch)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T21:53:39+00:00"
+        },
+        {
+          "id": 104,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/ddpg.py",
+          "practice": "Offline (Batch)",
+          "supported": false,
+          "evidence": [],
+          "assets": {
+            "notes": "The code implements an online learning algorithm using a replay buffer that fills during training, which is not offline batch data collection."
+          },
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {\n    \"notes\": \"The code implements an online learning algorithm using a replay buffer that fills during training, which is not offline batch data collection.\"\n  }\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T22:10:10+00:00"
+        },
+        {
+          "id": 105,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/dqn.py",
+          "practice": "Offline (Batch)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T22:11:38+00:00"
+        },
+        {
+          "id": 97,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/ppo-continuous.py",
+          "practice": "Offline (Batch)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T21:48:35+00:00"
+        },
+        {
+          "id": 101,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/ppo-lstm.py",
+          "practice": "Offline (Batch)",
+          "supported": false,
+          "evidence": [],
+          "assets": {
+            "notes": "The code includes live environment interaction during data collection, with calls to `env.step()` and an agent interacting with the environment to generate new experience."
+          },
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {\n    \"notes\": \"The code includes live environment interaction during data collection, with calls to `env.step()` and an agent interacting with the environment to generate new experience.\"\n  }\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T21:55:52+00:00"
+        },
+        {
+          "id": 106,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/ppo.py",
+          "practice": "Offline (Batch)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T22:13:17+00:00"
+        },
+        {
+          "id": 102,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/sac.py",
+          "practice": "Offline (Batch)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T21:58:35+00:00"
+        },
+        {
+          "id": 103,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/vtrace.py",
+          "practice": "Offline (Batch)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T22:07:54+00:00"
+        }
+      ],
+      "summary": {
+        "total_files_scanned": 12,
+        "files_with_evidence": 0,
+        "files_without_evidence": 12,
+        "parse_warnings": 0,
+        "compliance_detected": false
+      }
+    },
+    "Preference-Data Collection (Pairwise Comparison)": {
+      "findings": [
+        {
+          "id": 143,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/REINFORCE.py",
+          "practice": "Preference-Data Collection (Pairwise Comparison)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T23:28:15+00:00"
+        },
+        {
+          "id": 132,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/a2c.py",
+          "practice": "Preference-Data Collection (Pairwise Comparison)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T23:00:36+00:00"
+        },
+        {
+          "id": 134,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/a3c.py",
+          "practice": "Preference-Data Collection (Pairwise Comparison)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T23:04:54+00:00"
+        },
+        {
+          "id": 135,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/acer.py",
+          "practice": "Preference-Data Collection (Pairwise Comparison)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T23:06:58+00:00"
+        },
+        {
+          "id": 136,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/actor_critic.py",
+          "practice": "Preference-Data Collection (Pairwise Comparison)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T23:10:04+00:00"
+        },
+        {
+          "id": 140,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/ddpg.py",
+          "practice": "Preference-Data Collection (Pairwise Comparison)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T23:20:13+00:00"
+        },
+        {
+          "id": 141,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/dqn.py",
+          "practice": "Preference-Data Collection (Pairwise Comparison)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T23:23:29+00:00"
+        },
+        {
+          "id": 133,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/ppo-continuous.py",
+          "practice": "Preference-Data Collection (Pairwise Comparison)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T23:02:55+00:00"
+        },
+        {
+          "id": 137,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/ppo-lstm.py",
+          "practice": "Preference-Data Collection (Pairwise Comparison)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T23:12:53+00:00"
+        },
+        {
+          "id": 142,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/ppo.py",
+          "practice": "Preference-Data Collection (Pairwise Comparison)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T23:25:48+00:00"
+        },
+        {
+          "id": 138,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/sac.py",
+          "practice": "Preference-Data Collection (Pairwise Comparison)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T23:15:31+00:00"
+        },
+        {
+          "id": 139,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/vtrace.py",
+          "practice": "Preference-Data Collection (Pairwise Comparison)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T23:18:10+00:00"
+        }
+      ],
+      "summary": {
+        "total_files_scanned": 12,
+        "files_with_evidence": 0,
+        "files_without_evidence": 12,
+        "parse_warnings": 0,
+        "compliance_detected": false
+      }
+    },
+    "Real-World (Shadow Mode)": {
+      "findings": [
+        {
+          "id": 83,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/REINFORCE.py",
+          "practice": "Real-World (Shadow Mode)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T21:16:30+00:00"
+        },
+        {
+          "id": 72,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/a2c.py",
+          "practice": "Real-World (Shadow Mode)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T20:50:35+00:00"
+        },
+        {
+          "id": 74,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/a3c.py",
+          "practice": "Real-World (Shadow Mode)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T20:54:22+00:00"
+        },
+        {
+          "id": 75,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/acer.py",
+          "practice": "Real-World (Shadow Mode)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T21:03:16+00:00"
+        },
+        {
+          "id": 76,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/actor_critic.py",
+          "practice": "Real-World (Shadow Mode)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T21:04:28+00:00"
+        },
+        {
+          "id": 80,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/ddpg.py",
+          "practice": "Real-World (Shadow Mode)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T21:12:45+00:00"
+        },
+        {
+          "id": 81,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/dqn.py",
+          "practice": "Real-World (Shadow Mode)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T21:14:09+00:00"
+        },
+        {
+          "id": 73,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/ppo-continuous.py",
+          "practice": "Real-World (Shadow Mode)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T20:52:47+00:00"
+        },
+        {
+          "id": 77,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/ppo-lstm.py",
+          "practice": "Real-World (Shadow Mode)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T21:06:23+00:00"
+        },
+        {
+          "id": 82,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/ppo.py",
+          "practice": "Real-World (Shadow Mode)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T21:15:43+00:00"
+        },
+        {
+          "id": 78,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/sac.py",
+          "practice": "Real-World (Shadow Mode)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T21:08:56+00:00"
+        },
+        {
+          "id": 79,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/vtrace.py",
+          "practice": "Real-World (Shadow Mode)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T21:10:46+00:00"
+        }
+      ],
+      "summary": {
+        "total_files_scanned": 12,
+        "files_with_evidence": 0,
+        "files_without_evidence": 12,
+        "parse_warnings": 0,
+        "compliance_detected": false
+      }
+    },
+    "Simulation-Based (Async/Parallel)": {
+      "findings": [
+        {
+          "id": 71,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/REINFORCE.py",
+          "practice": "Simulation-Based (Async/Parallel)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T20:46:17+00:00"
+        },
+        {
+          "id": 60,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/a2c.py",
+          "practice": "Simulation-Based (Async/Parallel)",
+          "supported": true,
+          "evidence": [
+            {
+              "line_number": null,
+              "code_snippet": "envs = ParallelEnv(n_train_processes)",
+              "explanation": "Instantiates a class designed to manage multiple parallel environments."
+            },
+            {
+              "line_number": null,
+              "code_snippet": "def step_async(self, actions):\n    for master_end, action in zip(self.master_ends, actions):\n        master_end.send(('step', action))\n    self.waiting = True",
+              "explanation": "Delegates environment steps to multiple workers asynchronously."
+            },
+            {
+              "line_number": null,
+              "code_snippet": "def step_wait(self):\n    results = [master_end.recv() for master_end in self.master_ends]\n    self.waiting = False\n    obs, rews, dones, infos = zip(*results)\n    return np.stack(obs), np.stack(rews), np.stack(dones), infos",
+              "explanation": "Collects environment steps from multiple workers once they are ready."
+            }
+          ],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": true,\n  \"evidence\": [\n    {\n      \"code_snippet\": \"envs = ParallelEnv(n_train_processes)\",\n      \"explanation\": \"Instantiates a class designed to manage multiple parallel environments.\"\n    },\n    {\n      \"code_snippet\": \"def step_async(self, actions):\\n    for master_end, action in zip(self.master_ends, actions):\\n        master_end.send(('step', action))\\n    self.waiting = True\",\n      \"explanation\": \"Delegates environment steps to multiple workers asynchronously.\"\n    },\n    {\n      \"code_snippet\": \"def step_wait(self):\\n    results = [master_end.recv() for master_end in self.master_ends]\\n    self.waiting = False\\n    obs, rews, dones, infos = zip(*results)\\n    return np.stack(obs), np.stack(rews), np.stack(dones), infos\",\n      \"explanation\": \"Collects environment steps from multiple workers once they are ready.\"\n    }\n  ],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T20:21:26+00:00"
+        },
+        {
+          "id": 62,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/a3c.py",
+          "practice": "Simulation-Based (Async/Parallel)",
+          "supported": true,
+          "evidence": [
+            {
+              "line_number": null,
+              "code_snippet": "n_train_processes = 3",
+              "explanation": "The number of parallel training processes is explicitly set to more than one."
+            },
+            {
+              "line_number": null,
+              "code_snippet": "for rank in range(n_train_processes + 1):  # + 1 for test process\n    if rank == 0:\n        p = mp.Process(target=test, args=(global_model,))\n    else:\n        p = mp.Process(target=train, args=(global_model, rank,))",
+              "explanation": "The script explicitly creates multiple parallel processes using `mp.Process` to run training and testing functions in separate threads."
+            }
+          ],
+          "assets": {
+            "notes": "The script demonstrates a basic implementation of actor-critic reinforcement learning with parallel training processes."
+          },
+          "raw_response": "{\n  \"supported\": true,\n  \"evidence\": [\n    {\n      \"code_snippet\": \"n_train_processes = 3\",\n      \"explanation\": \"The number of parallel training processes is explicitly set to more than one.\"\n    },\n    {\n      \"code_snippet\": \"for rank in range(n_train_processes + 1):  # + 1 for test process\\n    if rank == 0:\\n        p = mp.Process(target=test, args=(global_model,))\\n    else:\\n        p = mp.Process(target=train, args=(global_model, rank,))\",\n      \"explanation\": \"The script explicitly creates multiple parallel processes using `mp.Process` to run training and testing functions in separate threads.\"\n    }\n  ],\n  \"assets\": {\n    \"notes\": \"The script demonstrates a basic implementation of actor-critic reinforcement learning with parallel training processes.\"\n  }\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T20:27:13+00:00"
+        },
+        {
+          "id": 63,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/acer.py",
+          "practice": "Simulation-Based (Async/Parallel)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T20:29:30+00:00"
+        },
+        {
+          "id": 64,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/actor_critic.py",
+          "practice": "Simulation-Based (Async/Parallel)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T20:31:01+00:00"
+        },
+        {
+          "id": 68,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/ddpg.py",
+          "practice": "Simulation-Based (Async/Parallel)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T20:41:33+00:00"
+        },
+        {
+          "id": 69,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/dqn.py",
+          "practice": "Simulation-Based (Async/Parallel)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T20:43:08+00:00"
+        },
+        {
+          "id": 61,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/ppo-continuous.py",
+          "practice": "Simulation-Based (Async/Parallel)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T20:24:22+00:00"
+        },
+        {
+          "id": 65,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/ppo-lstm.py",
+          "practice": "Simulation-Based (Async/Parallel)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T20:33:04+00:00"
+        },
+        {
+          "id": 70,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/ppo.py",
+          "practice": "Simulation-Based (Async/Parallel)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T20:45:16+00:00"
+        },
+        {
+          "id": 66,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/sac.py",
+          "practice": "Simulation-Based (Async/Parallel)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T20:36:04+00:00"
+        },
+        {
+          "id": 67,
+          "scan_run_id": 2,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S1_minimalRL/vtrace.py",
+          "practice": "Simulation-Based (Async/Parallel)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-23T20:39:09+00:00"
+        }
+      ],
+      "summary": {
+        "total_files_scanned": 12,
+        "files_with_evidence": 2,
+        "files_without_evidence": 10,
+        "parse_warnings": 0,
+        "compliance_detected": true
+      }
+    }
+  },
+  "stage_status": [
+    {
+      "id": 72,
+      "scan_run_id": 2,
+      "stage": "repository_scan",
+      "state": "complete",
+      "progress": {
+        "processed": 12,
+        "total": 12
+      },
+      "message": "found 12 source files",
+      "started_at": "2026-06-23T20:17:33+00:00",
+      "updated_at": "2026-06-23T20:17:33+00:00"
+    },
+    {
+      "id": 73,
+      "scan_run_id": 2,
+      "stage": "file_selection",
+      "state": "complete",
+      "progress": {
+        "selected": 12,
+        "discovered": 12
+      },
+      "message": "selected 12/12 (all that qualified)",
+      "started_at": "2026-06-23T20:17:33+00:00",
+      "updated_at": "2026-06-23T20:17:34+00:00"
+    },
+    {
+      "id": 74,
+      "scan_run_id": 2,
+      "stage": "validation",
+      "state": "complete",
+      "progress": {
+        "validated": 12,
+        "rejected": 0
+      },
+      "message": "validated 12, rejected 0",
+      "started_at": "2026-06-23T20:17:34+00:00",
+      "updated_at": "2026-06-23T20:17:34+00:00"
+    },
+    {
+      "id": 75,
+      "scan_run_id": 2,
+      "stage": "detection",
+      "state": "complete",
+      "progress": {
+        "processed": 84,
+        "total": 84,
+        "warnings": 0
+      },
+      "message": "analysed 84 pairs",
+      "started_at": "2026-06-23T20:17:34+00:00",
+      "updated_at": "2026-06-23T23:28:15+00:00"
+    },
+    {
+      "id": 76,
+      "scan_run_id": 2,
+      "stage": "report_generation",
+      "state": "running",
+      "progress": null,
+      "message": "building all report(s)",
+      "started_at": "2026-06-23T23:28:15+00:00",
+      "updated_at": "2026-06-23T23:28:15+00:00"
+    }
+  ],
+  "agent_summary": {
+    "orchestrator_agent": "running",
+    "file_selection_agent": "complete",
+    "validation_agent": "complete",
+    "detection_agent": "complete",
+    "report_agent": "running"
+  }
+}

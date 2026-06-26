@@ -1,0 +1,829 @@
+{
+  "generated_at": "2026-06-24T17:48:53+00:00",
+  "repo_root": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf",
+  "scan_run_id": 4,
+  "model": "qwen2.5-coder:7b",
+  "candidate_files": [
+    "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/summarize_rlhf/summarize_reward_model.py",
+    "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/summarize_rlhf/summarize_gpt.py",
+    "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/mingpt/rewards.py",
+    "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/happy_gpt/happy_tweet_gpt_pg.py",
+    "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/summarize_rlhf/summarize_sft.py",
+    "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/happy_gpt/happy_tweet_gpt_ppo.py"
+  ],
+  "results_by_practice": {
+    "Human-in-the-Loop": {
+      "findings": [
+        {
+          "id": 216,
+          "scan_run_id": 4,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/mingpt/rewards.py",
+          "practice": "Human-in-the-Loop",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-24T16:19:54+00:00"
+        },
+        {
+          "id": 217,
+          "scan_run_id": 4,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/happy_gpt/happy_tweet_gpt_pg.py",
+          "practice": "Human-in-the-Loop",
+          "supported": false,
+          "evidence": [
+            {
+              "line_number": null,
+              "code_snippet": "model.generate(prompt, max_new_tokens=block_size, temperature=1.0, do_sample=True, top_k=30)",
+              "explanation": "This code snippet shows that the model is generating new tweets based on a prompt. However, there is no indication of any human intervention or input."
+            },
+            {
+              "line_number": null,
+              "code_snippet": "rewards = reward_model(completion)",
+              "explanation": "The model's performance is being evaluated using a sentiment reward model. While this suggests some form of feedback, it does not involve direct human input to improve the model."
+            },
+            {
+              "line_number": null,
+              "code_snippet": "prompt = torch.full((batch_size, 1), end_of_text, dtype=torch.long, device=device)",
+              "explanation": "The initial prompt is set to a specific token. There is no indication of user input or modification based on feedback during the training process."
+            }
+          ],
+          "assets": {
+            "images": [
+              "happy_gpt_pretrain.png",
+              "happy_gpt_sft.png",
+              "happy_gpt_rl_pg.png"
+            ]
+          },
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [\n    {\n      \"code_snippet\": \"model.generate(prompt, max_new_tokens=block_size, temperature=1.0, do_sample=True, top_k=30)\",\n      \"explanation\": \"This code snippet shows that the model is generating new tweets based on a prompt. However, there is no indication of any human intervention or input.\"\n    },\n    {\n      \"code_snippet\": \"rewards = reward_model(completion)\",\n      \"explanation\": \"The model's performance is being evaluated using a sentiment reward model. While this suggests some form of feedback, it does not involve direct human input to improve the model.\"\n    },\n    {\n      \"code_snippet\": \"prompt = torch.full((batch_size, 1), end_of_text, dtype=torch.long, device=device)\",\n      \"explanation\": \"The initial prompt is set to a specific token. There is no indication of user input or modification based on feedback during the training process.\"\n    }\n  ],\n  \"assets\": {\n    \"images\": [\n      \"happy_gpt_pretrain.png\",\n      \"happy_gpt_sft.png\",\n      \"happy_gpt_rl_pg.png\"\n    ]\n  }\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-24T16:24:48+00:00"
+        },
+        {
+          "id": 219,
+          "scan_run_id": 4,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/happy_gpt/happy_tweet_gpt_ppo.py",
+          "practice": "Human-in-the-Loop",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-24T16:30:44+00:00"
+        },
+        {
+          "id": 215,
+          "scan_run_id": 4,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/summarize_rlhf/summarize_gpt.py",
+          "practice": "Human-in-the-Loop",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": true,
+          "created_at": "2026-06-24T16:17:31+00:00"
+        },
+        {
+          "id": 214,
+          "scan_run_id": 4,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/summarize_rlhf/summarize_reward_model.py",
+          "practice": "Human-in-the-Loop",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-24T16:14:26+00:00"
+        },
+        {
+          "id": 218,
+          "scan_run_id": 4,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/summarize_rlhf/summarize_sft.py",
+          "practice": "Human-in-the-Loop",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-24T16:27:37+00:00"
+        }
+      ],
+      "summary": {
+        "total_files_scanned": 6,
+        "files_with_evidence": 0,
+        "files_without_evidence": 6,
+        "parse_warnings": 0,
+        "compliance_detected": false
+      }
+    },
+    "Hybrid (Sim-to-Real)": {
+      "findings": [
+        {
+          "id": 204,
+          "scan_run_id": 4,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/mingpt/rewards.py",
+          "practice": "Hybrid (Sim-to-Real)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-24T15:32:09+00:00"
+        },
+        {
+          "id": 205,
+          "scan_run_id": 4,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/happy_gpt/happy_tweet_gpt_pg.py",
+          "practice": "Hybrid (Sim-to-Real)",
+          "supported": false,
+          "evidence": [
+            {
+              "line_number": null,
+              "code_snippet": "completion = model.generate(prompt, max_new_tokens=block_size, temperature=1.0, do_sample=True, top_k=30)",
+              "explanation": "This line generates new tweets using the model, which could be seen as sampling actions in an RL sense."
+            },
+            {
+              "line_number": null,
+              "code_snippet": "rewards = reward_model(completion)",
+              "explanation": "The rewards are evaluated based on sentiment, indicating a reinforcement learning component."
+            }
+          ],
+          "assets": {
+            "model_type": "GPT-micro",
+            "dataset_name": [
+              "TweetDataset"
+            ],
+            "losses_plot_filename": [
+              "happy_gpt_pretrain.png",
+              "happy_gpt_sft.png",
+              "happy_gpt_rl_pg.png"
+            ],
+            "model_save_path": "happy_gpt_pg.pt"
+          },
+          "raw_response": "{\n    \"supported\": false,\n    \"evidence\": [\n        {\n            \"code_snippet\": \"completion = model.generate(prompt, max_new_tokens=block_size, temperature=1.0, do_sample=True, top_k=30)\",\n            \"explanation\": \"This line generates new tweets using the model, which could be seen as sampling actions in an RL sense.\"\n        },\n        {\n            \"code_snippet\": \"rewards = reward_model(completion)\",\n            \"explanation\": \"The rewards are evaluated based on sentiment, indicating a reinforcement learning component.\"\n        }\n    ],\n    \"assets\": {\n        \"model_type\": \"GPT-micro\",\n        \"dataset_name\": [\"TweetDataset\"],\n        \"losses_plot_filename\": [\"happy_gpt_pretrain.png\", \"happy_gpt_sft.png\", \"happy_gpt_rl_pg.png\"],\n        \"model_save_path\": \"happy_gpt_pg.pt\"\n    }\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-24T15:36:26+00:00"
+        },
+        {
+          "id": 207,
+          "scan_run_id": 4,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/happy_gpt/happy_tweet_gpt_ppo.py",
+          "practice": "Hybrid (Sim-to-Real)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-24T15:44:48+00:00"
+        },
+        {
+          "id": 203,
+          "scan_run_id": 4,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/summarize_rlhf/summarize_gpt.py",
+          "practice": "Hybrid (Sim-to-Real)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": true,
+          "created_at": "2026-06-24T15:29:28+00:00"
+        },
+        {
+          "id": 202,
+          "scan_run_id": 4,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/summarize_rlhf/summarize_reward_model.py",
+          "practice": "Hybrid (Sim-to-Real)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-24T15:25:23+00:00"
+        },
+        {
+          "id": 206,
+          "scan_run_id": 4,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/summarize_rlhf/summarize_sft.py",
+          "practice": "Hybrid (Sim-to-Real)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "",
+          "parse_warning": "LLM call failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)",
+          "was_extracted": false,
+          "created_at": "2026-06-24T15:41:26+00:00"
+        }
+      ],
+      "summary": {
+        "total_files_scanned": 6,
+        "files_with_evidence": 0,
+        "files_without_evidence": 6,
+        "parse_warnings": 1,
+        "compliance_detected": false
+      }
+    },
+    "League-Based Curriculum": {
+      "findings": [
+        {
+          "id": 222,
+          "scan_run_id": 4,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/mingpt/rewards.py",
+          "practice": "League-Based Curriculum",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-24T16:56:16+00:00"
+        },
+        {
+          "id": 223,
+          "scan_run_id": 4,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/happy_gpt/happy_tweet_gpt_pg.py",
+          "practice": "League-Based Curriculum",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "",
+          "parse_warning": "LLM call failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)",
+          "was_extracted": false,
+          "created_at": "2026-06-24T17:01:16+00:00"
+        },
+        {
+          "id": 225,
+          "scan_run_id": 4,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/happy_gpt/happy_tweet_gpt_ppo.py",
+          "practice": "League-Based Curriculum",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-24T17:22:03+00:00"
+        },
+        {
+          "id": 221,
+          "scan_run_id": 4,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/summarize_rlhf/summarize_gpt.py",
+          "practice": "League-Based Curriculum",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": true,
+          "created_at": "2026-06-24T16:53:40+00:00"
+        },
+        {
+          "id": 220,
+          "scan_run_id": 4,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/summarize_rlhf/summarize_reward_model.py",
+          "practice": "League-Based Curriculum",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-24T16:34:08+00:00"
+        },
+        {
+          "id": 224,
+          "scan_run_id": 4,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/summarize_rlhf/summarize_sft.py",
+          "practice": "League-Based Curriculum",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-24T17:18:57+00:00"
+        }
+      ],
+      "summary": {
+        "total_files_scanned": 6,
+        "files_with_evidence": 0,
+        "files_without_evidence": 6,
+        "parse_warnings": 1,
+        "compliance_detected": false
+      }
+    },
+    "Offline (Batch)": {
+      "findings": [
+        {
+          "id": 210,
+          "scan_run_id": 4,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/mingpt/rewards.py",
+          "practice": "Offline (Batch)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-24T15:56:19+00:00"
+        },
+        {
+          "id": 211,
+          "scan_run_id": 4,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/happy_gpt/happy_tweet_gpt_pg.py",
+          "practice": "Offline (Batch)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "",
+          "parse_warning": "LLM call failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)",
+          "was_extracted": false,
+          "created_at": "2026-06-24T16:01:19+00:00"
+        },
+        {
+          "id": 213,
+          "scan_run_id": 4,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/happy_gpt/happy_tweet_gpt_ppo.py",
+          "practice": "Offline (Batch)",
+          "supported": true,
+          "evidence": [
+            {
+              "line_number": null,
+              "code_snippet": "train_config = TrainerConfig(learning_rate=3e-4, batch_size=32, num_iters=100)",
+              "explanation": "This snippet shows the configuration for training a model using the `Trainer` class, which is likely an internal or custom class used for training."
+            },
+            {
+              "line_number": null,
+              "code_snippet": "train_config = TrainerConfig(learning_rate=3e-4, batch_size=32, num_iters=100)",
+              "explanation": "This snippet shows the configuration for training a model using the `Trainer` class, which is likely an internal or custom class used for training."
+            },
+            {
+              "line_number": null,
+              "code_snippet": "train_config = TrainerConfig(learning_rate=3e-4, batch_size=32, num_iters=100)",
+              "explanation": "This snippet shows the configuration for training a model using the `Trainer` class, which is likely an internal or custom class used for training."
+            }
+          ],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": true,\n  \"evidence\": [\n    {\n      \"code_snippet\": \"train_config = TrainerConfig(learning_rate=3e-4, batch_size=32, num_iters=100)\",\n      \"explanation\": \"This snippet shows the configuration for training a model using the `Trainer` class, which is likely an internal or custom class used for training.\"\n    },\n    {\n      \"code_snippet\": \"train_config = TrainerConfig(learning_rate=3e-4, batch_size=32, num_iters=100)\",\n      \"explanation\": \"This snippet shows the configuration for training a model using the `Trainer` class, which is likely an internal or custom class used for training.\"\n    },\n    {\n      \"code_snippet\": \"train_config = TrainerConfig(learning_rate=3e-4, batch_size=32, num_iters=100)\",\n      \"explanation\": \"This snippet shows the configuration for training a model using the `Trainer` class, which is likely an internal or custom class used for training.\"\n    }\n  ]\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-24T16:11:05+00:00"
+        },
+        {
+          "id": 209,
+          "scan_run_id": 4,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/summarize_rlhf/summarize_gpt.py",
+          "practice": "Offline (Batch)",
+          "supported": true,
+          "evidence": [
+            {
+              "line_number": null,
+              "code_snippet": "ds = datasets.load_dataset(\"CarperAI/openai_summarize_tldr\", split=split)",
+              "explanation": "This line loads a fixed dataset through a library API, specifically the Hugging Face 'datasets' library."
+            }
+          ],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": true,\n  \"evidence\": [\n    {\n      \"code_snippet\": \"ds = datasets.load_dataset(\\\"CarperAI/openai_summarize_tldr\\\", split=split)\\n\",\n      \"explanation\": \"This line loads a fixed dataset through a library API, specifically the Hugging Face 'datasets' library.\"\n    }\n  ],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": true,
+          "created_at": "2026-06-24T15:53:29+00:00"
+        },
+        {
+          "id": 208,
+          "scan_run_id": 4,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/summarize_rlhf/summarize_reward_model.py",
+          "practice": "Offline (Batch)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "",
+          "parse_warning": "LLM call failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)",
+          "was_extracted": false,
+          "created_at": "2026-06-24T15:49:48+00:00"
+        },
+        {
+          "id": 212,
+          "scan_run_id": 4,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/summarize_rlhf/summarize_sft.py",
+          "practice": "Offline (Batch)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "",
+          "parse_warning": "LLM call failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)",
+          "was_extracted": false,
+          "created_at": "2026-06-24T16:06:19+00:00"
+        }
+      ],
+      "summary": {
+        "total_files_scanned": 6,
+        "files_with_evidence": 2,
+        "files_without_evidence": 4,
+        "parse_warnings": 3,
+        "compliance_detected": true
+      }
+    },
+    "Preference-Data Collection (Pairwise Comparison)": {
+      "findings": [
+        {
+          "id": 228,
+          "scan_run_id": 4,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/mingpt/rewards.py",
+          "practice": "Preference-Data Collection (Pairwise Comparison)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-24T17:35:50+00:00"
+        },
+        {
+          "id": 229,
+          "scan_run_id": 4,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/happy_gpt/happy_tweet_gpt_pg.py",
+          "practice": "Preference-Data Collection (Pairwise Comparison)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "",
+          "parse_warning": "LLM call failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)",
+          "was_extracted": false,
+          "created_at": "2026-06-24T17:40:50+00:00"
+        },
+        {
+          "id": 231,
+          "scan_run_id": 4,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/happy_gpt/happy_tweet_gpt_ppo.py",
+          "practice": "Preference-Data Collection (Pairwise Comparison)",
+          "supported": false,
+          "evidence": [
+            {
+              "line_number": null,
+              "code_snippet": "model.generate(prompt, max_new_tokens=block_size, temperature=1.0, do_sample=True, top_k=30)",
+              "explanation": "This line is used to generate new text from the model. It does not involve any comparison or evaluation of different options."
+            },
+            {
+              "line_number": null,
+              "code_snippet": "log_probs = model.log_probs(completion, target)",
+              "explanation": "This line calculates the log probabilities of the generated tokens. It does not compare these probabilities with those of another model."
+            },
+            {
+              "line_number": null,
+              "code_snippet": "flat_rewards = reward_model(completion)",
+              "explanation": "This line calculates rewards for the generated text using a reward model. However, it does not involve pairwise comparisons of different actions or options."
+            }
+          ],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [\n    {\n      \"code_snippet\": \"model.generate(prompt, max_new_tokens=block_size, temperature=1.0, do_sample=True, top_k=30)\",\n      \"explanation\": \"This line is used to generate new text from the model. It does not involve any comparison or evaluation of different options.\"\n    },\n    {\n      \"code_snippet\": \"log_probs = model.log_probs(completion, target)\",\n      \"explanation\": \"This line calculates the log probabilities of the generated tokens. It does not compare these probabilities with those of another model.\"\n    },\n    {\n      \"code_snippet\": \"flat_rewards = reward_model(completion)\",\n      \"explanation\": \"This line calculates rewards for the generated text using a reward model. However, it does not involve pairwise comparisons of different actions or options.\"\n    }\n  ],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-24T17:48:53+00:00"
+        },
+        {
+          "id": 227,
+          "scan_run_id": 4,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/summarize_rlhf/summarize_gpt.py",
+          "practice": "Preference-Data Collection (Pairwise Comparison)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "",
+          "parse_warning": "LLM call failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)",
+          "was_extracted": true,
+          "created_at": "2026-06-24T17:31:53+00:00"
+        },
+        {
+          "id": 226,
+          "scan_run_id": 4,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/summarize_rlhf/summarize_reward_model.py",
+          "practice": "Preference-Data Collection (Pairwise Comparison)",
+          "supported": true,
+          "evidence": [
+            {
+              "line_number": null,
+              "code_snippet": "train_dataset = RewardModelSummarize(block_size=block_size, split='train')\nvalid_dataset = RewardModelSummarize(block_size=block_size, split='valid1')",
+              "explanation": "The code creates datasets for training and validation using the `RewardModelSummarize` class. This indicates that there are data samples to be compared or evaluated."
+            },
+            {
+              "line_number": null,
+              "code_snippet": "loss, acc = model(batch[\"neg_toks\"], attn_mask=batch[\"neg_mask\"], positive_tokens=batch[\"pos_toks\"], positive_mask=batch[\"pos_mask\"])",
+              "explanation": "The model receives both positive and negative samples, indicating that it is being trained on pairs of items to distinguish between them."
+            },
+            {
+              "line_number": null,
+              "code_snippet": "with try_auto_cast(device):\n    loss, acc = model(batch[\"neg_toks\"], attn_mask=batch[\"neg_mask\"], positive_tokens=batch[\"pos_toks\"], positive_mask=batch[\"pos_mask\"])",
+              "explanation": "The training loop iterates over batches of data, computing the loss and accuracy between pairs of items."
+            },
+            {
+              "line_number": null,
+              "code_snippet": "optimizer.step()",
+              "explanation": "Optimization is performed based on the computed gradients, indicating that the model parameters are being updated using a supervised learning approach."
+            }
+          ],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": true,\n  \"evidence\": [\n    {\n      \"code_snippet\": \"train_dataset = RewardModelSummarize(block_size=block_size, split='train')\\nvalid_dataset = RewardModelSummarize(block_size=block_size, split='valid1')\",\n      \"explanation\": \"The code creates datasets for training and validation using the `RewardModelSummarize` class. This indicates that there are data samples to be compared or evaluated.\"\n    },\n    {\n      \"code_snippet\": \"loss, acc = model(batch[\\\"neg_toks\\\"], attn_mask=batch[\\\"neg_mask\\\"], positive_tokens=batch[\\\"pos_toks\\\"], positive_mask=batch[\\\"pos_mask\\\"])\",\n      \"explanation\": \"The model receives both positive and negative samples, indicating that it is being trained on pairs of items to distinguish between them.\"\n    },\n    {\n      \"code_snippet\": \"with try_auto_cast(device):\\n    loss, acc = model(batch[\\\"neg_toks\\\"], attn_mask=batch[\\\"neg_mask\\\"], positive_tokens=batch[\\\"pos_toks\\\"], positive_mask=batch[\\\"pos_mask\\\"])\",\n      \"explanation\": \"The training loop iterates over batches of data, computing the loss and accuracy between pairs of items.\"\n    },\n    {\n      \"code_snippet\": \"optimizer.step()\",\n      \"explanation\": \"Optimization is performed based on the computed gradients, indicating that the model parameters are being updated using a supervised learning approach.\"\n    }\n  ]\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-24T17:26:53+00:00"
+        },
+        {
+          "id": 230,
+          "scan_run_id": 4,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/summarize_rlhf/summarize_sft.py",
+          "practice": "Preference-Data Collection (Pairwise Comparison)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-24T17:44:37+00:00"
+        }
+      ],
+      "summary": {
+        "total_files_scanned": 6,
+        "files_with_evidence": 1,
+        "files_without_evidence": 5,
+        "parse_warnings": 2,
+        "compliance_detected": true
+      }
+    },
+    "Real-World (Shadow Mode)": {
+      "findings": [
+        {
+          "id": 198,
+          "scan_run_id": 4,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/mingpt/rewards.py",
+          "practice": "Real-World (Shadow Mode)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-24T15:11:31+00:00"
+        },
+        {
+          "id": 199,
+          "scan_run_id": 4,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/happy_gpt/happy_tweet_gpt_pg.py",
+          "practice": "Real-World (Shadow Mode)",
+          "supported": false,
+          "evidence": [
+            {
+              "line_number": null,
+              "code_snippet": "with torch.no_grad():\n    model.eval()\n    # Sample new tweets\n    completion = model.generate(prompt, max_new_tokens=block_size, temperature=1.0, do_sample=True, top_k=30)\n    model.train()",
+              "explanation": "The model is generating text (new tweets) without computing gradients, which indicates that this part of the code is used for inference and not for training."
+            }
+          ],
+          "assets": {
+            "image_url": "",
+            "video_url": ""
+          },
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [\n    {\n      \"code_snippet\": \"with torch.no_grad():\\n    model.eval()\\n    # Sample new tweets\\n    completion = model.generate(prompt, max_new_tokens=block_size, temperature=1.0, do_sample=True, top_k=30)\\n    model.train()\",\n      \"explanation\": \"The model is generating text (new tweets) without computing gradients, which indicates that this part of the code is used for inference and not for training.\"\n    }\n  ],\n  \"assets\": {\n    \"image_url\": \"\",\n    \"video_url\": \"\"\n  }\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-24T15:15:40+00:00"
+        },
+        {
+          "id": 201,
+          "scan_run_id": 4,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/happy_gpt/happy_tweet_gpt_ppo.py",
+          "practice": "Real-World (Shadow Mode)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-24T15:22:01+00:00"
+        },
+        {
+          "id": 197,
+          "scan_run_id": 4,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/summarize_rlhf/summarize_gpt.py",
+          "practice": "Real-World (Shadow Mode)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": true,
+          "created_at": "2026-06-24T15:08:37+00:00"
+        },
+        {
+          "id": 196,
+          "scan_run_id": 4,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/summarize_rlhf/summarize_reward_model.py",
+          "practice": "Real-World (Shadow Mode)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-24T15:05:09+00:00"
+        },
+        {
+          "id": 200,
+          "scan_run_id": 4,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/summarize_rlhf/summarize_sft.py",
+          "practice": "Real-World (Shadow Mode)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-24T15:18:53+00:00"
+        }
+      ],
+      "summary": {
+        "total_files_scanned": 6,
+        "files_with_evidence": 0,
+        "files_without_evidence": 6,
+        "parse_warnings": 0,
+        "compliance_detected": false
+      }
+    },
+    "Simulation-Based (Async/Parallel)": {
+      "findings": [
+        {
+          "id": 192,
+          "scan_run_id": 4,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/mingpt/rewards.py",
+          "practice": "Simulation-Based (Async/Parallel)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-24T14:51:10+00:00"
+        },
+        {
+          "id": 193,
+          "scan_run_id": 4,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/happy_gpt/happy_tweet_gpt_pg.py",
+          "practice": "Simulation-Based (Async/Parallel)",
+          "supported": false,
+          "evidence": [
+            {
+              "line_number": null,
+              "code_snippet": "trainer.run()",
+              "explanation": "The script only uses a single process to run the training and evaluation. It does not include any parallel or distributed training mechanisms, such as using multiple GPUs, TPUs, or a cluster of machines."
+            }
+          ],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [\n    {\n      \"code_snippet\": \"trainer.run()\",\n      \"explanation\": \"The script only uses a single process to run the training and evaluation. It does not include any parallel or distributed training mechanisms, such as using multiple GPUs, TPUs, or a cluster of machines.\"\n    }\n  ]\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-24T14:55:00+00:00"
+        },
+        {
+          "id": 195,
+          "scan_run_id": 4,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/happy_gpt/happy_tweet_gpt_ppo.py",
+          "practice": "Simulation-Based (Async/Parallel)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-24T15:01:44+00:00"
+        },
+        {
+          "id": 191,
+          "scan_run_id": 4,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/summarize_rlhf/summarize_gpt.py",
+          "practice": "Simulation-Based (Async/Parallel)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": true,
+          "created_at": "2026-06-24T14:48:22+00:00"
+        },
+        {
+          "id": 190,
+          "scan_run_id": 4,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/summarize_rlhf/summarize_reward_model.py",
+          "practice": "Simulation-Based (Async/Parallel)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-24T14:45:14+00:00"
+        },
+        {
+          "id": 194,
+          "scan_run_id": 4,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/summarize_rlhf/summarize_sft.py",
+          "practice": "Simulation-Based (Async/Parallel)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-24T14:58:36+00:00"
+        }
+      ],
+      "summary": {
+        "total_files_scanned": 6,
+        "files_with_evidence": 0,
+        "files_without_evidence": 6,
+        "parse_warnings": 0,
+        "compliance_detected": false
+      }
+    }
+  },
+  "stage_status": [
+    {
+      "id": 228,
+      "scan_run_id": 4,
+      "stage": "repository_scan",
+      "state": "complete",
+      "progress": {
+        "processed": 17,
+        "total": 17
+      },
+      "message": "found 17 source files",
+      "started_at": "2026-06-24T14:41:47+00:00",
+      "updated_at": "2026-06-24T14:41:47+00:00"
+    },
+    {
+      "id": 229,
+      "scan_run_id": 4,
+      "stage": "file_selection",
+      "state": "complete",
+      "progress": {
+        "selected": 6,
+        "discovered": 17
+      },
+      "message": "selected 6/17 (all that qualified)",
+      "started_at": "2026-06-24T14:41:47+00:00",
+      "updated_at": "2026-06-24T14:41:48+00:00"
+    },
+    {
+      "id": 230,
+      "scan_run_id": 4,
+      "stage": "validation",
+      "state": "complete",
+      "progress": {
+        "validated": 6,
+        "rejected": 0
+      },
+      "message": "validated 6, rejected 0",
+      "started_at": "2026-06-24T14:41:48+00:00",
+      "updated_at": "2026-06-24T14:41:48+00:00"
+    },
+    {
+      "id": 231,
+      "scan_run_id": 4,
+      "stage": "detection",
+      "state": "partial",
+      "progress": {
+        "processed": 42,
+        "total": 42,
+        "warnings": 7
+      },
+      "message": "analysed 42 pairs (7 with parse warnings)",
+      "started_at": "2026-06-24T14:41:48+00:00",
+      "updated_at": "2026-06-24T17:48:53+00:00"
+    },
+    {
+      "id": 232,
+      "scan_run_id": 4,
+      "stage": "report_generation",
+      "state": "running",
+      "progress": null,
+      "message": "building all report(s)",
+      "started_at": "2026-06-24T17:48:53+00:00",
+      "updated_at": "2026-06-24T17:48:53+00:00"
+    }
+  ],
+  "agent_summary": {
+    "orchestrator_agent": "running",
+    "file_selection_agent": "complete",
+    "validation_agent": "complete",
+    "detection_agent": "complete",
+    "report_agent": "running"
+  }
+}

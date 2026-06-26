@@ -1,0 +1,201 @@
+{
+  "repo_root": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf",
+  "results_by_practice": {
+    "Simulation-Based (Async/Parallel)": {
+      "findings": [
+        {
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/summarize_rlhf/summarize_reward_model.py",
+          "supported": false
+        },
+        {
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/summarize_rlhf/summarize_gpt.py",
+          "supported": false
+        },
+        {
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/mingpt/rewards.py",
+          "supported": false
+        },
+        {
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/happy_gpt/happy_tweet_gpt_pg.py",
+          "supported": false
+        },
+        {
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/summarize_rlhf/summarize_sft.py",
+          "supported": false
+        },
+        {
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/happy_gpt/happy_tweet_gpt_ppo.py",
+          "supported": false
+        }
+      ]
+    },
+    "Real-World (Shadow Mode)": {
+      "findings": [
+        {
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/summarize_rlhf/summarize_reward_model.py",
+          "supported": false
+        },
+        {
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/summarize_rlhf/summarize_gpt.py",
+          "supported": false
+        },
+        {
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/mingpt/rewards.py",
+          "supported": false
+        },
+        {
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/happy_gpt/happy_tweet_gpt_pg.py",
+          "supported": false
+        },
+        {
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/summarize_rlhf/summarize_sft.py",
+          "supported": false
+        },
+        {
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/happy_gpt/happy_tweet_gpt_ppo.py",
+          "supported": false
+        }
+      ]
+    },
+    "Hybrid (Sim-to-Real)": {
+      "findings": [
+        {
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/summarize_rlhf/summarize_reward_model.py",
+          "supported": false
+        },
+        {
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/summarize_rlhf/summarize_gpt.py",
+          "supported": false
+        },
+        {
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/mingpt/rewards.py",
+          "supported": false
+        },
+        {
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/happy_gpt/happy_tweet_gpt_pg.py",
+          "supported": false
+        },
+        {
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/summarize_rlhf/summarize_sft.py",
+          "supported": false
+        },
+        {
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/happy_gpt/happy_tweet_gpt_ppo.py",
+          "supported": false
+        }
+      ]
+    },
+    "Offline (Batch)": {
+      "findings": [
+        {
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/summarize_rlhf/summarize_reward_model.py",
+          "supported": false
+        },
+        {
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/summarize_rlhf/summarize_gpt.py",
+          "supported": false
+        },
+        {
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/mingpt/rewards.py",
+          "supported": false
+        },
+        {
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/happy_gpt/happy_tweet_gpt_pg.py",
+          "supported": false
+        },
+        {
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/summarize_rlhf/summarize_sft.py",
+          "supported": true
+        },
+        {
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/happy_gpt/happy_tweet_gpt_ppo.py",
+          "supported": false
+        }
+      ]
+    },
+    "Human-in-the-Loop": {
+      "findings": [
+        {
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/summarize_rlhf/summarize_reward_model.py",
+          "supported": false
+        },
+        {
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/summarize_rlhf/summarize_gpt.py",
+          "supported": false
+        },
+        {
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/mingpt/rewards.py",
+          "supported": false
+        },
+        {
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/happy_gpt/happy_tweet_gpt_pg.py",
+          "supported": false
+        },
+        {
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/summarize_rlhf/summarize_sft.py",
+          "supported": false
+        },
+        {
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/happy_gpt/happy_tweet_gpt_ppo.py",
+          "supported": false
+        }
+      ]
+    },
+    "League-Based Curriculum": {
+      "findings": [
+        {
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/summarize_rlhf/summarize_reward_model.py",
+          "supported": false
+        },
+        {
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/summarize_rlhf/summarize_gpt.py",
+          "supported": false
+        },
+        {
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/mingpt/rewards.py",
+          "supported": false
+        },
+        {
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/happy_gpt/happy_tweet_gpt_pg.py",
+          "supported": false
+        },
+        {
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/summarize_rlhf/summarize_sft.py",
+          "supported": false
+        },
+        {
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/happy_gpt/happy_tweet_gpt_ppo.py",
+          "supported": false
+        }
+      ]
+    },
+    "Preference-Data Collection (Pairwise Comparison)": {
+      "findings": [
+        {
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/summarize_rlhf/summarize_reward_model.py",
+          "supported": true
+        },
+        {
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/summarize_rlhf/summarize_gpt.py",
+          "supported": false
+        },
+        {
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/mingpt/rewards.py",
+          "supported": false
+        },
+        {
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/happy_gpt/happy_tweet_gpt_pg.py",
+          "supported": false
+        },
+        {
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/summarize_rlhf/summarize_sft.py",
+          "supported": false
+        },
+        {
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S7_minrlhf/projects/happy_gpt/happy_tweet_gpt_ppo.py",
+          "supported": false
+        }
+      ]
+    }
+  }
+}

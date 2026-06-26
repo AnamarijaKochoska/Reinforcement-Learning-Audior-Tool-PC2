@@ -1,0 +1,18 @@
+{
+  "supported": true,
+  "evidence": [
+    {
+      "line_number": 16,
+      "code_snippet": "rand_mass = np.random.uniform(*self.mass_range)\nrand_friction = np.random.uniform(*self.friction_range)\n\nif hasattr(self.unwrapped, \"model\"):\n    self.unwrapped.model.body_mass[1] = rand_mass\n    self.unwrapped.model.geom_friction[0, 0] = rand_friction",
+      "explanation": "The block randomizes mass and geometric friction parameters during runtime initialization to prepare policies for variable physical world conditions."
+    },
+    {
+      "line_number": 28,
+      "code_snippet": "sensor_noise = np.random.normal(0.0, 0.02, size=obs.shape)\ncorrupted_obs = obs + sensor_noise",
+      "explanation": "Observational vectors are perturbed with synthetic Gaussian distortions to proactively obscure systemic simulation accuracy biases."
+    }
+  ],
+  "assets": {
+    "notes": "Implements standard domain and observational randomization wrapper layers."
+  }
+}

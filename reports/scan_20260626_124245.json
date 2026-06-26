@@ -1,0 +1,388 @@
+{
+  "generated_at": "2026-06-26T10:42:45+00:00",
+  "repo_root": "/Users/anamarijakochoska/rl_eval_systems/S5_dropo",
+  "scan_run_id": 5,
+  "model": "qwen2.5-coder:7b",
+  "candidate_files": [
+    "/Users/anamarijakochoska/rl_eval_systems/S5_dropo/dropo/dropo.py",
+    "/Users/anamarijakochoska/rl_eval_systems/S5_dropo/utils.py"
+  ],
+  "results_by_practice": {
+    "Human-in-the-Loop": {
+      "findings": [
+        {
+          "id": 246,
+          "scan_run_id": 5,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S5_dropo/dropo/dropo.py",
+          "practice": "Human-in-the-Loop",
+          "supported": true,
+          "evidence": [
+            {
+              "line_number": null,
+              "code_snippet": "opts = {\n  'oneplusone': ng.optimizers.OnePlusOne, # simple robust method for continuous parameters with num_workers < 8.\n  'bayesian': ng.optimizers.BO, # Bayesian optimization\n  'twopointsde': ng.optimizers.TwoPointsDE,  # excellent in many cases, including very high num_workers\n  'pso': ng.optimizers.PSO, # excellent in terms of robustness, high num_workers ok\n  'tbpsa': ng.optimizers.TBPSA, # excellent for problems corrupted by noise, in particular overparameterized (neural) ones; very high num_workers ok).\n  'random': ng.optimizers.RandomSearch, # the classical random search baseline; don\u2019t use softmax with this optimizer.\n  'meta': ng.optimizers.NGOpt, # \u201cmeta\u201d-optimizer which adapts to the provided settings (budget, number of workers, parametrization) and should therefore be a good default.\n  'cma': ng.optimizers.CMA # CMA-ES (https://en.wikipedia.org/wiki/CMA-ES)\n}",
+              "explanation": "This is a dictionary mapping strings representing different optimization methods to their corresponding Nevergrad optimizer classes. The keys are the names of the optimization methods, and the values are the classes that implement these methods in Nevergrad."
+            }
+          ],
+          "assets": {},
+          "raw_response": "{ \"supported\": true, \"evidence\": [ { \"code_snippet\": \"opts = {\\n  'oneplusone': ng.optimizers.OnePlusOne, # simple robust method for continuous parameters with num_workers < 8.\\n  'bayesian': ng.optimizers.BO, # Bayesian optimization\\n  'twopointsde': ng.optimizers.TwoPointsDE,  # excellent in many cases, including very high num_workers\\n  'pso': ng.optimizers.PSO, # excellent in terms of robustness, high num_workers ok\\n  'tbpsa': ng.optimizers.TBPSA, # excellent for problems corrupted by noise, in particular overparameterized (neural) ones; very high num_workers ok).\\n  'random': ng.optimizers.RandomSearch, # the classical random search baseline; don\u2019t use softmax with this optimizer.\\n  'meta': ng.optimizers.NGOpt, # \u201cmeta\u201d-optimizer which adapts to the provided settings (budget, number of workers, parametrization) and should therefore be a good default.\\n  'cma': ng.optimizers.CMA # CMA-ES (https://en.wikipedia.org/wiki/CMA-ES)\\n}\", \"explanation\": \"This is a dictionary mapping strings representing different optimization methods to their corresponding Nevergrad optimizer classes. The keys are the names of the optimization methods, and the values are the classes that implement these methods in Nevergrad.\" } ] }",
+          "parse_warning": null,
+          "was_extracted": true,
+          "created_at": "2026-06-24T20:10:09+00:00"
+        },
+        {
+          "id": 241,
+          "scan_run_id": 5,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S5_dropo/utils.py",
+          "practice": "Human-in-the-Loop",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-24T19:03:19+00:00"
+        }
+      ],
+      "summary": {
+        "total_files_scanned": 2,
+        "files_with_evidence": 1,
+        "files_without_evidence": 1,
+        "parse_warnings": 0,
+        "compliance_detected": true
+      }
+    },
+    "Hybrid (Sim-to-Real)": {
+      "findings": [
+        {
+          "id": 236,
+          "scan_run_id": 5,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S5_dropo/dropo/dropo.py",
+          "practice": "Hybrid (Sim-to-Real)",
+          "supported": true,
+          "evidence": [
+            {
+              "line_number": null,
+              "code_snippet": "def _sample_from_bounds(self, lower_bound, upper_bound, dim, attempts=5):\n\t\"\"\"\n\tSamples a point from the given bounds until all dimensions are within the bounds.\n\t\"\"\"\n\tsample = []\n\tfor i in range(dim):\n\t\tsample.append(np.random.uniform(lower_bound, upper_bound))\n\n\tobs = np.array(sample)\n\n\twhile not self._are_in_bounds(obs, lower_bound, upper_bound) and attempts > 0:\n\t\tsample = []\n\t\tfor i in range(dim):\n\t\t\tsample.append(np.random.uniform(lower_bound, upper_bound))\n\n\t\tobs = np.array(sample)\n\t\tattempts -= 1\n\n\tif attempts == 0:\n\t\tobs[obs < lower_bound] = lower_bound\n\t\tobs[obs > upper_bound] = upper_bound\n\t\tprint(f\"Warning - Not all samples were above >= {lower_bound} or below {upper_bound} after 20 attempts. Setting them to their min/max bound values, respectively.\")\n\n\treturn np.array(sample).T",
+              "explanation": "This code snippet demonstrates a method for sampling points within specified bounds. It continues to sample until all dimensions of the point are within the given bounds or a maximum number of attempts is reached. If the maximum number of attempts is reached, it sets out-of-bounds values to the nearest boundary value and prints a warning."
+            }
+          ],
+          "assets": {},
+          "raw_response": "{ \"supported\": true, \"evidence\": [ { \"code_snippet\": \"def _sample_from_bounds(self, lower_bound, upper_bound, dim, attempts=5):\\n\\t\\\"\\\"\\\"\\n\\tSamples a point from the given bounds until all dimensions are within the bounds.\\n\\t\\\"\\\"\\\"\\n\\tsample = []\\n\\tfor i in range(dim):\\n\\t\\tsample.append(np.random.uniform(lower_bound, upper_bound))\\n\\n\\tobs = np.array(sample)\\n\\n\\twhile not self._are_in_bounds(obs, lower_bound, upper_bound) and attempts > 0:\\n\\t\\tsample = []\\n\\t\\tfor i in range(dim):\\n\\t\\t\\tsample.append(np.random.uniform(lower_bound, upper_bound))\\n\\n\\t\\tobs = np.array(sample)\\n\\t\\tattempts -= 1\\n\\n\\tif attempts == 0:\\n\\t\\tobs[obs < lower_bound] = lower_bound\\n\\t\\tobs[obs > upper_bound] = upper_bound\\n\\t\\tprint(f\\\"Warning - Not all samples were above >= {lower_bound} or below {upper_bound} after 20 attempts. Setting them to their min/max bound values, respectively.\\\")\\n\\n\\treturn np.array(sample).T\", \"explanation\": \"This code snippet demonstrates a method for sampling points within specified bounds. It continues to sample until all dimensions of the point are within the given bounds or a maximum number of attempts is reached. If the maximum number of attempts is reached, it sets out-of-bounds values to the nearest boundary value and prints a warning.\" } ] }",
+          "parse_warning": null,
+          "was_extracted": true,
+          "created_at": "2026-06-24T18:15:36+00:00"
+        },
+        {
+          "id": 237,
+          "scan_run_id": 5,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S5_dropo/utils.py",
+          "practice": "Hybrid (Sim-to-Real)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-24T18:17:18+00:00"
+        }
+      ],
+      "summary": {
+        "total_files_scanned": 2,
+        "files_with_evidence": 1,
+        "files_without_evidence": 1,
+        "parse_warnings": 0,
+        "compliance_detected": true
+      }
+    },
+    "League-Based Curriculum": {
+      "findings": [
+        {
+          "id": 247,
+          "scan_run_id": 5,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S5_dropo/dropo/dropo.py",
+          "practice": "League-Based Curriculum",
+          "supported": true,
+          "evidence": [
+            {
+              "line_number": null,
+              "code_snippet": "opts = {",
+              "explanation": "This dictionary contains mappings between optimizer names and their respective Nevergrad class objects."
+            },
+            {
+              "line_number": null,
+              "code_snippet": "if opt_string not in opts:",
+              "explanation": "This condition checks if the provided optimizer string is valid by looking it up in the 'opts' dictionary."
+            },
+            {
+              "line_number": null,
+              "code_snippet": "raise NotImplementedError('Optimizer not found')",
+              "explanation": "If an invalid optimizer string is provided, this line raises a `NotImplementedError` with a message indicating that the optimizer was not found."
+            }
+          ],
+          "assets": {},
+          "raw_response": "{\n    \"supported\": true,\n    \"evidence\": [\n        {\n            \"code_snippet\": \"opts = {\",\n            \"explanation\": \"This dictionary contains mappings between optimizer names and their respective Nevergrad class objects.\"\n        },\n        {\n            \"code_snippet\": \"if opt_string not in opts:\",\n            \"explanation\": \"This condition checks if the provided optimizer string is valid by looking it up in the 'opts' dictionary.\"\n        },\n        {\n            \"code_snippet\": \"raise NotImplementedError('Optimizer not found')\",\n            \"explanation\": \"If an invalid optimizer string is provided, this line raises a `NotImplementedError` with a message indicating that the optimizer was not found.\"\n        }\n    ]\n}",
+          "parse_warning": null,
+          "was_extracted": true,
+          "created_at": "2026-06-24T20:14:09+00:00"
+        },
+        {
+          "id": 243,
+          "scan_run_id": 5,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S5_dropo/utils.py",
+          "practice": "League-Based Curriculum",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-24T19:18:32+00:00"
+        }
+      ],
+      "summary": {
+        "total_files_scanned": 2,
+        "files_with_evidence": 1,
+        "files_without_evidence": 1,
+        "parse_warnings": 0,
+        "compliance_detected": true
+      }
+    },
+    "Offline (Batch)": {
+      "findings": [
+        {
+          "id": 238,
+          "scan_run_id": 5,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S5_dropo/dropo/dropo.py",
+          "practice": "Offline (Batch)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "",
+          "parse_warning": "LLM call failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)",
+          "was_extracted": true,
+          "created_at": "2026-06-24T18:23:14+00:00"
+        },
+        {
+          "id": 239,
+          "scan_run_id": 5,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S5_dropo/utils.py",
+          "practice": "Offline (Batch)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-24T18:41:29+00:00"
+        }
+      ],
+      "summary": {
+        "total_files_scanned": 2,
+        "files_with_evidence": 0,
+        "files_without_evidence": 2,
+        "parse_warnings": 1,
+        "compliance_detected": false
+      }
+    },
+    "Preference-Data Collection (Pairwise Comparison)": {
+      "findings": [
+        {
+          "id": 248,
+          "scan_run_id": 5,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S5_dropo/dropo/dropo.py",
+          "practice": "Preference-Data Collection (Pairwise Comparison)",
+          "supported": true,
+          "evidence": [
+            {
+              "line_number": null,
+              "code_snippet": "opts = {\n\"oneplusone\": ng.optimizers.OnePlusOne, # simple robust method for continuous parameters with num_workers < 8.\n\"bayesian\": ng.optimizers.BO, # Bayesian optimization\n\"twopointsde\": ng.optimizers.TwoPointsDE,  # excellent in many cases, including very high num_workers\n\"pso\": ng.optimizers.PSO, # excellent in terms of robustness, high num_workers ok\n\"tbpsa\": ng.optimizers.TBPSA, # excellent for problems corrupted by noise, in particular overparameterized (neural) ones; very high num_workers ok).\n\"random\": ng.optimizers.RandomSearch, # the classical random search baseline; don\u2019t use softmax with this optimizer.\n\"meta\": ng.optimizers.NGOpt, # \u201cmeta\u201d-optimizer which adapts to the provided settings (budget, number of workers, parametrization) and should therefore be a good default.\n\"cma\": ng.optimizers.CMA # CMA-ES (https://en.wikipedia.org/wiki/CMA-ES)\n}",
+              "explanation": "The provided code snippet defines a dictionary named 'opts' which contains different optimization algorithms from the Nevergrad library. Each key in the dictionary corresponds to a specific optimizer, and each value is the corresponding class for that optimizer."
+            }
+          ],
+          "assets": {},
+          "raw_response": "{ \"supported\": true, \"evidence\": [ { \"code_snippet\": \"opts = {\\n\\\"oneplusone\\\": ng.optimizers.OnePlusOne, # simple robust method for continuous parameters with num_workers < 8.\\n\\\"bayesian\\\": ng.optimizers.BO, # Bayesian optimization\\n\\\"twopointsde\\\": ng.optimizers.TwoPointsDE,  # excellent in many cases, including very high num_workers\\n\\\"pso\\\": ng.optimizers.PSO, # excellent in terms of robustness, high num_workers ok\\n\\\"tbpsa\\\": ng.optimizers.TBPSA, # excellent for problems corrupted by noise, in particular overparameterized (neural) ones; very high num_workers ok).\\n\\\"random\\\": ng.optimizers.RandomSearch, # the classical random search baseline; don\u2019t use softmax with this optimizer.\\n\\\"meta\\\": ng.optimizers.NGOpt, # \u201cmeta\u201d-optimizer which adapts to the provided settings (budget, number of workers, parametrization) and should therefore be a good default.\\n\\\"cma\\\": ng.optimizers.CMA # CMA-ES (https://en.wikipedia.org/wiki/CMA-ES)\\n}\", \"explanation\": \"The provided code snippet defines a dictionary named 'opts' which contains different optimization algorithms from the Nevergrad library. Each key in the dictionary corresponds to a specific optimizer, and each value is the corresponding class for that optimizer.\" } ] }",
+          "parse_warning": null,
+          "was_extracted": true,
+          "created_at": "2026-06-24T20:18:55+00:00"
+        },
+        {
+          "id": 245,
+          "scan_run_id": 5,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S5_dropo/utils.py",
+          "practice": "Preference-Data Collection (Pairwise Comparison)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-24T19:54:08+00:00"
+        }
+      ],
+      "summary": {
+        "total_files_scanned": 2,
+        "files_with_evidence": 1,
+        "files_without_evidence": 1,
+        "parse_warnings": 0,
+        "compliance_detected": true
+      }
+    },
+    "Real-World (Shadow Mode)": {
+      "findings": [
+        {
+          "id": 234,
+          "scan_run_id": 5,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S5_dropo/dropo/dropo.py",
+          "practice": "Real-World (Shadow Mode)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "",
+          "parse_warning": "LLM call failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)",
+          "was_extracted": true,
+          "created_at": "2026-06-24T18:08:42+00:00"
+        },
+        {
+          "id": 235,
+          "scan_run_id": 5,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S5_dropo/utils.py",
+          "practice": "Real-World (Shadow Mode)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-24T18:10:37+00:00"
+        }
+      ],
+      "summary": {
+        "total_files_scanned": 2,
+        "files_with_evidence": 0,
+        "files_without_evidence": 2,
+        "parse_warnings": 1,
+        "compliance_detected": false
+      }
+    },
+    "Simulation-Based (Async/Parallel)": {
+      "findings": [
+        {
+          "id": 232,
+          "scan_run_id": 5,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S5_dropo/dropo/dropo.py",
+          "practice": "Simulation-Based (Async/Parallel)",
+          "supported": true,
+          "evidence": [
+            {
+              "line_number": null,
+              "code_snippet": "if opt_string not in opts:",
+              "explanation": "This line checks if the provided optimizer string is supported by the function. If it is not, an exception is raised."
+            },
+            {
+              "line_number": null,
+              "code_snippet": "raise NotImplementedError('Optimizer not found')",
+              "explanation": "This line is executed when the provided optimizer string is not in the dictionary of supported optimizers. It raises a NotImplementedError with a message indicating that the optimizer is not found."
+            }
+          ],
+          "assets": {},
+          "raw_response": "{\n\"supported\": true,\n\"evidence\": [\n    {\n        \"code_snippet\": \"if opt_string not in opts:\",\n        \"explanation\": \"This line checks if the provided optimizer string is supported by the function. If it is not, an exception is raised.\"\n    },\n    {\n        \"code_snippet\": \"raise NotImplementedError('Optimizer not found')\",\n        \"explanation\": \"This line is executed when the provided optimizer string is not in the dictionary of supported optimizers. It raises a NotImplementedError with a message indicating that the optimizer is not found.\"\n    }\n]\n}",
+          "parse_warning": null,
+          "was_extracted": true,
+          "created_at": "2026-06-24T18:01:41+00:00"
+        },
+        {
+          "id": 233,
+          "scan_run_id": 5,
+          "file_path": "/Users/anamarijakochoska/rl_eval_systems/S5_dropo/utils.py",
+          "practice": "Simulation-Based (Async/Parallel)",
+          "supported": false,
+          "evidence": [],
+          "assets": {},
+          "raw_response": "{\n  \"supported\": false,\n  \"evidence\": [],\n  \"assets\": {}\n}",
+          "parse_warning": null,
+          "was_extracted": false,
+          "created_at": "2026-06-24T18:03:42+00:00"
+        }
+      ],
+      "summary": {
+        "total_files_scanned": 2,
+        "files_with_evidence": 1,
+        "files_without_evidence": 1,
+        "parse_warnings": 0,
+        "compliance_detected": true
+      }
+    }
+  },
+  "stage_status": [
+    {
+      "id": 285,
+      "scan_run_id": 5,
+      "stage": "repository_scan",
+      "state": "complete",
+      "progress": {
+        "processed": 5,
+        "total": 5
+      },
+      "message": "found 5 source files",
+      "started_at": "2026-06-24T17:57:43+00:00",
+      "updated_at": "2026-06-26T10:42:39+00:00"
+    },
+    {
+      "id": 286,
+      "scan_run_id": 5,
+      "stage": "file_selection",
+      "state": "complete",
+      "progress": {
+        "selected": 2,
+        "discovered": 5
+      },
+      "message": "selected 2/5 (all that qualified)",
+      "started_at": "2026-06-24T17:57:43+00:00",
+      "updated_at": "2026-06-24T17:57:44+00:00"
+    },
+    {
+      "id": 287,
+      "scan_run_id": 5,
+      "stage": "validation",
+      "state": "complete",
+      "progress": {
+        "validated": 2,
+        "rejected": 0
+      },
+      "message": "validated 2, rejected 0",
+      "started_at": "2026-06-24T17:57:44+00:00",
+      "updated_at": "2026-06-24T17:57:44+00:00"
+    },
+    {
+      "id": 288,
+      "scan_run_id": 5,
+      "stage": "detection",
+      "state": "partial",
+      "progress": {
+        "processed": 14,
+        "total": 14,
+        "warnings": 2
+      },
+      "message": "analysed 14 pairs (2 with parse warnings)",
+      "started_at": "2026-06-24T17:57:44+00:00",
+      "updated_at": "2026-06-24T19:54:08+00:00"
+    },
+    {
+      "id": 289,
+      "scan_run_id": 5,
+      "stage": "report_generation",
+      "state": "running",
+      "progress": null,
+      "message": "building all report(s)",
+      "started_at": "2026-06-24T20:18:55+00:00",
+      "updated_at": "2026-06-26T10:42:45+00:00"
+    }
+  ],
+  "agent_summary": {
+    "orchestrator_agent": "idle",
+    "file_selection_agent": "idle",
+    "validation_agent": "idle",
+    "detection_agent": "idle",
+    "report_agent": "running"
+  }
+}

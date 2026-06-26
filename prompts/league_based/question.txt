@@ -1,0 +1,16 @@
+Analyze the TARGET FILE below. Does it implement League-Based Curriculum data collection?
+
+COUNT AS EVIDENCE only if the TARGET FILE contains:
+- Maintenance of an explicit agent pool, registry, or directory tracking multiple distinct historical policy iterations.
+- Matchmaking logic that pairs the primary learning agent against dynamically sampled past historical snapshot variants (self-play).
+- Multi-agent competition orchestration fields calculating or modifying match ranking data distributions (ELO, TrueSkill) based on rollouts.
+
+DO NOT COUNT AS EVIDENCE:
+- Standard single-agent reinforcement loops tracking standard environmental elements.
+- Basic target network tracking variables (like standard target networks in DQN or critic stabilization steps).
+- Any code copied from the example — only extract code from the TARGET FILE.
+
+REMEMBER:
+- Output ONLY the JSON object described in the system prompt. No other text.
+- Use the line numbers shown in the TARGET FILE.
+- If no evidence, output {"supported": false, "evidence": [], "assets": {}}

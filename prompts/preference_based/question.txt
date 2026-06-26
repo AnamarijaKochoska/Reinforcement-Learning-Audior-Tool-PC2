@@ -1,0 +1,37 @@
+Analyze the TARGET FILE below. Does it implement Preference-Data Collection (Pairwise Comparison)?
+
+COUNT AS EVIDENCE only if the TARGET FILE contains:
+-  ⁠Collection or storage of pairwise comparisons or rankings between two or more
+  trajectory segments / episodes / model outputs
+  (e.g., a buffer or dataset of (chosen, rejected) or (segment_a, segment_b, label) tuples)
+-⁠  ⁠A function or interface that queries a human / labeler for a RELATIVE judgment
+  ("which is better", picking a preferred option, ranking K candidates)
+-⁠  ⁠Sampling or selection of segment/output PAIRS specifically in order to be compared
+  (clip-pair sampling, building comparison batches)
+-⁠  ⁠Active query selection that chooses WHICH pairs to label based on reward-model
+  uncertainty or ensemble disagreement
+-⁠  ⁠Training a reward / preference model with a COMPARISON loss
+  (Bradley-Terry / pairwise logistic / ranking loss over preferred vs. rejected),
+  i.e., relative targets rather than absolute scores
+-⁠  ⁠Conversion of a K-way ranking into pairwise comparisons
+
+DO NOT COUNT AS EVIDENCE:
+-⁠  ⁠Use of the environment's built-in scalar reward, or numeric reward shaping
+-⁠  ⁠A reward model trained by regression onto ABSOLUTE human scores/ratings
+  (scalar feedback, e.g. TAMER-style) — this is adjacent, NOT pairwise preference collection
+-⁠  ⁠Behavioral cloning or supervised learning on expert demonstrations
+  (this is Demonstration Collection, a different practice)
+-⁠  ⁠The RL optimization step that consumes an ALREADY-TRAINED reward model
+  (e.g., a PPO / policy-gradient update against reward_model(x)) — this is downstream
+  optimization, not data collection
+-⁠  ⁠Loading or inference with a PRETRAINED reward model when no comparison-collection
+  logic is present
+-⁠  ⁠Import statements alone (e.g., "from trl import RewardTrainer", or
+  "load_dataset('Anthropic/hh-rlhf')" with no preference-specific handling)
+-⁠  ⁠Generic logging, checkpointing, evaluation, or metric code
+-⁠  ⁠Any code copied from the example — only extract code from the TARGET FILE
+
+REMEMBER:
+-⁠  ⁠Output ONLY the JSON object described in the system prompt. No other text.
+-⁠  ⁠Use the line numbers shown in the TARGET FILE.
+-⁠  ⁠If no evidence, output {"supported": false, "evidence": [], "assets": {}}

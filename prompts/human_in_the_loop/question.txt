@@ -1,0 +1,16 @@
+Analyze the TARGET FILE below. Does it implement Human-in-the-Loop data collection?
+
+COUNT AS EVIDENCE only if the TARGET FILE contains:
+- Control Takeover / Intervention systems: switching active action authority from an agent policy to a human controller interface.
+- Safety gating logic tracking structural triggers where an operator overrides automated signals.
+- Explicit labeling logs tag-marking data frames with intervention metrics or human corrective feedback flags.
+
+DO NOT COUNT AS EVIDENCE:
+- Standard standalone human evaluation routines with no interactive intervention overrides.
+- Simply rendering the environment visual assets to a monitor screen.
+- Any code copied from the example — only extract code from the TARGET FILE.
+
+REMEMBER:
+- Output ONLY the JSON object described in the system prompt. No other text.
+- Use the line numbers shown in the TARGET FILE.
+- If no evidence, output {"supported": false, "evidence": [], "assets": {}}

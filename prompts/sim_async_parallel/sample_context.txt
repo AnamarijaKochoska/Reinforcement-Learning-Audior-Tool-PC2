@@ -1,0 +1,41 @@
+import gymnasium as gym
+import multiprocessing as mp
+from collections import deque
+
+def rollout_worker(env_name: str, result_queue: mp.Queue, num_steps: int):
+    """Worker process: steps the environment and pushes transitions into the queue."""
+    env = gym.make(env_name)
+    obs, _ = env.reset()
+    for _ in range(num_steps):
+        action = env.action_space.sample()
+        next_obs, reward, terminated, truncated, _ = env.step(action)
+        result_queue.put((obs, action, reward, next_obs, terminated or truncated))
+        obs = next_obs
+        if terminated or truncated:
+            obs, _ = env.reset()
+    env.close()
+
+def run_parallel_collection():
+    result_queue = mp.Queue(maxsize=10000)
+    replay_buffer = deque(maxlen=50000)
+
+    # Spawn 4 independent worker processes, each running its own env
+    workers = [
+        mp.Process(target=rollout_worker, args=("MountainCar-v0", result_queue, 2000))
+        for _ in range(4)
+    ]
+    for w in workers:
+        w.start()
+
+    # Learner consumes transitions asynchronously while workers keep collecting
+    collected = 0
+    while collected < 8000:
+        transition = result_queue.get()
+        replay_buffer.append(transition)
+        collected += 1
+
+    for w in workers:
+        w.join()
+
+if __name__ == "__main__":
+    run_parallel_collection()

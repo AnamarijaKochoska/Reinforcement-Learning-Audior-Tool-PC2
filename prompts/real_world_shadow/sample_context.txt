@@ -1,0 +1,46 @@
+import numpy as np
+from collections import deque
+
+class ShadowModeCollector:
+    """
+    Runs the agent silently alongside a human operator.
+    The agent never controls the vehicle — it only predicts and logs.
+    Data is collected only when the agent disagrees with the human.
+    """
+
+    def __init__(self, agent, disagreement_threshold: float = 0.3):
+        self.agent = agent
+        self.disagreement_threshold = disagreement_threshold
+        self.shadow_log = deque(maxlen=50000)
+
+    def step(self, live_observation: np.ndarray, human_action: np.ndarray):
+        """
+        Receive one timestep of live sensor data.
+        Agent predicts but does NOT execute. Human is in control.
+        """
+        # Agent runs inference silently — no action is sent to actuators
+        predicted_action = self.agent.predict(live_observation)
+
+        # Compute discrepancy between agent prediction and human decision
+        discrepancy = np.linalg.norm(predicted_action - human_action)
+
+        # Only log high-value disagreement events (edge cases)
+        if discrepancy > self.disagreement_threshold:
+            self.shadow_log.append({
+                "observation": live_observation,
+                "agent_prediction": predicted_action,
+                "human_action": human_action,
+                "discrepancy": discrepancy,
+            })
+
+        # Human action is what actually gets executed — agent does nothing
+        return human_action
+
+def run_shadow_pipeline(sensor_stream, human_action_stream, agent):
+    collector = ShadowModeCollector(agent, disagreement_threshold=0.25)
+
+    # Serial, synchronous loop — waits for each real sensor reading
+    for live_obs, human_act in zip(sensor_stream, human_action_stream):
+        collector.step(live_obs, human_act)
+
+    return list(collector.shadow_log)

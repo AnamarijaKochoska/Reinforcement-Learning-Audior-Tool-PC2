@@ -1,0 +1,25 @@
+import time
+
+class InterventionGatedOrchestrator:
+    """Monitors agent confidence metrics and delegates to human input when compromised."""
+    def __init__(self, policy, human_input_device, safety_bound=0.75):
+        self.policy = policy
+        self.hid = human_input_device
+        self.safety_bound = safety_bound
+        self.shared_history = []
+
+    def determine_action(self, state, current_risk_score):
+        # Check if structural anomalies necessitate human dynamic intervention
+        if current_risk_score > self.safety_bound or self.hid.is_override_active():
+            action = self.hid.get_operator_action()
+            intervened = True
+        else:
+            action = self.policy.get_action(state)
+            intervened = False
+            
+        self.shared_history.append({
+            "state": state,
+            "action": action,
+            "human_override": intervened
+        })
+        return action

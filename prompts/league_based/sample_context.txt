@@ -1,0 +1,24 @@
+import random
+import numpy as np
+
+class CompetitiveLeagueRegistry:
+    """Manages an active portfolio of historical checkpoints for adversarial matchmaking."""
+    def __init__(self):
+        self.pool = []
+        self.elo_ratings = {}
+
+    def register_challenger(self, policy_id, weights):
+        self.pool.append({"id": policy_id, "weights": weights})
+        self.elo_ratings[policy_id] = 1000.0
+
+    def select_opponent(self, active_player_id, mechanism="pfsp"):
+        # Prioritized Fritz/Self-Play selection: sample based on competitive rank proximity
+        if len(self.pool) < 2:
+            return None
+        candidates = [p for p in self.pool if p["id"] != active_player_id]
+        return random.choice(candidates)
+
+    def adjust_elo_metrics(self, winner_id, loser_id, k_factor=32):
+        expected_w = 1 / (1 + 10 ** ((self.elo_ratings[loser_id] - self.elo_ratings[winner_id]) / 400))
+        self.elo_ratings[winner_id] += k_factor * (1.0 - expected_w)
+        self.elo_ratings[loser_id] -= k_factor * (1.0 - expected_w)
